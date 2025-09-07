@@ -1,7 +1,6 @@
 
-import { withContentlayer } from 'next-contentlayer';
 const nextConfig = {
   reactStrictMode: true,
-  experimental: { typedRoutes: true },
+  typedRoutes: true,
 };
-export default withContentlayer(nextConfig);
+export default nextConfig;
