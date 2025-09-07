@@ -100,16 +100,15 @@ export const allLogs: Log[] = [
 
 export const allProjects: Project[] = [
   {
-    slug: 'influencer-analyzer',
-    title: 'LinkedIn Influencer Analyzer',
-    summary: 'Reverse‑engineer top creators: hooks, cadence, pillars, and timing.',
-    stack: ['Next.js', 'Neon', 'Tailwind', 'MDX'],
-    repo: 'https://github.com/yourname/influencer-analyzer',
-    demo: 'https://your-demo-url.com',
+    slug: 'personal-site',
+    title: 'Personal Portfolio Site',
+    summary: 'Next.js portfolio with blog, daily logs, and project showcase.',
+    stack: ['Next.js', 'TypeScript', 'Tailwind', 'MDX'],
+    repo: 'https://github.com/JakwounReid/personal-site',
     status: 'published',
     body: {
-      raw: `This tool produces a tactical playbook from public posts (or your own exports). It highlights hook styles, content pillars, posting windows, and engagement drivers.`,
-      code: `<p>This tool produces a tactical playbook from public posts (or your own exports). It highlights hook styles, content pillars, posting windows, and engagement drivers.</p>`
+      raw: `A modern personal portfolio built with Next.js, featuring a blog, daily logs, and project showcase. Includes RSS feeds, sitemap generation, and responsive design with Tailwind CSS.`,
+      code: `<p>A modern personal portfolio built with Next.js, featuring a blog, daily logs, and project showcase. Includes RSS feeds, sitemap generation, and responsive design with Tailwind CSS.</p>`
     }
   }
 ];
