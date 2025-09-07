@@ -110,5 +110,29 @@ export const allProjects: Project[] = [
       raw: `A modern personal portfolio built with Next.js, featuring a blog, daily logs, and project showcase. Includes RSS feeds, sitemap generation, and responsive design with Tailwind CSS.`,
       code: `<p>A modern personal portfolio built with Next.js, featuring a blog, daily logs, and project showcase. Includes RSS feeds, sitemap generation, and responsive design with Tailwind CSS.</p>`
     }
+  },
+  {
+    slug: 'linkedin-influencer-analyzer',
+    title: 'LinkedIn Influencer Analyzer',
+    summary: 'A tool to reverse-engineer top LinkedIn creators and understand what drives engagement.',
+    stack: ['Next.js', 'TypeScript', 'Tailwind', 'MDX'],
+    repo: 'https://github.com/JakwounReid/linkedin-influencer-analyzer',
+    status: 'published',
+    body: {
+      raw: `A tool to reverse-engineer top LinkedIn creators and understand what drives engagement.`,
+      code: `<p>A tool to reverse-engineer top LinkedIn creators and understand what drives engagement.</p>`
+    }
+  },
+  {
+    slug: 'side-gig-stats-central',
+    title: 'Gig Dash',
+    summary: 'A dashboard for tracking and analyzing side gig performance metrics.',
+    stack: ['Next.js', 'TypeScript', 'Tailwind', 'MDX'],
+    repo: 'https://github.com/JakwounReid/side-gig-stats-central',
+    status: 'published',
+    body: {
+      raw: `A dashboard for tracking and analyzing side gig performance metrics.`,
+      code: `<p>A dashboard for tracking and analyzing side gig performance metrics.</p>`
+    }
   }
 ];
