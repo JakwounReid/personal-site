@@ -58,6 +58,7 @@ export const Project = defineDocumentType(() => ({
 export default makeSource({
   contentDirPath: 'content',
   documentTypes: [Post, Log, Project],
+  disableImportAliasWarning: true,
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [

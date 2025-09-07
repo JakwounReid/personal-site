@@ -1,6 +1,6 @@
 
 import { notFound } from 'next/navigation'
-import { allPosts } from 'contentlayer/generated'
+import { allPosts } from '@/lib/content'
 import { MDX } from '@/components/mdx'
 import { Prose } from '@/components/prose'
 

@@ -1,7 +1,7 @@
 
 import Link from 'next/link'
 import Subscribe from '@/components/subscribe'
-import { allProjects, allPosts, allLogs } from 'contentlayer/generated'
+import { allProjects, allPosts, allLogs } from '@/lib/content'
 import { compareDesc } from 'date-fns'
 
 export default function Home() {
@@ -30,7 +30,7 @@ export default function Home() {
         </div>
         <div className="mt-6 grid md:grid-cols-3 gap-6">
           {posts.map(p => (
-            <Link key={p._id} href={`/blog/${p.slug}`} className="rounded-2xl border border-neutral-800 p-5 hover:bg-neutral-900/50">
+            <Link key={p.slug} href={`/blog/${p.slug}`} className="rounded-2xl border border-neutral-800 p-5 hover:bg-neutral-900/50">
               <div className="text-sm text-neutral-400">{new Date(p.publishDate).toLocaleDateString()}</div>
               <div className="mt-2 font-semibold">{p.title}</div>
               <div className="mt-2 text-sm text-neutral-300">{p.summary}</div>
@@ -46,7 +46,7 @@ export default function Home() {
         </div>
         <div className="mt-6 grid md:grid-cols-2 gap-6">
           {logs.map(l => (
-            <Link key={l._id} href={`/log/${l.slug}`} className="rounded-2xl border border-neutral-800 p-5 hover:bg-neutral-900/50">
+            <Link key={l.slug} href={`/log/${l.slug}`} className="rounded-2xl border border-neutral-800 p-5 hover:bg-neutral-900/50">
               <div className="text-sm text-neutral-400">{new Date(l.publishDate).toLocaleDateString()}</div>
               <div className="mt-2 font-semibold">{l.title}</div>
               <div className="mt-2 text-sm text-neutral-300">{l.summary}</div>
@@ -62,7 +62,7 @@ export default function Home() {
         </div>
         <div className="mt-6 grid md:grid-cols-3 gap-6">
           {projects.map(pr => (
-            <Link key={pr._id} href={`/projects/${pr.slug}`} className="rounded-2xl border border-neutral-800 p-5 hover:bg-neutral-900/50">
+            <Link key={pr.slug} href={`/projects/${pr.slug}`} className="rounded-2xl border border-neutral-800 p-5 hover:bg-neutral-900/50">
               <div className="text-sm text-neutral-400">{pr.stack?.join(' • ')}</div>
               <div className="mt-2 font-semibold">{pr.title}</div>
               <div className="mt-2 text-sm text-neutral-300">{pr.summary}</div>

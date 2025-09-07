@@ -1,5 +1,5 @@
 
-  import { allPosts, allLogs, allProjects } from 'contentlayer/generated'
+  import { allPosts, allLogs, allProjects } from '@/lib/content'
 
   export const dynamic = 'force-static'
 

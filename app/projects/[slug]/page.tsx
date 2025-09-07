@@ -1,6 +1,6 @@
 
 import { notFound } from 'next/navigation'
-import { allProjects } from 'contentlayer/generated'
+import { allProjects } from '@/lib/content'
 import { MDX } from '@/components/mdx'
 import { Prose } from '@/components/prose'
 import Link from 'next/link'

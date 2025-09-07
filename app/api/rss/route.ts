@@ -1,5 +1,5 @@
 
-  import { allPosts, allLogs } from 'contentlayer/generated'
+  import { allPosts, allLogs } from '@/lib/content'
 
   export const dynamic = 'force-static'
 
@@ -18,9 +18,9 @@
   ${items.map(p => `
     <item>
       <title><![CDATA[${p.title}]]></title>
-      <link>${site}/${p.type === 'Log' ? 'log' : 'blog'}/${p.slug}</link>
+      <link>${site}/blog/${p.slug}</link>
       <pubDate>${new Date(p.publishDate).toUTCString()}</pubDate>
-      <guid isPermaLink="true">${site}/${p.type === 'Log' ? 'log' : 'blog'}/${p.slug}</guid>
+      <guid isPermaLink="true">${site}/blog/${p.slug}</guid>
       <description><![CDATA[${p.summary || ''}]]></description>
     </item>
   `).join('\n')}
