@@ -2,11 +2,11 @@
 import Link from 'next/link'
 import Subscribe from '@/components/subscribe'
 import { allProjects, allPosts, allLogs } from '@/lib/content'
-import { compareDesc } from 'date-fns'
+// Removed date-fns import
 
 export default function Home() {
-  const posts = [...allPosts].sort((a,b)=>compareDesc(new Date(a.publishDate), new Date(b.publishDate))).slice(0,3)
-  const logs = [...allLogs].sort((a,b)=>compareDesc(new Date(a.publishDate), new Date(b.publishDate))).slice(0,5)
+  const posts = [...allPosts].sort((a,b)=> new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime()).slice(0,3)
+  const logs = [...allLogs].sort((a,b)=> new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime()).slice(0,5)
   const projects = allProjects.slice(0,3)
 
   return (

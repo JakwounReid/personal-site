@@ -1,14 +1,14 @@
 
 import Link from 'next/link'
 import { allLogs } from '@/lib/content'
-import { compareDesc } from 'date-fns'
+// Removed date-fns import
 
 export const metadata = { title: 'Founder Daily' }
 
 export default function LogIndex() {
   const logs = allLogs
     .filter(p => p.status !== 'draft')
-    .sort((a,b)=>compareDesc(new Date(a.publishDate), new Date(b.publishDate)))
+    .sort((a,b)=> new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime())
   return (
     <div>
       <h1 className="text-3xl font-bold">Founder Daily</h1>
