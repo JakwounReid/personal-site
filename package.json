@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "contentlayer build"
+    "postinstall": "echo 'Skipping contentlayer build'"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.0",
