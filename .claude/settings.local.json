@@ -16,7 +16,18 @@
       "Bash(npm run dev:*)",
       "Bash(find:*)",
       "Bash(sed:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(npx next:*)",
+      "Bash(npm run build:*)",
+      "Bash(taskkill:*)",
+      "Bash(cmd /c:*)",
+      "Bash(git restore:*)",
+      "Bash(dir public)",
+      "Bash(curl:*)",
+      "Bash(npx tsc:*)",
+      "Bash(\"taskkill\" \"/F\" \"/IM\" \"node.exe\")",
+      "Bash(dir:*)",
+      "Bash(rm:*)"
     ],
     "deny": [],
     "ask": []
