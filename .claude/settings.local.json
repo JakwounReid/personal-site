@@ -27,7 +27,8 @@
       "Bash(npx tsc:*)",
       "Bash(\"taskkill\" \"/F\" \"/IM\" \"node.exe\")",
       "Bash(dir:*)",
-      "Bash(rm:*)"
+      "Bash(rm:*)",
+      "Bash(npm cache clean:*)"
     ],
     "deny": [],
     "ask": []

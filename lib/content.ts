@@ -14,18 +14,6 @@ export interface Post {
   };
 }
 
-export interface Log {
-  slug: string;
-  title: string;
-  summary: string;
-  mood?: string;
-  publishDate: string;
-  status: 'draft' | 'published';
-  body: {
-    raw: string;
-    code: string;
-  };
-}
 
 export interface Project {
   slug: string;
@@ -77,26 +65,6 @@ export const allPosts: Post[] = [
   }
 ];
 
-export const allLogs: Log[] = [
-  {
-    slug: '2025-09-07',
-    title: 'Day 1 — Portfolio starter live',
-    summary: 'Created Next.js + MDX starter, wired RSS & sitemap.',
-    mood: 'shipping',
-    publishDate: '2025-09-07',
-    status: 'published',
-    body: {
-      raw: `- Pushed initial scaffold
-- Added sample post & daily log
-- Next: connect beehiiv embed and add projects`,
-      code: `<ul>
-<li>Pushed initial scaffold</li>
-<li>Added sample post &amp; daily log</li>
-<li>Next: connect beehiiv embed and add projects</li>
-</ul>`
-    }
-  }
-];
 
 export const allProjects: Project[] = [
   {

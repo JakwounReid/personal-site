@@ -1,19 +1,18 @@
 
-  import { allPosts, allLogs, allProjects } from '@/lib/content'
+  import { allPosts, allProjects } from '@/lib/content'
 
   export const dynamic = 'force-static'
 
   export async function GET() {
     const site = process.env.SITE_URL || 'https://example.com'
     const pages = [
-      '', 'blog', 'log', 'projects'
+      '', 'blog', 'projects'
     ].map(p => `${site}/${p}`.replace(/\/$/, ''))
 
     const posts = allPosts.filter(p => p.status !== 'draft').map(p => `${site}/blog/${p.slug}`)
-    const logs  = allLogs.filter(p => p.status !== 'draft').map(p => `${site}/log/${p.slug}`)
     const projs = allProjects.map(p => `${site}/projects/${p.slug}`)
 
-    const urls = [...pages, ...posts, ...logs, ...projs]
+    const urls = [...pages, ...posts, ...projs]
       .map(u => `<url><loc>${u}</loc></url>`)
       .join('\n')
 

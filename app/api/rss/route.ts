@@ -1,11 +1,11 @@
 
-  import { allPosts, allLogs } from '@/lib/content'
+  import { allPosts } from '@/lib/content'
 
   export const dynamic = 'force-static'
 
   export async function GET() {
     const site = process.env.SITE_URL || 'https://example.com'
-    const items = [...allPosts, ...allLogs]
+    const items = [...allPosts]
       .filter(p => p.status !== 'draft')
       .sort((a,b)=> new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime())
       .slice(0, 50)
@@ -14,7 +14,7 @@
 <rss version="2.0"><channel>
   <title>Jakwoun Reid — Feed</title>
   <link>${site}</link>
-  <description>Blog + Founder Daily</description>
+  <description>Blog posts and updates</description>
   ${items.map(p => `
     <item>
       <title><![CDATA[${p.title}]]></title>

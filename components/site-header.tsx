@@ -14,9 +14,6 @@ export default function SiteHeader() {
           <Link href="/blog" className="hover:text-white">
             Blog
           </Link>
-          <Link href="/log" className="hover:text-white">
-            Founder Daily
-          </Link>
         </nav>
       </div>
     </header>
