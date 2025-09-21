@@ -104,3 +104,5 @@ export const allProjects: Project[] = [
     }
   }
 ];
+
+export const allLogs: Post[] = [];
