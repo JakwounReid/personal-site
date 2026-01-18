@@ -17,11 +17,16 @@ export default function Home() {
       <section className="grid md:grid-cols-2 gap-8 items-center">
         <div>
           <h1 className="text-4xl md:text-5xl font-black leading-tight">
-            Engineer & builder of MVPs.
+            Strategy over shortcuts
           </h1>
           <p className="mt-4 text-neutral-300">
-            I ship fast, validate faster. Follow along as I build tools like Gig
-            Dash and the LinkedIn Influencer Analyzer.
+            I help early and mid-stage career switchers move into tech using clear strategy instead of vague advice.
+            <br />
+            <br />
+            After trying multiple paths myself, I realized most people don’t fail because they lack motivation — they fail because they’re following the wrong sequence.
+            <br />
+            <br />
+            I write about decision-making, skill strategy, and realistic timelines for non-traditional paths into tech. No hype. No shortcuts. Just systems that actually work.
           </p>
           <div className="mt-6 flex gap-3">
             <Link
