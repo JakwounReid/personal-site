@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
@@ -114,24 +115,14 @@ export default function TravelArchitectPage() {
           </h2>
 
           <div className="grid gap-8 sm:grid-cols-[1fr_2fr]">
-            {/* Placeholder avatar block */}
-            <div className="relative aspect-square w-full max-w-[200px] border border-blue-500/20 bg-neutral-900">
-              <div
-                aria-hidden
-                className="absolute inset-0"
-                style={{
-                  backgroundImage: `
-                    linear-gradient(rgba(59,130,246,0.08) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(59,130,246,0.08) 1px, transparent 1px)
-                  `,
-                  backgroundSize: "20px 20px",
-                }}
+            {/* Profile photo */}
+            <div className="relative aspect-square w-full max-w-[200px] border border-blue-500/20 overflow-hidden">
+              <Image
+                src="/profile.jpg"
+                alt="Jakwoun — The Travel Architect"
+                fill
+                className="object-cover"
               />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-xs text-neutral-600 uppercase tracking-widest">
-                  Photo
-                </span>
-              </div>
             </div>
 
             <div className="space-y-4 text-neutral-400">
