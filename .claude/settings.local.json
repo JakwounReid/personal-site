@@ -28,7 +28,19 @@
       "Bash(\"taskkill\" \"/F\" \"/IM\" \"node.exe\")",
       "Bash(dir:*)",
       "Bash(rm:*)",
-      "Bash(npm cache clean:*)"
+      "Bash(npm cache clean:*)",
+      "Read(//usr/local/bin/**)",
+      "Bash(echo \"PATH: $PATH\")",
+      "Read(//Users/jakwounreid/**)",
+      "Bash(ls:*)",
+      "Bash(echo:*)",
+      "Bash(brew doctor:*)",
+      "Bash(/opt/homebrew/bin/npm run:*)",
+      "Read(//opt/homebrew/opt/**)",
+      "Read(//opt/homebrew/Cellar/**)",
+      "Bash(PATH=\"/opt/homebrew/Cellar/node/25.8.1_1/bin:$PATH\" npm run dev)",
+      "Bash(PATH=\"/opt/homebrew/Cellar/node/25.8.1_1/bin:$PATH\" /opt/homebrew/Cellar/node/25.8.1_1/bin/node ./node_modules/.bin/next dev)",
+      "Bash(PATH=\"/opt/homebrew/Cellar/node/25.8.1_1/bin:$PATH\" npm install)"
     ],
     "deny": [],
     "ask": []
