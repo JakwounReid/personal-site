@@ -118,7 +118,7 @@ export default function TravelArchitectPage() {
             {/* Profile photo */}
             <div className="relative aspect-square w-full max-w-[200px] border border-blue-500/20 overflow-hidden">
               <Image
-                src="/profile.jpg"
+                src="/profile-travel.jpg"
                 alt="Jakwoun — The Travel Architect"
                 fill
                 className="object-cover"
