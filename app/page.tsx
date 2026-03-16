@@ -17,17 +17,25 @@ export default function Home() {
       <section className="grid md:grid-cols-2 gap-8 items-center">
         <div>
           <h1 className="text-4xl md:text-5xl font-black leading-tight">
-            Strategy over shortcuts
+            I design systems that work in the real world — because I live in it.
           </h1>
           <p className="mt-4 text-neutral-300">
-            I help early and mid-stage career switchers move into tech using clear strategy instead of vague advice.
-            <br />
-            <br />
-            After trying multiple paths myself, I realized most people don’t fail because they lack motivation — they fail because they’re following the wrong sequence.
-            <br />
-            <br />
-            I write about decision-making, skill strategy, and realistic timelines for non-traditional paths into tech. No hype. No shortcuts. Just systems that actually work.
+            I&apos;m a developer and strategist who treats every project like an infrastructure problem. I look for the architecture underneath — in communities, in content workflows, in energy systems, in business operations. As a father managing long-term decisions for my family, I don&apos;t have the luxury of untested ideas. Everything I build is designed to hold weight.
           </p>
+          <ul className="mt-6 space-y-3 text-sm text-neutral-400">
+            <li className="flex gap-3">
+              <span className="mt-0.5 shrink-0 text-white">—</span>
+              <span><span className="font-semibold text-white">Technical Precision</span> — Owned stack, owned output. No hand-waving.</span>
+            </li>
+            <li className="flex gap-3">
+              <span className="mt-0.5 shrink-0 text-white">—</span>
+              <span><span className="font-semibold text-white">Vetted Insights</span> — Every resource, tool, or recommendation has been stress-tested firsthand.</span>
+            </li>
+            <li className="flex gap-3">
+              <span className="mt-0.5 shrink-0 text-white">—</span>
+              <span><span className="font-semibold text-white">Strategic Execution</span> — High-stakes projects require blueprints, not briefs. I build both.</span>
+            </li>
+          </ul>
           <div className="mt-6 flex gap-3">
             <Link
               href="/projects"
