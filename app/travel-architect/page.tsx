@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { WaitlistButton } from "@/components/waitlist-modal";
 
 export const metadata = {
   title: "The Travel Architect — Puerto Rico Relocation Guide 2026",
@@ -58,11 +59,8 @@ export default function TravelArchitectPage() {
         </p>
 
         <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row">
-          <a
-            href="#get-the-guide"
-            className="group inline-flex items-center gap-2 rounded-none border border-blue-400 bg-blue-400 px-8 py-4 text-sm font-bold uppercase tracking-widest text-black transition-all duration-200 hover:bg-transparent hover:text-blue-400"
-          >
-            Get the Guide
+          <WaitlistButton className="group inline-flex items-center gap-2 rounded-none border border-blue-400 bg-blue-400 px-8 py-4 text-sm font-bold uppercase tracking-widest text-black transition-all duration-200 hover:bg-transparent hover:text-blue-400">
+            Join the Waitlist
             <svg
               className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
               fill="none"
@@ -76,7 +74,7 @@ export default function TravelArchitectPage() {
                 d="M17 8l4 4m0 0l-4 4m4-4H3"
               />
             </svg>
-          </a>
+          </WaitlistButton>
           <a
             href="#the-guide"
             className="text-sm font-medium text-neutral-500 underline-offset-4 hover:text-neutral-300 hover:underline"
@@ -233,13 +231,6 @@ export default function TravelArchitectPage() {
                   "Secluded hilltop property with ocean views, solar power, and fast fiber. Perfect for long-term stays.",
               },
               {
-                category: "Beachfront Airbnb",
-                location: "Cabo Rojo",
-                name: "Casa Playa Sucia",
-                description:
-                  "Steps from Playa Sucia. Fully equipped kitchen, reliable LTE backup, and a local host who actually answers.",
-              },
-              {
                 category: "Coworking Space",
                 location: "Santurce, San Juan",
                 name: "La Colmena",
@@ -252,20 +243,6 @@ export default function TravelArchitectPage() {
                 name: "El Bohío",
                 description:
                   "Family-run spot serving traditional Puerto Rican food. Known by locals, overlooked by most guides.",
-              },
-              {
-                category: "Long-Term Rental",
-                location: "Dorado",
-                name: "Residencias del Norte",
-                description:
-                  "Gated community with month-to-month options, generator backup, and close proximity to major highways.",
-              },
-              {
-                category: "Surf School",
-                location: "Isabela",
-                name: "Norte Surf Co.",
-                description:
-                  "Reputable surf school with beginner and intermediate programs. Doubles as a local community hub on the northwest coast.",
               },
             ].map(({ category, location, name, description }) => (
               <div
@@ -377,23 +354,25 @@ export default function TravelArchitectPage() {
         />
 
         <p className="mb-4 text-xs font-medium uppercase tracking-widest text-blue-400">
-          Ready to move?
+          Coming Soon
         </p>
         <h2 className="mx-auto mb-6 max-w-xl text-4xl font-black tracking-tight text-white sm:text-5xl">
-          Start with the Blueprint.
+          Get Early Access.
         </h2>
-        <p className="mx-auto mb-10 max-w-md text-neutral-400">
-          One guide. Everything you need to make the move from the mainland to
-          Puerto Rico — with confidence.
+        <p className="mx-auto mb-3 max-w-md text-neutral-400">
+          The 2026 Puerto Rico Relocation Guide is in its final stages. Anyone
+          looking to relocate or purchase the guide can join the waitlist now.
+        </p>
+        <p className="mx-auto mb-10 max-w-md text-sm text-neutral-500">
+          Waitlist members get first access and early-bird pricing when the
+          guide launches.
         </p>
 
-        {/* Payment link placeholder */}
-        <a
-          href="#"
-          aria-label="Get the 2026 Puerto Rico Relocation Guide"
+        <WaitlistButton
+          aria-label="Join the waitlist for the 2026 Puerto Rico Relocation Guide"
           className="group inline-flex items-center gap-3 border border-blue-400 bg-blue-400 px-10 py-5 text-sm font-bold uppercase tracking-widest text-black transition-all duration-200 hover:bg-transparent hover:text-blue-400"
         >
-          Get the Guide
+          Join the Waitlist
           <svg
             className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
             fill="none"
@@ -407,10 +386,10 @@ export default function TravelArchitectPage() {
               d="M17 8l4 4m0 0l-4 4m4-4H3"
             />
           </svg>
-        </a>
+        </WaitlistButton>
 
         <p className="mt-6 text-xs text-neutral-600">
-          Payment link coming soon — join the waitlist by reaching out below.
+          No spam. Just a notification when the guide is ready.
         </p>
       </section>
 
