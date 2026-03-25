@@ -295,42 +295,201 @@ export default function TravelArchitectMKEPage() {
           </div>
 
           {/* Partner CTA */}
-          <div className="mt-16 border border-neutral-800 bg-neutral-900/50 p-8 text-center sm:p-12">
+          <div className="mt-16 border border-neutral-800 bg-neutral-900/50 p-8 sm:p-12">
             <p className="mb-2 text-xs font-medium uppercase tracking-widest text-blue-400">
               For Property Owners
             </p>
             <h3 className="mb-4 text-2xl font-black tracking-tight text-white sm:text-3xl">
-              Get Listed in the Directory
+              Get Your Property In Front of the Right People
             </h3>
-            <p className="mx-auto mb-8 max-w-md text-neutral-400">
+            <p className="mb-10 max-w-2xl text-neutral-400">
               If you own an Airbnb, long-term rental, or property for sale in
-              Milwaukee or the surrounding area — I&apos;d like to hear from
-              you. I&apos;ll film a professional 4K/8K POV walkthrough and
-              deliver a social reel and raw footage at no cost. Listings are
-              earned, not bought.
+              Milwaukee or the surrounding area — I&apos;d like to work with
+              you. I show up, film a professional 4K/8K POV walkthrough, and
+              deliver a polished social reel plus raw footage you keep forever.
+              No generic real estate filter — just an honest, high-quality look
+              at what makes your space worth choosing.
             </p>
-            <a
-              href="mailto:jakwoun@jakwoun.me?subject=Partner%20with%20the%20MKE%20Architect&body=Hi%20Jakwoun%2C%0A%0AI%27d%20like%20to%20get%20my%20property%20listed%20in%20the%20Travel%20Architect%20MKE%20directory.%0A%0AProperty%20name%3A%0ALocation%3A%0AType%20(Airbnb%2C%20long-term%20rental%2C%20property%20for%20sale%2C%20other)%3A%0AWhy%20it%20should%20be%20vetted%3A%0A"
-              className="group inline-flex items-center gap-2 border border-neutral-600 bg-transparent px-8 py-4 text-sm font-bold uppercase tracking-widest text-white transition-all duration-200 hover:border-blue-400 hover:text-blue-400"
-            >
-              Partner with the Architect
-              <svg
-                className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
-            </a>
-            <p className="mt-4 text-xs text-neutral-600">
-              Opens your email client — jakwoun@jakwoun.me
-            </p>
+
+            {/* Pricing cards */}
+            <div className="grid gap-6 sm:grid-cols-2">
+              {/* Card 1 — Promo Video */}
+              <div className="flex flex-col border border-neutral-700 bg-neutral-900 p-6 text-left">
+                <div className="mb-4 flex items-start justify-between gap-3">
+                  <p className="font-bold text-white">Promo Video / Reel</p>
+                  <span className="shrink-0 rounded-sm border border-blue-400/40 bg-blue-400/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-blue-400">
+                    Limited Intro Offer
+                  </span>
+                </div>
+                <div className="mb-4 flex items-baseline gap-2">
+                  <span className="text-3xl font-black text-white">$70</span>
+                  <span className="text-sm text-neutral-500 line-through">$140</span>
+                </div>
+                <p className="mb-5 text-sm text-neutral-400">
+                  A professional 4K/8K POV walkthrough edited into a
+                  social-ready reel, plus all raw footage delivered to you.
+                  Perfect for Airbnb hosts, rental owners, and property managers
+                  who want standout content.
+                </p>
+                <ul className="mb-6 space-y-2 text-sm text-neutral-400">
+                  {[
+                    "4K/8K POV walkthrough",
+                    "Edited social reel (Instagram/TikTok ready)",
+                    "Full raw footage included",
+                    "Delivered within 5 business days",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2">
+                      <svg
+                        className="mt-0.5 h-4 w-4 shrink-0 text-blue-400"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href="mailto:jakwoun@jakwoun.me?subject=Book%20a%20Property%20Shoot%20-%20MKE&body=Hi%20Jakwoun%2C%0A%0AI%27d%20like%20to%20book%20a%20property%20shoot.%0A%0AProperty%20address%3A%0AProperty%20type%20(Airbnb%2C%20long-term%20rental%2C%20for%20sale)%3A%0APreferred%20dates%3A%0A"
+                  className="group mt-auto inline-flex items-center gap-2 border border-blue-400 bg-blue-400 px-6 py-3 text-sm font-bold uppercase tracking-widest text-black transition-all duration-200 hover:bg-transparent hover:text-blue-400"
+                >
+                  Book a Shoot
+                  <svg
+                    className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                </a>
+              </div>
+
+              {/* Card 2 — Directory Listing */}
+              <div className="flex flex-col border border-neutral-700 bg-neutral-900 p-6 text-left">
+                <div className="mb-4 flex items-start justify-between gap-3">
+                  <p className="font-bold text-white">Directory Listing</p>
+                  <span className="shrink-0 rounded-sm border border-neutral-600 bg-neutral-800 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-neutral-400">
+                    No Upfront Cost
+                  </span>
+                </div>
+                <div className="mb-4">
+                  <span className="text-3xl font-black text-white">Free to list</span>
+                </div>
+                <p className="mb-5 text-sm text-neutral-400">
+                  Get your property in front of a curated audience of relocators
+                  and travelers actively researching Milwaukee. No pay-to-play —
+                  listings are earned. I earn a referral commission only when I
+                  send you a client that converts.
+                </p>
+                <ul className="mb-6 space-y-2 text-sm text-neutral-400">
+                  {[
+                    "Featured in the vetted MKE directory",
+                    "Shared with my travel agent network",
+                    "Referral commission only — you pay nothing unless I send you a client",
+                    "Trackable referral link provided",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2">
+                      <svg
+                        className="mt-0.5 h-4 w-4 shrink-0 text-blue-400"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href="mailto:jakwoun@jakwoun.me?subject=Directory%20Listing%20Application%20-%20MKE&body=Hi%20Jakwoun%2C%0A%0AI%27d%20like%20to%20apply%20for%20a%20directory%20listing.%0A%0AProperty%20name%3A%0ALocation%3A%0AType%20(Airbnb%2C%20long-term%20rental%2C%20property%20for%20sale%2C%20other)%3A%0AWhy%20it%20should%20be%20vetted%3A%0A"
+                  className="group mt-auto inline-flex items-center gap-2 border border-neutral-600 bg-transparent px-6 py-3 text-sm font-bold uppercase tracking-widest text-white transition-all duration-200 hover:border-blue-400 hover:text-blue-400"
+                >
+                  Apply to Be Listed
+                  <svg
+                    className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            {/* How Referrals Work */}
+            <div className="mt-12 border-t border-neutral-800 pt-12 text-left">
+              <p className="mb-3 text-xs font-medium uppercase tracking-widest text-blue-400">
+                Referral Model
+              </p>
+              <h3 className="mb-4 text-2xl font-black tracking-tight text-white sm:text-3xl">
+                How Referrals Work
+              </h3>
+              <p className="mb-8 max-w-2xl text-neutral-400">
+                When your property is listed in the directory, every visitor I
+                send your way comes through a unique tracked link. If they
+                convert — whether that&apos;s a booking, a lease, or a sale — I
+                earn a referral commission we agree on upfront. No surprises, no
+                hidden fees.
+              </p>
+              <ul className="space-y-5">
+                {[
+                  {
+                    icon: "🔗",
+                    label: "You get a unique link",
+                    description:
+                      "Every listing gets a custom UTM tracking link so we both know exactly where your referrals are coming from.",
+                  },
+                  {
+                    icon: "👥",
+                    label: "I send you qualified leads",
+                    description:
+                      "Relocators and travelers from the directory, my travel agent network, and my social content click through to your listing.",
+                  },
+                  {
+                    icon: "🤝",
+                    label: "You pay only when it converts",
+                    description:
+                      "We agree on a referral commission upfront — flat fee or percentage. You only pay when I actually send you a client that converts.",
+                  },
+                ].map(({ icon, label, description }) => (
+                  <li
+                    key={label}
+                    className="group flex gap-5 border border-neutral-800 bg-neutral-900/50 p-5 transition-colors hover:border-blue-500/30 hover:bg-blue-950/10"
+                  >
+                    <span className="mt-0.5 text-2xl">{icon}</span>
+                    <div>
+                      <p className="font-bold text-white">{label}</p>
+                      <p className="mt-1 text-sm text-neutral-400">{description}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
