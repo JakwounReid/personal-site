@@ -2,6 +2,7 @@
 import './globals.css'
 import SiteHeader from '@/components/site-header'
 import Script from 'next/script'
+import ClaritySnippet from '@/components/clarity-snippet'
 
 export const metadata = {
   title: 'Jakwoun Reid — Portfolio',
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </Script>
       </head>
       <body className="min-h-screen bg-neutral-950 text-neutral-100">
+        <ClaritySnippet />
         <SiteHeader />
         <main className="mx-auto max-w-5xl px-4 py-10">{children}</main>
       </body>
