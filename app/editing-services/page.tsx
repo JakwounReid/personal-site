@@ -3,58 +3,58 @@ import Link from "next/link";
 import ContactForm from "./contact-form";
 
 export const metadata = {
-  title: "Cinematic Post-Production for Travel Creators — Jakwoun Reid",
+  title: "Professional Post-Production Partner — Jakwoun Reid",
   description:
-    "4K travel content editing, reels, and full destination packages. Built for creators who need cinematic storytelling, not cookie-cutter cuts.",
+    "High-retention editing for creators, realtors, and brands. 4K quality, 48-hour delivery, and social-first strategy — raw clips to scroll-stopping stories.",
 };
 
 const tiers = [
   {
-    name: "Social Starter",
+    name: "The Starter",
     price: "$150",
     cadence: "per project",
     badge: null,
     description:
       "One polished short-form deliverable. Sharp, captioned, and ready to post.",
     features: [
-      "1 × 4K short-form reel (60–90 sec)",
+      "1 × 4K short-form edit (60–90 sec)",
       "Captions + text overlays",
       "Platform-optimized 9:16 export",
       "2 revision rounds",
-      "Delivered within 5 business days",
+      "48-hr standard delivery",
     ],
     cta: "Book a Project",
     ctaHref:
-      "mailto:jakwoun@jakwoun.me?subject=Social%20Starter%20-%20Editing%20Services&body=Hi%20Jakwoun%2C%0A%0AI%27m%20interested%20in%20the%20Social%20Starter%20package.%0A%0AProject%20details%3A%0A",
+      "mailto:jakwoun@jakwoun.me?subject=The%20Starter%20-%20Editing%20Services&body=Hi%20Jakwoun%2C%0A%0AI%27m%20interested%20in%20The%20Starter%20package.%0A%0AProject%20details%3A%0A",
     featured: false,
   },
   {
-    name: "The Storyteller",
+    name: "The Growth",
     price: "$850",
     cadence: "/mo",
     badge: "Most Popular",
     description:
-      "A monthly content engine — one long-form anchor piece plus four reels.",
+      "Recurring monthly editing for consistent posting — built for creators and brands who show up every week.",
     features: [
-      "1 × long-form YouTube edit (8–15 min)",
-      "4 × short-form reels from same footage",
+      "8 × 4K short-form edits per month",
       "Captions, color grade, and sound design",
+      "Platform-optimized exports (9:16 + 16:9)",
       "Content calendar alignment",
-      "Dedicated turnaround SLA",
+      "48-hr turnaround SLA",
       "Unlimited minor revision requests",
     ],
     cta: "Start Monthly",
     ctaHref:
-      "mailto:jakwoun@jakwoun.me?subject=The%20Storyteller%20-%20Editing%20Services&body=Hi%20Jakwoun%2C%0A%0AI%27m%20interested%20in%20The%20Storyteller%20monthly%20package.%0A%0AChannel%2FSocial%3A%0AUpcoming%20destinations%3A%0A",
+      "mailto:jakwoun@jakwoun.me?subject=The%20Growth%20-%20Editing%20Services&body=Hi%20Jakwoun%2C%0A%0AI%27m%20interested%20in%20The%20Growth%20monthly%20package.%0A%0AChannel%2FSocial%3A%0AMonthly%20output%20goal%3A%0A",
     featured: true,
   },
   {
-    name: "The Full Destination",
+    name: "The Professional",
     price: "$1,500",
     cadence: "/mo",
     badge: null,
     description:
-      "Full-stack content partnership — strategy, unlimited short-form, and everything in between.",
+      "Full-scale content management and strategy — for brands and operators who need a true post-production partner.",
     features: [
       "Content strategy + scripting support",
       "Unlimited short-form edits",
@@ -65,29 +65,29 @@ const tiers = [
     ],
     cta: "Apply Now",
     ctaHref:
-      "mailto:jakwoun@jakwoun.me?subject=Full%20Destination%20-%20Editing%20Services&body=Hi%20Jakwoun%2C%0A%0AI%27m%20interested%20in%20The%20Full%20Destination%20package.%0A%0AChannel%2FSocial%3A%0AMonthly%20output%20goal%3A%0A",
+      "mailto:jakwoun@jakwoun.me?subject=The%20Professional%20-%20Editing%20Services&body=Hi%20Jakwoun%2C%0A%0AI%27m%20interested%20in%20The%20Professional%20package.%0A%0ABrand%2FChannel%3A%0AMonthly%20output%20goal%3A%0A",
     featured: false,
   },
 ];
 
 const workflow = [
   {
-    icon: "⚡",
-    label: "M4 MacBook Air",
+    icon: "📱",
+    label: "4K Master Quality",
     description:
-      "Every project runs on the M4 MacBook Air — ProRes, 4K, and multi-track timelines rendered at full speed without thermal throttling.",
+      "Shot on the Pixel 10 Pro and processed on M4 Silicon — every deliverable is true 4K with professional color grade, not compressed phone footage.",
   },
   {
-    icon: "🎬",
-    label: "CapCut Desktop",
+    icon: "⚡",
+    label: "48-Hour Delivery",
     description:
-      "CapCut's AI-assisted workflows handle auto-captions, pacing analysis, and template precision — so editing stays fast without sacrificing craft.",
+      "Standard across all short-form projects. You send the footage, I send back a scroll-stopping edit — no queues, no delays, no excuses.",
   },
   {
     icon: "📐",
-    label: "Platform-First Output",
+    label: "Social-First Strategy",
     description:
-      "Every deliverable is exported to spec: 9:16 for TikTok/Reels, 16:9 for YouTube, and metadata-ready for immediate upload.",
+      "Every edit is built around hooks, captions, and retention — engineered for the algorithm, not just the aesthetic. Platform-optimized 9:16 and 16:9 exports included.",
   },
 ];
 
@@ -124,9 +124,9 @@ export default function EditingServicesPage() {
         </p>
 
         <h1 className="mx-auto max-w-3xl text-5xl font-black leading-[1.08] tracking-tight text-white sm:text-6xl md:text-7xl">
-          Cinematic Post-Production{" "}
+          Your Professional{" "}
           <span className="relative inline-block text-blue-400">
-            for Travel Creators.
+            Post-Production Partner.
             <span
               aria-hidden
               className="absolute -bottom-1 left-0 h-px w-full bg-blue-400/50"
@@ -135,8 +135,8 @@ export default function EditingServicesPage() {
         </h1>
 
         <p className="mx-auto mt-8 max-w-2xl text-lg text-neutral-400 sm:text-xl">
-          From raw 4K footage to platform-ready reels — I handle the cut so you
-          stay behind the lens.
+          From raw clips to scroll-stopping stories. High-retention editing for
+          creators, realtors, and brands.
         </p>
 
         <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row">
@@ -190,7 +190,7 @@ export default function EditingServicesPage() {
       <section id="reel" className="border-t border-neutral-800 px-6 py-24">
         <div className="mx-auto max-w-3xl">
           <p className="mb-3 text-xs font-medium uppercase tracking-widest text-blue-400">
-            Sample Work
+            Luxury Showcase
           </p>
           <div className="mb-4 flex flex-wrap items-center gap-3">
             <h2 className="text-3xl font-black tracking-tight text-white sm:text-4xl">
@@ -204,11 +204,11 @@ export default function EditingServicesPage() {
           <p className="mb-12 text-neutral-400">
             A 9:16 cinematic reel shot and edited entirely for social — from
             raw 4K capture to final export with color grade, sound design, and
-            captions.
+            captions. A benchmark example of production quality.
           </p>
 
-          {/* 9:16 video container — replace VIDEO_ID with your YouTube video ID */}
-          <div className="mx-auto border border-blue-500/20" style={{ maxWidth: "360px" }}>
+          {/* 9:16 video container — fixed phone width */}
+          <div className="mx-auto w-full border border-blue-500/20" style={{ maxWidth: "320px" }}>
             <div className="relative w-full" style={{ paddingTop: "177.78%" }}>
               <iframe
                 src="https://drive.google.com/file/d/1NxY0ZEz7ZxS3CvzwGyUPz5XhTfOcUSyF/preview"
@@ -226,7 +226,7 @@ export default function EditingServicesPage() {
       <section className="border-t border-neutral-800 bg-neutral-950/80 px-6 py-24">
         <div className="mx-auto max-w-3xl">
           <p className="mb-3 text-xs font-medium uppercase tracking-widest text-blue-400">
-            Technical Workflow
+            Why Me
           </p>
           <h2 className="mb-4 text-3xl font-black tracking-tight text-white sm:text-4xl">
             Built for Speed. Built for Craft.
@@ -358,37 +358,50 @@ export default function EditingServicesPage() {
           </h2>
 
           <div className="mb-10 grid gap-8 sm:grid-cols-[1fr_2fr]">
-            <div className="relative aspect-square w-full max-w-[200px] overflow-hidden border border-blue-500/20">
-              <Image
-                src="/profile-travel.jpg"
-                alt="Jakwoun Reid — Editor"
-                fill
-                className="object-cover"
-              />
+            <div className="space-y-3">
+              <div className="relative aspect-square w-full max-w-[200px] overflow-hidden border border-blue-500/20">
+                <Image
+                  src="/profile-travel.jpg"
+                  alt="Jakwoun Reid — Editor"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              {/* Credential badges */}
+              <div className="flex flex-col gap-2 max-w-[200px]">
+                <span className="inline-flex items-center gap-1.5 rounded-sm border border-blue-500/30 bg-blue-950/30 px-2 py-1 text-[10px] font-semibold uppercase tracking-widest text-blue-400">
+                  <span className="inline-block h-1.5 w-1.5 rounded-full bg-blue-400" />
+                  i.c.stars Alumnus
+                </span>
+                <span className="inline-flex items-center gap-1.5 rounded-sm border border-neutral-600/40 bg-neutral-800/40 px-2 py-1 text-[10px] font-semibold uppercase tracking-widest text-neutral-400">
+                  <span className="inline-block h-1.5 w-1.5 rounded-full bg-neutral-400" />
+                  The Travel Architect
+                </span>
+              </div>
             </div>
             <div className="space-y-4 text-neutral-400">
-            <p>
-              I&apos;m Jakwoun — a software developer, travel videographer, and
-              the editor behind{" "}
-              <span className="font-semibold text-neutral-300">
-                The Travel Architect
-              </span>{" "}
-              content brand. I came up through{" "}
-              <span className="font-semibold text-neutral-300">i.c.stars</span>,
-              a rigorous tech training program that built my systems thinking
-              from scratch — and I bring that same precision to every edit.
-            </p>
-            <p>
-              My work with The Travel Architect proved that destination
-              storytelling could live at the intersection of cinematic craft and
-              algorithmic efficiency. These aren&apos;t just pretty cuts —
-              every frame has a purpose, every reel has a structure, and every
-              delivery is on time.
-            </p>
-            <p className="text-neutral-300">
-              If you&apos;re a travel creator who wants a partner that
-              understands both the platform and the places — let&apos;s build.
-            </p>
+              <p>
+                I&apos;m Jakwoun — a software developer, videographer, and
+                post-production editor. I came up through{" "}
+                <span className="font-semibold text-neutral-300">i.c.stars</span>,
+                a rigorous tech training program that built my systems thinking
+                from scratch — and I bring that same precision to every edit.
+              </p>
+              <p>
+                My work building{" "}
+                <span className="font-semibold text-neutral-300">
+                  The Travel Architect
+                </span>{" "}
+                proved that content could live at the intersection of cinematic
+                craft and algorithmic efficiency. These aren&apos;t just pretty
+                cuts — every frame has a purpose, every reel has a structure,
+                and every delivery is on time.
+              </p>
+              <p className="text-neutral-300">
+                Whether you&apos;re a creator building an audience, a realtor
+                showcasing listings, or a brand that needs a consistent content
+                presence — let&apos;s build something worth watching.
+              </p>
             </div>
           </div>
         </div>
@@ -401,7 +414,7 @@ export default function EditingServicesPage() {
             Let&apos;s Build
           </p>
           <h2 className="mb-4 text-3xl font-black tracking-tight text-white sm:text-4xl">
-            Tell Me About the Trip.
+            Tell Me About the Project.
           </h2>
           <p className="mb-12 text-neutral-400">
             Drop the details below — I&apos;ll come back with a plan and a

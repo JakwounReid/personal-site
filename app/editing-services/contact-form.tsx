@@ -76,7 +76,7 @@ export default function ContactForm() {
           name="social"
           type="text"
           required
-          placeholder="@yourhandle or youtube.com/yourchannel"
+          placeholder="@yourhandle, youtube.com/channel, or company name"
           value={form.social}
           onChange={handleChange}
           className={inputClass}
@@ -95,7 +95,7 @@ export default function ContactForm() {
           name="details"
           required
           rows={5}
-          placeholder="What are you shooting? Where? What's the goal?"
+          placeholder="What are you creating? Who's the audience? What's the goal?"
           value={form.details}
           onChange={handleChange}
           className={inputClass}
