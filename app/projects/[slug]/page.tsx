@@ -1,7 +1,7 @@
 
 import { notFound } from 'next/navigation'
 import { allProjects } from '@/lib/content'
-import { MDX } from '@/components/mdx'
+import { MDXRemote } from 'next-mdx-remote/rsc'
 import { Prose } from '@/components/prose'
 import Link from 'next/link'
 
@@ -28,7 +28,7 @@ export default function ProjectPage({ params }:{ params: { slug: string } }) {
         </div>
       </div>
       <div className="mt-1 text-sm text-neutral-400">{proj.stack?.join(' • ')}</div>
-      <Prose className="mt-6"><MDX code={proj.body.code} /></Prose>
+      <Prose className="mt-6"><MDXRemote source={proj.body.raw} /></Prose>
     </div>
   )
 }
