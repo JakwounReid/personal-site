@@ -61,9 +61,19 @@ export default function Home() {
       {/* ── HERO ── */}
       <section className="grid md:grid-cols-2 gap-8 items-center">
         <div>
-          <p className="text-sm font-medium uppercase tracking-widest text-neutral-500 mb-3">
-            Milwaukee, WI
-          </p>
+          <div className="flex flex-wrap gap-2 mb-4">
+            <span className="text-sm font-medium uppercase tracking-widest text-neutral-500">
+              Milwaukee, WI
+            </span>
+            <span className="text-neutral-700">·</span>
+            <Link
+              href="/hire"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-green-400 hover:text-green-300 transition-colors"
+            >
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-green-400 animate-pulse" />
+              Available for contracts
+            </Link>
+          </div>
           <h1 className="text-4xl md:text-5xl font-black leading-tight">
             Developer. Videographer. Builder.
           </h1>

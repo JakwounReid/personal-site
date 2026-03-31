@@ -14,6 +14,12 @@ export default function SiteHeader() {
           <Link href="/blog" className="hover:text-white">
             Blog
           </Link>
+          <Link
+            href="/hire"
+            className="rounded-lg border border-green-500/40 bg-green-950/30 px-3 py-1.5 text-xs font-semibold text-green-400 hover:bg-green-950/60 transition-colors"
+          >
+            Hire me
+          </Link>
         </nav>
       </div>
     </header>
