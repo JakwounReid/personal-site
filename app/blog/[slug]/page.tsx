@@ -3,6 +3,7 @@ import { allPosts } from "@/lib/content";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { Prose } from "@/components/prose";
 import Link from "next/link";
+import Subscribe from "@/components/subscribe";
 
 export async function generateStaticParams() {
   return allPosts.map((p) => ({ slug: p.slug }));
@@ -62,6 +63,11 @@ export default function PostPage({ params }: { params: { slug: string } }) {
       <Prose className="mt-8">
         <MDXRemote source={post.body.raw} />
       </Prose>
+
+      {/* Newsletter CTA */}
+      <div className="mt-12">
+        <Subscribe />
+      </div>
 
       {/* Series prev/next navigation */}
       {(prevPost || nextPost) && (
