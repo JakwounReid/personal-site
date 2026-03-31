@@ -10,6 +10,8 @@ export interface Post {
   publishDate: string;
   status: "draft" | "published";
   thumbnail?: string;
+  series?: string;
+  seriesOrder?: number;
   body: {
     raw: string;
   };
@@ -47,6 +49,8 @@ function loadPosts(): Post[] {
         publishDate: data.publishDate ?? "",
         status: data.status ?? "draft",
         thumbnail: data.thumbnail ?? "",
+        series: data.series,
+        seriesOrder: data.seriesOrder,
         body: { raw: content },
       };
     });
