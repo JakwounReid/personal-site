@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { allProjects, allPosts } from "@/lib/content";
+import Subscribe from "@/components/subscribe";
 
 export default function Home() {
   const posts = [...allPosts]
@@ -207,6 +208,11 @@ export default function Home() {
             </a>
           ))}
         </div>
+      </section>
+
+      {/* ── NEWSLETTER ── */}
+      <section>
+        <Subscribe />
       </section>
     </div>
   );
