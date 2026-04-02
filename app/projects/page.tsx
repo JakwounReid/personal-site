@@ -11,7 +11,9 @@ export default function Projects() {
         {allProjects.map((p) => (
           <Link
             key={p.slug}
-            href={`${p.repo}`}
+            href={p.demo ?? p.repo ?? "#"}
+            target="_blank"
+            rel="noopener noreferrer"
             className="rounded-2xl border border-neutral-800 p-5 hover:bg-neutral-900/50"
           >
             <div className="text-sm text-neutral-400">

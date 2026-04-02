@@ -62,12 +62,26 @@ export const allPosts: Post[] = loadPosts();
 
 export const allProjects: Project[] = [
   {
+    slug: "travel-architect-automation",
+    title: "The Travel Architect — Content Pipeline",
+    summary:
+      "Automated pipeline that researches cities, generates relocation content, builds carousels and reels, and auto-posts to Instagram via Postiz.",
+    stack: ["Node.js", "Python", "Google Places API", "Notion API"],
+    repo: "https://github.com/JakwounReid/the-travel-architect",
+    demo: "https://jakwoun.me/thetravelarchitect",
+    status: "published",
+    body: {
+      raw: "Automated pipeline that researches cities, generates relocation content, builds carousels and reels, and auto-posts to LinkedIn via Postiz.",
+    },
+  },
+  {
     slug: "personal-site",
     title: "Personal Portfolio Site",
     summary:
       "Next.js portfolio with blog, daily logs, and project showcase.",
     stack: ["Next.js", "TypeScript", "Tailwind", "MDX"],
     repo: "https://github.com/JakwounReid/personal-site",
+    demo: "https://jakwoun.me",
     status: "published",
     body: {
       raw: "A modern personal portfolio built with Next.js, featuring a blog, daily logs, and project showcase.",
@@ -80,6 +94,7 @@ export const allProjects: Project[] = [
       "A tool to reverse-engineer top LinkedIn creators and understand what drives engagement.",
     stack: ["Next.js", "TypeScript", "Tailwind", "MDX"],
     repo: "https://github.com/JakwounReid/linkedin-influencer-analyzer",
+    demo: "https://linkedin-influencer-analyzer.vercel.app",
     status: "published",
     body: {
       raw: "A tool to reverse-engineer top LinkedIn creators and understand what drives engagement.",
@@ -92,6 +107,7 @@ export const allProjects: Project[] = [
       "A dashboard for tracking and analyzing side gig performance metrics.",
     stack: ["Next.js", "TypeScript", "Tailwind", "MDX"],
     repo: "https://github.com/JakwounReid/side-gig-stats-central",
+    demo: "https://side-gig-stats-central.vercel.app",
     status: "published",
     body: {
       raw: "A dashboard for tracking and analyzing side gig performance metrics.",

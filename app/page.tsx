@@ -216,7 +216,7 @@ export default function Home() {
           {projects.map((pr) => (
             <a
               key={pr.slug}
-              href={pr.repo || "#"}
+              href={pr.demo ?? pr.repo ?? "#"}
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-2xl border border-neutral-800 p-5 hover:bg-neutral-900/50"
