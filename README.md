@@ -1,41 +1,39 @@
+# jakwoun.me
 
-# The Non‑Traditional Engineer — Portfolio/Blog Starter (Next.js + MDX)
+Personal site for [Jakwoun Reid](https://jakwoun.me) — full-stack software engineer, independent web developer, and builder of side projects out of Milwaukee, WI.
 
-A fast, minimal starter for a personal site with Projects, Blog, and a daily Founder Log. Content lives in MDX files; no external CMS needed.
+Built with Next.js 14, TypeScript, and Tailwind. Blog posts and content are MDX files — no CMS.
+
+## What's on the site
+
+- **Homepage** — intro, venture cards, latest posts, projects
+- **[/build](https://jakwoun.me/build)** — productized web dev offer (The Launch, The Build, The System)
+- **[/blog](https://jakwoun.me/blog)** — writing on non-traditional tech careers, building in public, systems thinking
+- **[/projects](https://jakwoun.me/projects)** — side projects and tools
+- **[/editing-services](https://jakwoun.me/editing-services)** — post-production video editing
+- **[/thetravelarchitect](https://jakwoun.me/thetravelarchitect)** — relocation guides for Milwaukee and Puerto Rico
+- **[/hire](https://jakwoun.me/hire)** — available for web dev contracts
 
 ## Stack
-- Next.js 14 (App Router) + React 18
-- Tailwind CSS (+ Typography)
-- MDX via Contentlayer
-- RSS (`/api/rss`) and sitemap (`/api/sitemap`)
-- Beehiiv: paste your embed into `components/subscribe.tsx`
-- Optional: add your Neon lead capture route later
 
-## Getting Started
+- Next.js 14 (App Router) · TypeScript · Tailwind CSS
+- MDX via `next-mdx-remote`
+- Deployed on Vercel (auto-deploy on push to `master`)
+- Microsoft Clarity — heatmaps + session recordings
+- Google Analytics 4 — traffic
+- Vercel Analytics — web vitals
+
+## Running locally
 
 ```bash
-pnpm install # or npm i / yarn
-pnpm dev
+npm install
+npm run dev
 ```
 
-Visit http://localhost:3000
-
-## Deploy
-- Push to GitHub → Import into Vercel
-- Set `SITE_URL` env var (e.g., `https://yourdomain.com`) for correct RSS/sitemap links
-
 ## Content
-- Blog posts: `/content/blog/*.mdx`
-- Founder daily logs: `/content/log/*.mdx`
-- Projects: `/content/projects/*.mdx`
 
-Frontmatter examples are in the sample files.
+Blog posts live in `content/blog/` as `.mdx` files. Set `status: published` in frontmatter to publish. Drafts are never shown.
 
-## Add beehiiv embed
-In `components/subscribe.tsx`, paste your embed code from beehiiv (Publication → Grow → Embeds).
+## Contact
 
-## Roadmap ideas
-- Add `/api/lead` to capture emails to Neon
-- OG image generation per post
-- Search on blog index
-- Giscus comments
+[jakwoun.me/build](https://jakwoun.me/build) · [LinkedIn](https://linkedin.com/in/jakwounreid) · jakwounreid@gmail.com
