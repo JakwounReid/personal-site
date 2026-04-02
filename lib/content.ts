@@ -62,6 +62,18 @@ export const allPosts: Post[] = loadPosts();
 
 export const allProjects: Project[] = [
   {
+    slug: "site-check",
+    title: "SiteCheck",
+    summary:
+      "Free instant website audit tool — performance scores, Core Web Vitals, SEO checks, top issues, and email report delivery.",
+    stack: ["Next.js", "TypeScript", "PageSpeed API", "Resend"],
+    repo: "https://github.com/JakwounReid/site-check",
+    status: "published",
+    body: {
+      raw: "Free instant website audit tool powered by Google PageSpeed Insights.",
+    },
+  },
+  {
     slug: "travel-architect-automation",
     title: "The Travel Architect — Content Pipeline",
     summary:
