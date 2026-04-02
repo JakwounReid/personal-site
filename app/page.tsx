@@ -14,6 +14,17 @@ export default function Home() {
 
   const ventures = [
     {
+      label: "Web Development",
+      title: "Custom Sites & Digital Systems",
+      description:
+        "Fixed-price web development for small businesses — from a clean 5-page launch site to a full digital infrastructure with automations and integrations. AI-assisted builds, open source stack, fast delivery.",
+      href: "/build",
+      cta: "See packages & pricing",
+      accent: "text-blue-400",
+      border: "border-blue-500/30",
+      featured: true,
+    },
+    {
       label: "Software",
       title: "Full-Stack Engineer",
       description:
@@ -78,26 +89,26 @@ export default function Home() {
             Developer. Videographer. Builder.
           </h1>
           <p className="mt-4 text-neutral-300">
-            I&apos;m Jakwoun — a full-stack software engineer at Northwestern
-            Mutual by day, and a builder of side projects, video content, and
-            city guides the rest of the time. React, TypeScript, Node.js, and
-            AWS at work; whatever it takes everywhere else.
+            I&apos;m Jakwoun — a full-stack engineer at Northwestern Mutual and
+            an independent web developer for small businesses. I build custom
+            sites, digital systems, and automations that help businesses stop
+            losing money online. React, TypeScript, Node.js, AWS. Milwaukee, WI.
           </p>
           <p className="mt-3 text-neutral-400 text-sm">
             i.c.stars alumnus · Northwestern Mutual · Milwaukee, WI
           </p>
           <div className="mt-6 flex gap-3">
             <Link
-              href="/projects"
+              href="/build"
               className="rounded-xl bg-white text-neutral-900 px-5 py-3 font-semibold hover:bg-neutral-200"
             >
-              View projects
+              See web dev packages
             </Link>
             <Link
-              href="/blog"
+              href="/projects"
               className="rounded-xl border border-neutral-800 px-5 py-3 hover:bg-neutral-900"
             >
-              Read blog
+              View projects
             </Link>
           </div>
         </div>
@@ -147,7 +158,7 @@ export default function Home() {
               href={v.href}
               target={v.external ? "_blank" : undefined}
               rel={v.external ? "noopener noreferrer" : undefined}
-              className={`group rounded-2xl border ${v.border} p-6 hover:bg-neutral-900/50 transition-colors`}
+              className={`group rounded-2xl border ${v.border} p-6 hover:bg-neutral-900/50 transition-colors ${v.featured ? "md:col-span-2" : ""}`}
             >
               <p className={`text-xs font-semibold uppercase tracking-widest ${v.accent} mb-2`}>
                 {v.label}

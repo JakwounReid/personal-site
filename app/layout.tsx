@@ -3,6 +3,7 @@ import './globals.css'
 import SiteHeader from '@/components/site-header'
 import Script from 'next/script'
 import ClaritySnippet from '@/components/clarity-snippet'
+import { Analytics } from '@vercel/analytics/next'
 
 export const metadata = {
   title: 'Jakwoun Reid — Portfolio',
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ClaritySnippet />
         <SiteHeader />
         <main className="mx-auto max-w-5xl px-4 py-10">{children}</main>
+        <Analytics />
       </body>
     </html>
   )

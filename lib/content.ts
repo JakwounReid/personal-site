@@ -37,23 +37,25 @@ function loadPosts(): Post[] {
   return fs
     .readdirSync(BLOG_DIR)
     .filter((f) => f.endsWith(".mdx") && !f.startsWith("_"))
-    .map((filename) => {
+    .reduce<Post[]>((acc, filename) => {
       const slug = filename.replace(/\.mdx$/, "");
       const raw = fs.readFileSync(path.join(BLOG_DIR, filename), "utf-8");
       const { data, content } = matter(raw);
-      return {
+      if ((data.status ?? "draft") !== "published") return acc;
+      acc.push({
         slug,
         title: data.title ?? slug,
         summary: data.summary ?? "",
         tags: data.tags ?? [],
         publishDate: data.publishDate ?? "",
-        status: data.status ?? "draft",
+        status: "published",
         thumbnail: data.thumbnail ?? "",
         series: data.series,
         seriesOrder: data.seriesOrder,
         body: { raw: content },
-      };
-    });
+      });
+      return acc;
+    }, []);
 }
 
 export const allPosts: Post[] = loadPosts();
