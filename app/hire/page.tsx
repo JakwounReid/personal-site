@@ -69,6 +69,14 @@ export default function HirePage() {
           >
             View LinkedIn
           </a>
+          <a
+            href="https://contra.com/jakwoun_reid_fs9ndm0n/work?r=jakwoun_reid_fs9ndm0n"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-xl border border-neutral-800 px-5 py-3 hover:bg-neutral-900 transition-colors"
+          >
+            View Contra
+          </a>
         </div>
       </section>
 
