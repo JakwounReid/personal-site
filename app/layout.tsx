@@ -19,7 +19,7 @@ export const viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <head>
+      <body className="min-h-screen bg-neutral-950 text-neutral-100">
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-VPDTKRGTP5"
           strategy="afterInteractive"
@@ -32,8 +32,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             gtag('config', 'G-VPDTKRGTP5');
           `}
         </Script>
-      </head>
-      <body className="min-h-screen bg-neutral-950 text-neutral-100">
         <ClaritySnippet />
         <SiteHeader />
         <main className="mx-auto max-w-5xl px-4 py-10">{children}</main>
