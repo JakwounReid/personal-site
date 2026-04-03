@@ -8,7 +8,12 @@ import { Analytics } from '@vercel/analytics/next'
 export const metadata = {
   title: 'Jakwoun Reid — Portfolio',
   description: 'Projects, blog, and daily founder updates from The Non‑Traditional Engineer.',
-  metadataBase: new URL('https://example.com')
+  metadataBase: new URL('https://jakwoun.me'),
+}
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
