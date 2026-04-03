@@ -9,6 +9,20 @@ export const metadata = {
   title: 'Jakwoun Reid — Portfolio',
   description: 'Projects, blog, and daily founder updates from The Non‑Traditional Engineer.',
   metadataBase: new URL('https://jakwoun.me'),
+  openGraph: {
+    title: 'Jakwoun Reid — Developer. Videographer. Builder.',
+    description: 'Full-stack engineer & independent web developer for small businesses. Custom sites, digital systems, and automations.',
+    url: 'https://jakwoun.me',
+    siteName: 'Jakwoun Reid',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630 }],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Jakwoun Reid — Developer. Videographer. Builder.',
+    description: 'Full-stack engineer & independent web developer for small businesses. Custom sites, digital systems, and automations.',
+    images: ['/og-image.jpg'],
+  },
 }
 
 export const viewport = {
