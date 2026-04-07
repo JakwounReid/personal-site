@@ -126,7 +126,7 @@ export default function Home() {
               <Link
                 href="https://www.linkedin.com/in/jakwounreid/"
                 target="_blank"
-                className="text-neutral-400 hover:text-white transition-colors"
+                className="p-2 -m-2 text-neutral-400 hover:text-white transition-colors"
                 aria-label="LinkedIn"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -136,7 +136,7 @@ export default function Home() {
               <Link
                 href="https://www.youtube.com/@jakwounreid"
                 target="_blank"
-                className="text-neutral-400 hover:text-white transition-colors"
+                className="p-2 -m-2 text-neutral-400 hover:text-white transition-colors"
                 aria-label="YouTube"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -146,7 +146,7 @@ export default function Home() {
               <Link
                 href="https://contra.com/jakwoun_reid_fs9ndm0n/work?r=jakwoun_reid_fs9ndm0n"
                 target="_blank"
-                className="text-neutral-400 hover:text-white transition-colors text-sm font-medium"
+                className="p-2 -m-2 text-neutral-400 hover:text-white transition-colors text-sm font-medium"
                 aria-label="Contra"
               >
                 Contra
