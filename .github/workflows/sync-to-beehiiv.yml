@@ -1,0 +1,29 @@
+name: Sync to beehiiv
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'content/blog/**.mdx'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install script dependencies
+        run: npm install
+        working-directory: .github/scripts
+
+      - name: Sync newly published posts to beehiiv
+        env:
+          BEEHIIV_API_KEY: ${{ secrets.BEEHIIV_API_KEY }}
+          BEEHIIV_PUB_ID: pub_634bb75d-8daa-48c9-8677-83f1c70de005
+        run: node .github/scripts/sync-to-beehiiv.mjs
