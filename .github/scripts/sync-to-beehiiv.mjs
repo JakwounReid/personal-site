@@ -64,22 +64,30 @@ for (const file of changedFiles) {
     schedule_type: 'immediate',
   };
 
-  const res = await fetch(`https://api.beehiiv.com/v2/publications/${PUB_ID}/posts`, {
+  const url = `https://api.beehiiv.com/v2/publications/${PUB_ID}/posts`;
+  console.log(`POST ${url}`);
+  console.log(`API key present: ${!!API_KEY}, length: ${API_KEY.length}`);
+
+  const res = await fetch(url, {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${API_KEY}`,
       'Content-Type': 'application/json',
+      Accept: 'application/json',
     },
     body: JSON.stringify(payload),
   });
 
-  const json = await res.json();
+  const rawText = await res.text();
+  console.log(`Response status: ${res.status}`);
+  console.log(`Response body: ${rawText.slice(0, 500)}`);
 
   if (!res.ok) {
-    console.error(`Failed to create beehiiv post for "${current.data.title}":`, JSON.stringify(json, null, 2));
+    console.error(`Failed to create beehiiv post for "${current.data.title}"`);
     process.exit(1);
   }
 
+  const json = JSON.parse(rawText);
   const postUrl = json.data?.web_url || json.data?.id;
   console.log(`Created beehiiv draft: "${current.data.title}" → ${postUrl}`);
 }
