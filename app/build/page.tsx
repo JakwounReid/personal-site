@@ -241,6 +241,18 @@ export default function BuildPage() {
               </div>
             ))}
           </div>
+
+          <p className="mt-10 text-sm text-neutral-500">
+            Not sure where your site stands?{" "}
+            <a
+              href="https://sitecheck.jakwoun.me"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-400 underline-offset-4 hover:underline"
+            >
+              Run a free audit with SiteCheck →
+            </a>
+          </p>
         </div>
       </section>
 
@@ -497,6 +509,14 @@ export default function BuildPage() {
             <Link href="/editing-services" className="transition-colors hover:text-neutral-300">
               Editing Services
             </Link>
+            <a
+              href="https://sitecheck.jakwoun.me"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-neutral-300"
+            >
+              SiteCheck
+            </a>
           </nav>
           <p className="text-xs text-neutral-700">
             © {new Date().getFullYear()} Jakwoun Reid
