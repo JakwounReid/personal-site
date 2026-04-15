@@ -86,16 +86,22 @@ export default function Home() {
             </Link>
           </div>
           <h1 className="text-4xl md:text-5xl font-black leading-tight">
-            Developer. Videographer. Builder.
+            Engineer by trade. Builder by habit. Non-traditional from the start.
           </h1>
           <p className="mt-4 text-neutral-300">
-            I&apos;m Jakwoun — a full-stack engineer at Northwestern Mutual and
-            an independent web developer for small businesses. I build custom
-            sites, digital systems, and automations that help businesses stop
-            losing money online. React, TypeScript, Node.js, AWS. Milwaukee, WI.
+            Full-stack engineer at Northwestern Mutual, independent web
+            developer for small businesses, and a builder who ships his own
+            tools.
           </p>
           <p className="mt-3 text-neutral-400 text-sm">
-            i.c.stars alumnus · Northwestern Mutual · Milwaukee, WI
+            I came up through i.c.stars Milwaukee and MATC — not a CS degree —
+            and worked my way into production software in fintech and insurance
+            enterprise. At Northwestern Mutual I build with React, TypeScript,
+            Node.js, AWS, and Kubernetes at scale. I take those same standards
+            into my freelance work, building custom sites and digital systems for
+            small businesses that need more than a template. I&apos;m also
+            moving toward Solutions Engineer and Developer Advocate roles, and I
+            write about the non-traditional path into tech on my blog.
           </p>
           <div className="mt-6 flex gap-3">
             <Link
