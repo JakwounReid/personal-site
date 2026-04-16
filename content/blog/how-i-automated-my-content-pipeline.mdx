@@ -1,0 +1,100 @@
+---
+title: "How I Automated My Content Pipeline (And What It Couldn't Replace)"
+summary: "I built a script that handles research, slide generation, and scheduling for Instagram carousels. It works. The engagement still didn't come from the automation."
+publishDate: "2026-04-15"
+status: published
+tags: [build-in-public, automation, instagram, content, side-projects]
+---
+
+Every new city started the same way.
+
+Open a browser, search for the best spots, skim a few listicles, take notes. Write five carousel slides by hand. Open Canva, build each slide against a template I was already tired of looking at. Export the images, download them, upload them to a scheduler, write a caption. Then do it again for the next city.
+
+Two hours per city, minimum. Usually more. I had a list of 30 cities I wanted to cover for The Travel Architect. I did the math once, then stopped doing the math.
+
+The problem wasn't that the content was hard to make. The problem was that nothing about making it required me specifically. Every step was findable, repeatable, and predictable. That's not work worth protecting. That's a pipeline waiting to be written.
+
+## The pipeline
+
+Everything starts with one command:
+
+```bash
+node scripts/research-city.js "Chicago, IL"
+```
+
+`research-city.js` fires a text search against the Google Places API with the query `"top landmarks and tourist attractions Chicago, IL"`. The API returns up to 20 results. I take the first 10, sort them by `rating * Math.log(user_ratings_total + 1)` — a weighted score that balances both quality and volume of reviews — and keep the top 3. Those become the reach drivers: the landmarks a city is known for, the content that earns saves and shares from people who have never heard of the account.
+
+The script then queries Notion for any property listings in that city with `Status: "To Process"`. Those become proximity drivers — slides 4 and 5, connecting specific Airbnbs to the landmarks a few slides earlier. The connection between "here's the place" and "here's where to stay while you're there" is the actual product.
+
+The whole thing writes one file: `drafts/chicago-25/research.json`.
+
+```json
+{
+  "content_type": "2-5 Carousel",
+  "carousel_title": "5 reasons Chicago belongs on your list",
+  "city": "Chicago, IL",
+  "reach_drivers": [
+    {
+      "slide_number": 1,
+      "name": "Millennium Park",
+      "why": "4.8★ across 89,412 reviews — park, tourist_attraction",
+      "photo_source": "Unsplash search: Millennium Park Chicago",
+      "google_place_id": "ChIJ6z7..."
+    }
+  ],
+  "proximity_drivers": [...],
+  "cta": "Follow for places to stay while exploring Chicago",
+  "red_flags": []
+}
+```
+
+From `research.json`, a Claude prompt generates `ig_slides.txt`, `ig_caption.txt`, and `ig_canva_notes.txt`. That's the copy layer. The research tells it what to say. It handles how to say it.
+
+Then:
+
+```bash
+python3 scripts/make_carousel.py chicago-25
+```
+
+`make_carousel.py` uses Pillow to render the slides. Each source photo from `drafts/chicago-25/photos/` gets center-cropped to 1080×1350 (4:5 portrait for Instagram), then a linear gradient overlay is composited on top of it — transparent at the midpoint, ramping to `#1A1A2E` at roughly 70% opacity across the bottom 45% of the frame. The text layout renders from the bottom up: large serif slide number in white, a sand-colored dash (`#D9C5A0`), location name in white, optional descriptor below it in sand. Five slides generated in a few seconds, consistently branded.
+
+The final step:
+
+```bash
+node scripts/push-to-postiz.js chicago-25
+```
+
+`push-to-postiz.js` reads the caption, uploads each `slide-*.png` to Postiz via `POST /api/public/v1/upload`, then creates a draft post against the Instagram integration via `POST /api/public/v1/posts`. The draft lands in the Postiz queue with a placeholder timestamp one hour out. I open Postiz, pick the real publish time, and that city is done.
+
+Before: two hours per city.
+After: about 20 minutes, most of which is finding photos on Unsplash.
+
+The pipeline runs exactly as designed.
+
+## What happened after I shipped it
+
+Posts went out. Impressions climbed in aggregate. The slides were consistent, the copy was accurate, the format was right. Reach ticked up on posts featuring well-known landmarks because the Places ranking logic tends to surface things people already search for.
+
+Engagement was almost nothing.
+
+Saves occasionally. Some reach to non-followers when the landmark was famous enough. But comments: nearly zero. DMs: nearly zero. The kind of reply where someone starts an actual conversation: rare enough to be memorable when it happened.
+
+The content existed. People processed it and moved on.
+
+## What I eventually understood
+
+People don't respond to content. They respond to a person.
+
+The posts that got real engagement were not the polished ones. They were the ones where I said something specific — a detail from a street I actually walked, a take I formed because something happened that day, a caption I wrote because I was genuinely thinking about it and not because a calendar said it was Tuesday for Chicago. That kind of post cannot be generated from a Google Places response. It requires me to have been somewhere, or to have had a thought today, not a week ago in a planning session.
+
+The pipeline handles distribution. That part is solved. What it cannot do is be present. It cannot notice something. It cannot react. The word choice in a caption that makes someone stop scrolling — that comes from writing it yourself, on the day you felt like writing it, in response to something real. The timing is the thing. A comment that lands in someone's feed the morning after they booked a trip to that city hits differently than the same words pushed on a schedule because the queue needed filling.
+
+You cannot automate that. You can produce consistent, well-formatted output at scale, and you should, but the posts that open conversations are written in the moment. The pipeline frees up the time to write those. It does not write them for you.
+
+## What I kept
+
+I still run the pipeline for every new city. The decision to build it was correct. Two hours of repeatable work compressed to 20 minutes means I cover more ground, ship more consistently, and spend no time in Canva.
+
+But I stopped trying to automate the account. The captions I write myself. The spontaneous posts are off-script. The moments that actually land with people are almost always the ones where I showed up unscheduled, said the specific thing, and let it sit.
+
+Some parts of your work are worth keeping slow. Not every inefficiency is a problem to solve. The automation was worth building. So was learning what it was never going to replace.
