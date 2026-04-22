@@ -27,6 +27,9 @@ export function WaitlistButton({ className, children }: WaitlistButtonProps) {
         throw new Error(data.error || "Something went wrong");
       }
       setStatus("success");
+      if (typeof window !== "undefined" && typeof window.gtag === "function") {
+        window.gtag("event", "waitlist_signup", { source: "travel_architect" });
+      }
     } catch (err) {
       setStatus("error");
       setErrorMsg(err instanceof Error ? err.message : "Something went wrong");

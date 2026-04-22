@@ -26,7 +26,6 @@ export default function TravelArchitectMKEPage() {
 
       {/* ── HERO ── */}
       <section className="relative flex min-h-[90vh] flex-col items-center justify-center px-6 py-28 text-center">
-        {/* Architectural accent lines */}
         <div
           aria-hidden
           className="absolute left-0 top-0 h-px w-full bg-gradient-to-r from-transparent via-blue-500/30 to-transparent"
@@ -38,13 +37,13 @@ export default function TravelArchitectMKEPage() {
 
         <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-950/30 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-blue-400">
           <span className="inline-block h-1.5 w-1.5 rounded-full bg-blue-400" />
-          The Travel Architect
+          Milwaukee Relocation Guide · 2026
         </p>
 
         <h1 className="mx-auto max-w-3xl text-5xl font-black leading-[1.08] tracking-tight text-white sm:text-6xl md:text-7xl">
-          Your Blueprint for{" "}
+          The No-BS Guide to{" "}
           <span className="relative inline-block text-blue-400">
-            MKE Living.
+            Moving to Milwaukee.
             <span
               aria-hidden
               className="absolute -bottom-1 left-0 h-px w-full bg-blue-400/50"
@@ -53,12 +52,25 @@ export default function TravelArchitectMKEPage() {
         </h1>
 
         <p className="mx-auto mt-8 max-w-2xl text-lg text-neutral-400 sm:text-xl">
-          From Bay View to the Burbs — I&apos;ve mapped Milwaukee so you
-          don&apos;t have to. Get the curated directory and relocation guide
-          designed for newcomers and Chicago transplants.
+          A curated directory of neighborhoods, vetted rentals, and local intel
+          for people seriously considering a move to Milwaukee — especially from
+          Chicago and the coasts. Written by someone who actually lives here.
+          No affiliate filler. No tourist suggestions.
         </p>
 
-        <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row">
+        {/* Who it's for */}
+        <div className="mt-8 flex flex-wrap justify-center gap-2">
+          {["Chicago transplants", "Cost-of-living refugees", "Remote workers"].map((tag) => (
+            <span
+              key={tag}
+              className="rounded-full border border-neutral-700 bg-neutral-900/50 px-3 py-1 text-xs text-neutral-400"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
           <WaitlistButton className="group inline-flex items-center gap-2 rounded-none border border-blue-400 bg-blue-400 px-8 py-4 text-sm font-bold uppercase tracking-widest text-black transition-all duration-200 hover:bg-transparent hover:text-blue-400">
             Join the Waitlist
             <svg
@@ -83,7 +95,6 @@ export default function TravelArchitectMKEPage() {
           </a>
         </div>
 
-        {/* Corner registration marks — architectural detail */}
         <span
           aria-hidden
           className="absolute left-4 top-4 h-4 w-4 border-l border-t border-blue-500/20"

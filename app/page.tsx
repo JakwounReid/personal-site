@@ -3,6 +3,12 @@ import Image from "next/image";
 import { allProjects, allPosts } from "@/lib/content";
 import Subscribe from "@/components/subscribe";
 
+export const metadata = {
+  title: "Jakwoun Reid — Engineer. Builder. Non-Traditional.",
+  description:
+    "Full-stack engineer at Northwestern Mutual. Available for contract work and full-time roles. Custom web dev for small businesses. i.c.stars alum.",
+};
+
 export default function Home() {
   const posts = [...allPosts]
     .sort(
@@ -11,61 +17,6 @@ export default function Home() {
     )
     .slice(0, 3);
   const projects = allProjects.slice(0, 3);
-
-  const ventures = [
-    {
-      label: "Web Development",
-      title: "Custom Sites & Digital Systems",
-      description:
-        "Fixed-price web development for small businesses — from a clean 5-page launch site to a full digital infrastructure with automations and integrations. AI-assisted builds, open source stack, fast delivery.",
-      href: "/build",
-      cta: "See packages & pricing",
-      accent: "text-blue-400",
-      border: "border-blue-500/30",
-      featured: true,
-    },
-    {
-      label: "Software",
-      title: "Full-Stack Engineer",
-      description:
-        "4+ years building production web applications in financial services. Day job at Northwestern Mutual; nights and weekends shipping my own tools.",
-      href: "/projects",
-      cta: "View projects",
-      accent: "text-white",
-      border: "border-neutral-700",
-    },
-    {
-      label: "Video",
-      title: "Post-Production Partner",
-      description:
-        "4K short-form editing for creators, realtors, and brands. Social-first strategy, 48-hr delivery, built for the algorithm.",
-      href: "/editing-services",
-      cta: "See editing services",
-      accent: "text-blue-400",
-      border: "border-blue-500/30",
-    },
-    {
-      label: "Travel",
-      title: "The Travel Architect",
-      description:
-        "City guides, relocation intel, and property shoots. Currently building the 2026 Milwaukee Relocation Guide for newcomers and Chicago transplants.",
-      href: "/thetravelarchitect",
-      cta: "Explore guides",
-      accent: "text-neutral-300",
-      border: "border-neutral-700",
-    },
-    {
-      label: "Content",
-      title: "YouTube & Media",
-      description:
-        "Documenting the build — software, travel, and systems thinking. The same precision I bring to client work shows up on camera.",
-      href: "https://www.youtube.com/@jakwounreid",
-      cta: "Watch on YouTube",
-      accent: "text-neutral-300",
-      border: "border-neutral-700",
-      external: true,
-    },
-  ];
 
   return (
     <div className="space-y-16">
@@ -82,47 +33,26 @@ export default function Home() {
               className="inline-flex items-center gap-1.5 text-sm font-medium text-green-400 hover:text-green-300 transition-colors"
             >
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-green-400 animate-pulse" />
-              Available for contracts
+              Open to roles &amp; contracts
             </Link>
           </div>
           <h1 className="text-4xl md:text-5xl font-black leading-tight">
-            Engineer by trade. Builder by habit. Non-traditional from the start.
+            Jakwoun Reid
           </h1>
-          <p className="mt-4 text-neutral-300">
-            Full-stack engineer at Northwestern Mutual, independent web
-            developer for small businesses, and a builder who ships his own
-            tools.
+          <p className="mt-3 text-lg text-neutral-300 font-medium">
+            Full-Stack Engineer · Web Developer · Builder
           </p>
-          <p className="mt-3 text-neutral-400 text-sm">
-            I came up through i.c.stars Milwaukee and MATC — not a CS degree —
-            and worked my way into production software in fintech and insurance
-            enterprise. At Northwestern Mutual I build with React, TypeScript,
-            Node.js, AWS, and Kubernetes at scale. I take those same standards
-            into my freelance work, building custom sites and digital systems for
-            small businesses that need more than a template. I&apos;m also
-            moving toward Solutions Engineer and Developer Advocate roles, and I
-            write about the non-traditional path into tech on my blog.
+          <p className="mt-3 text-neutral-400 text-sm max-w-lg">
+            3+ years building production fintech at Northwestern Mutual. i.c.stars alum.
+            Available for contract work now and full-time roles in June 2026.
+            Also building custom sites and digital systems for small businesses.
           </p>
-          <div className="mt-6 flex gap-3">
-            <Link
-              href="/build"
-              className="rounded-xl bg-white text-neutral-900 px-5 py-3 font-semibold hover:bg-neutral-200"
-            >
-              See web dev packages
-            </Link>
-            <Link
-              href="/projects"
-              className="rounded-xl border border-neutral-800 px-5 py-3 hover:bg-neutral-900"
-            >
-              View projects
-            </Link>
-          </div>
         </div>
         <div className="flex justify-center md:justify-end">
           <div className="relative">
             <Image
               src="/profile.jpg"
-              alt="Profile picture"
+              alt="Jakwoun Reid"
               width={300}
               height={300}
               className="rounded-2xl shadow-lg"
@@ -162,35 +92,75 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── WHAT I BUILD ── */}
+      {/* ── AUDIENCE PATHS ── */}
       <section>
-        <h2 className="text-2xl font-bold mb-6">What I build</h2>
-        <div className="grid md:grid-cols-2 gap-4">
-          {ventures.map((v) => (
-            <Link
-              key={v.title}
-              href={v.href}
-              target={v.external ? "_blank" : undefined}
-              rel={v.external ? "noopener noreferrer" : undefined}
-              className={`group rounded-2xl border ${v.border} p-6 hover:bg-neutral-900/50 transition-colors ${v.featured ? "md:col-span-2" : ""}`}
-            >
-              <p className={`text-xs font-semibold uppercase tracking-widest ${v.accent} mb-2`}>
-                {v.label}
-              </p>
-              <p className="font-bold text-white text-lg">{v.title}</p>
-              <p className="mt-2 text-sm text-neutral-400">{v.description}</p>
-              <p className="mt-4 text-sm text-neutral-500 group-hover:text-neutral-300 transition-colors">
-                {v.cta} →
-              </p>
-            </Link>
-          ))}
+        <p className="text-xs font-medium uppercase tracking-widest text-neutral-500 mb-4">
+          What brings you here?
+        </p>
+        <div className="grid md:grid-cols-3 gap-4">
+          <Link
+            href="/hire"
+            className="group rounded-2xl border border-green-500/20 bg-green-950/10 p-6 hover:border-green-500/40 hover:bg-green-950/20 transition-colors"
+          >
+            <p className="text-xs font-semibold uppercase tracking-widest text-green-400 mb-2">
+              Hiring manager / recruiter
+            </p>
+            <p className="font-bold text-white text-base">
+              Evaluating me for a role?
+            </p>
+            <p className="mt-2 text-sm text-neutral-400">
+              3+ yrs fintech at Northwestern Mutual. React, TypeScript, Node.js, AWS.
+              Targeting Solutions Engineer and Developer Advocate roles. Open June 2026.
+            </p>
+            <p className="mt-4 text-sm text-green-400 group-hover:text-green-300 transition-colors">
+              View full profile →
+            </p>
+          </Link>
+
+          <Link
+            href="/build"
+            className="group rounded-2xl border border-blue-500/20 bg-blue-950/10 p-6 hover:border-blue-500/40 hover:bg-blue-950/20 transition-colors"
+          >
+            <p className="text-xs font-semibold uppercase tracking-widest text-blue-400 mb-2">
+              Founder / startup / small business
+            </p>
+            <p className="font-bold text-white text-base">
+              Need contract dev work done?
+            </p>
+            <p className="mt-2 text-sm text-neutral-400">
+              Available 10–20 hrs/week now. Custom sites and digital systems.
+              Fixed price, open source stack. Starts at $1,500.
+            </p>
+            <p className="mt-4 text-sm text-blue-400 group-hover:text-blue-300 transition-colors">
+              See packages &amp; pricing →
+            </p>
+          </Link>
+
+          <Link
+            href="/blog"
+            className="group rounded-2xl border border-neutral-700 p-6 hover:bg-neutral-900/50 transition-colors"
+          >
+            <p className="text-xs font-semibold uppercase tracking-widest text-neutral-500 mb-2">
+              Fellow builder / content reader
+            </p>
+            <p className="font-bold text-white text-base">
+              Here from the content pipeline post?
+            </p>
+            <p className="mt-2 text-sm text-neutral-400">
+              I write about building in public, non-traditional tech careers, and the
+              systems behind the work. New post every week.
+            </p>
+            <p className="mt-4 text-sm text-neutral-400 group-hover:text-neutral-200 transition-colors">
+              Read the blog →
+            </p>
+          </Link>
         </div>
       </section>
 
       {/* ── LATEST BLOG POSTS ── */}
       <section>
         <div className="flex items-center justify-between">
-          <h2 className="text-2xl font-bold">Latest blog posts</h2>
+          <h2 className="text-2xl font-bold">Latest posts</h2>
           <Link
             href="/blog"
             className="text-sm text-neutral-300 hover:text-white underline underline-offset-4"

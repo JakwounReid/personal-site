@@ -1,6 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
 
+const submissions = new Map<string, number>();
+
 export async function POST(req: NextRequest) {
+  const ip = req.headers.get("x-forwarded-for")?.split(",")[0].trim() ?? "unknown";
+  const now = Date.now();
+  const last = submissions.get(ip) ?? 0;
+  if (now - last < 60_000) {
+    return NextResponse.json({ error: "Too many requests" }, { status: 429 });
+  }
+  submissions.set(ip, now);
+
   const body = await req.json();
   const { email } = body;
 

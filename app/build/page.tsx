@@ -1,112 +1,47 @@
 import Link from "next/link";
+import GtagLink from "@/components/gtag-link";
 
 export const metadata = {
   title: "Web Development — Jakwoun Reid",
   description:
-    "Custom websites and digital systems for small businesses. Three tiers: Launch, Build, and System. Fixed price, fast delivery, open source stack.",
+    "Contract React/Node.js engineer available 10–20 hrs/week. Also building custom sites and digital systems for small businesses. Fixed price, fast delivery.",
 };
+
+const BOOKING_URL = "https://calendly.com/jakwounreid/intro-call";
 
 const tiers = [
   {
     name: "The Launch",
     price: "$1,500",
     priceSuffix: "– $2,500",
-    cadence: "one-time",
     badge: null,
-    description:
-      "A clean, fast, custom site that makes your business look the part — built and live in 7 days.",
-    features: [
-      "5-page custom site",
-      "Mobile responsive + SEO ready",
-      "Contact form with email notifications",
-      "7-day delivery",
-      "You own the code",
-    ],
-    cta: "Book a Call",
-    ctaHref: "https://calendly.com/jakwounreid/intro-call",
+    features: ["5-page custom site", "Mobile + SEO ready", "7-day delivery"],
     featured: false,
   },
   {
     name: "The Build",
     price: "$3,500",
     priceSuffix: "– $5,000",
-    cadence: "one-time",
     badge: "Most Popular",
-    description:
-      "A full site plus one integrated system — booking, payments, lead capture, or ecommerce.",
-    features: [
-      "Everything in The Launch",
-      "1 integrated system (booking, payments, ecommerce, or lead capture)",
-      "CRM or email tool integration",
-      "2-week delivery",
-      "Post-launch walkthrough",
-    ],
-    cta: "Book a Call",
-    ctaHref: "https://calendly.com/jakwounreid/intro-call",
+    features: ["Everything in Launch", "1 integrated system (booking / payments / ecommerce)", "2-week delivery"],
     featured: true,
   },
   {
     name: "The System",
     price: "$7,500",
     priceSuffix: "– $12,000",
-    cadence: "one-time",
     badge: null,
-    description:
-      "Your full digital infrastructure — site, automations, workflows, and integrations built from the ground up.",
-    features: [
-      "Everything in The Build",
-      "Full automation + workflow setup",
-      "Multiple system integrations",
-      "Custom dashboard or admin panel",
-      "4-week delivery",
-      "30-day post-launch support",
-    ],
-    cta: "Apply Now",
-    ctaHref: "https://calendly.com/jakwounreid/intro-call",
+    features: ["Full digital infrastructure", "Automations + multiple integrations", "4-week delivery + 30-day support"],
     featured: false,
   },
 ];
 
-const problems = [
-  {
-    headline: "Your site doesn't reflect your business",
-    body: "You're doing real work and making real money — but your website looks like it was built in 2014. First impressions cost you clients before you ever talk to them.",
-  },
-  {
-    headline: "You're running on manual everything",
-    body: "Booking through DMs. Invoicing by hand. Following up in your head. Every hour you spend on admin is an hour you're not spending on the work that actually pays.",
-  },
-  {
-    headline: "You have no way to capture or convert online",
-    body: "No lead form. No booking link. No payments page. People visit your site and have nowhere to go — so they leave.",
-  },
-];
+const stack = ["React", "TypeScript", "Node.js", "PostgreSQL", "AWS"];
 
-const reasons = [
-  {
-    icon: "⚡",
-    label: "AI-Assisted Builds",
-    description:
-      "I use modern AI tooling to build faster without cutting corners — you get enterprise-quality work in days, not months.",
-  },
-  {
-    icon: "🏗️",
-    label: "Enterprise Background",
-    description:
-      "I build production systems at Northwestern Mutual. Your business gets the same engineering standards as a Fortune 500.",
-  },
-  {
-    icon: "🔓",
-    label: "Open Source Stack",
-    description:
-      "No vendor lock-in. No monthly platform fees. You own every line of code and can take it anywhere.",
-  },
-  {
-    icon: "⚙️",
-    label: "Systems Thinker",
-    description:
-      "I don't just build websites — I build the workflows, automations, and integrations that make your business run.",
-  },
+const proofPoints = [
+  { stat: "3+ yrs", label: "fintech engineering at Northwestern Mutual" },
+  { stat: "Fortune 500", label: "production systems, regulated environments" },
+  { stat: "Since 2021", label: "freelancing for small businesses end-to-end" },
 ];
 
 const faqs = [
@@ -164,31 +99,61 @@ export default function BuildPage() {
           className="absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-blue-500/20 to-transparent"
         />
 
-        <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-950/30 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-blue-400">
-          <span className="inline-block h-1.5 w-1.5 rounded-full bg-blue-400" />
-          Web Development
+        {/* Availability badge */}
+        <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-green-950/30 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-green-400">
+          <span className="inline-block h-1.5 w-1.5 rounded-full bg-green-400 animate-pulse" />
+          Available now · 10–20 hrs/week
         </p>
 
         <h1 className="mx-auto max-w-4xl text-5xl font-black leading-[1.08] tracking-tight text-white sm:text-6xl md:text-7xl">
-          Your Business Deserves{" "}
+          React &amp; Node.js.{" "}
           <span className="relative inline-block text-blue-400">
-            Infrastructure,
+            Contract work,
             <span
               aria-hidden
               className="absolute -bottom-1 left-0 h-px w-full bg-blue-400/50"
             />
           </span>{" "}
-          Not Just a Website.
+          open now.
         </h1>
 
         <p className="mx-auto mt-8 max-w-2xl text-lg text-neutral-400 sm:text-xl">
-          Custom sites and digital systems for small businesses — fixed price,
-          fast delivery, open source stack. You own everything.
+          Senior full-stack engineer with 3+ years in fintech at Northwestern Mutual.
+          Available for part-time contracts and fixed-price web projects for small businesses.
+          Starts at{" "}
+          <span className="font-semibold text-white">$1,500</span>.
         </p>
 
+        {/* Stack chips */}
+        <div className="mt-8 flex flex-wrap justify-center gap-2">
+          {stack.map((s) => (
+            <span
+              key={s}
+              className="rounded-sm border border-blue-500/20 bg-blue-950/20 px-3 py-1 text-xs font-semibold text-blue-300"
+            >
+              {s}
+            </span>
+          ))}
+        </div>
+
+        {/* Proof points */}
+        <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:gap-6">
+          {proofPoints.map(({ stat, label }) => (
+            <div key={stat} className="text-center">
+              <span className="text-lg font-black text-white">{stat}</span>{" "}
+              <span className="text-sm text-neutral-500">{label}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* CTAs */}
         <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row">
-          <a
-            href="https://calendly.com/jakwounreid/intro-call"
+          <GtagLink
+            href={BOOKING_URL}
+            event="booking_click"
+            eventParams={{ page: "build", position: "hero" }}
+            target="_blank"
+            rel="noopener noreferrer"
             className="group inline-flex items-center gap-2 border border-blue-400 bg-blue-400 px-8 py-4 text-sm font-bold uppercase tracking-widest text-black transition-all duration-200 hover:bg-transparent hover:text-blue-400"
           >
             Book a Free 15-Min Call
@@ -199,18 +164,14 @@ export default function BuildPage() {
               stroke="currentColor"
               strokeWidth={2}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
-          </a>
+          </GtagLink>
           <a
             href="#pricing"
             className="text-sm font-medium text-neutral-500 underline-offset-4 hover:text-neutral-300 hover:underline"
           >
-            See pricing ↓
+            See packages ↓
           </a>
         </div>
 
@@ -231,7 +192,20 @@ export default function BuildPage() {
           </h2>
 
           <div className="grid gap-6 sm:grid-cols-3">
-            {problems.map(({ headline, body }) => (
+            {[
+              {
+                headline: "Your site doesn't reflect your business",
+                body: "You're doing real work and making real money — but your website looks like it was built in 2014. First impressions cost you clients before you ever talk to them.",
+              },
+              {
+                headline: "You're running on manual everything",
+                body: "Booking through DMs. Invoicing by hand. Following up in your head. Every hour you spend on admin is an hour you're not spending on the work that actually pays.",
+              },
+              {
+                headline: "You have no way to capture or convert online",
+                body: "No lead form. No booking link. No payments page. People visit your site and have nowhere to go — so they leave.",
+              },
+            ].map(({ headline, body }) => (
               <div
                 key={headline}
                 className="border border-neutral-800 bg-neutral-900/50 p-6"
@@ -313,8 +287,7 @@ export default function BuildPage() {
             Pick Your Build Level
           </h2>
           <p className="mb-12 text-neutral-400">
-            Whether you need a clean site or a full business system — there&apos;s
-            a tier built for where you are right now.
+            Fixed price. You own the code. No ongoing platform fees.
           </p>
 
           <div className="grid gap-6 sm:grid-cols-3">
@@ -336,15 +309,12 @@ export default function BuildPage() {
                   )}
                 </div>
 
-                <div className="mb-1 flex items-baseline gap-1 flex-wrap">
+                <div className="mb-5 flex items-baseline gap-1 flex-wrap">
                   <span className="text-3xl font-black text-white">{tier.price}</span>
                   <span className="text-lg font-bold text-neutral-400">{tier.priceSuffix}</span>
                 </div>
-                <p className="mb-4 text-xs text-neutral-500 uppercase tracking-widest">{tier.cadence}</p>
 
-                <p className="mb-5 text-sm text-neutral-400">{tier.description}</p>
-
-                <ul className="mb-6 space-y-2 text-sm text-neutral-400">
+                <ul className="mb-6 space-y-2 text-sm text-neutral-400 flex-1">
                   {tier.features.map((feat) => (
                     <li key={feat} className="flex items-start gap-2">
                       <svg
@@ -361,15 +331,19 @@ export default function BuildPage() {
                   ))}
                 </ul>
 
-                <a
-                  href={tier.ctaHref}
-                  className={`group mt-auto inline-flex items-center gap-2 px-6 py-3 text-sm font-bold uppercase tracking-widest transition-all duration-200 ${
+                <GtagLink
+                  href={BOOKING_URL}
+                  event="booking_click"
+                  eventParams={{ page: "build", tier: tier.name.toLowerCase().replace("the ", "") }}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`group inline-flex items-center gap-2 px-6 py-3 text-sm font-bold uppercase tracking-widest transition-all duration-200 ${
                     tier.featured
                       ? "border border-blue-400 bg-blue-400 text-black hover:bg-transparent hover:text-blue-400"
                       : "border border-neutral-600 bg-transparent text-white hover:border-blue-400 hover:text-blue-400"
                   }`}
                 >
-                  {tier.cta}
+                  Book a Call
                   <svg
                     className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
                     fill="none"
@@ -379,7 +353,7 @@ export default function BuildPage() {
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
-                </a>
+                </GtagLink>
               </div>
             ))}
           </div>
@@ -404,7 +378,32 @@ export default function BuildPage() {
           </p>
 
           <ul className="space-y-5">
-            {reasons.map(({ icon, label, description }) => (
+            {[
+              {
+                icon: "⚡",
+                label: "AI-Assisted Builds",
+                description:
+                  "I use modern AI tooling to build faster without cutting corners — you get enterprise-quality work in days, not months.",
+              },
+              {
+                icon: "🏗️",
+                label: "Enterprise Background",
+                description:
+                  "I build production systems at Northwestern Mutual. Your business gets the same engineering standards as a Fortune 500.",
+              },
+              {
+                icon: "🔓",
+                label: "Open Source Stack",
+                description:
+                  "No vendor lock-in. No monthly platform fees. You own every line of code and can take it anywhere.",
+              },
+              {
+                icon: "⚙️",
+                label: "Systems Thinker",
+                description:
+                  "I don't just build websites — I build the workflows, automations, and integrations that make your business run.",
+              },
+            ].map(({ icon, label, description }) => (
               <li
                 key={label}
                 className="group flex gap-5 border border-neutral-800 bg-neutral-900/50 p-5 transition-colors hover:border-blue-500/30 hover:bg-blue-950/10"
@@ -461,15 +460,19 @@ export default function BuildPage() {
             Let&apos;s Build
           </p>
           <h2 className="mb-4 text-4xl font-black tracking-tight text-white sm:text-5xl">
-            Ready to Stop Leaving Money on the Table?
+            Ready to move forward?
           </h2>
           <p className="mb-10 text-neutral-400">
             Book a free 15-minute call. No pitch, no pressure — just a straight
             answer on what your business needs and what it would cost.
           </p>
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <a
-              href="https://calendly.com/jakwounreid/intro-call"
+            <GtagLink
+              href={BOOKING_URL}
+              event="booking_click"
+              eventParams={{ page: "build", position: "bottom_cta" }}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 border border-blue-400 bg-blue-400 px-8 py-4 text-sm font-bold uppercase tracking-widest text-black transition-all duration-200 hover:bg-transparent hover:text-blue-400"
             >
               Book a Free Call
@@ -482,7 +485,7 @@ export default function BuildPage() {
               >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-            </a>
+            </GtagLink>
             <Link
               href="/"
               className="text-sm font-medium text-neutral-500 underline-offset-4 hover:text-neutral-300 hover:underline"
