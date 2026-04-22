@@ -118,7 +118,7 @@ export default function BuildPage() {
         </h1>
 
         <p className="mx-auto mt-8 max-w-2xl text-lg text-neutral-400 sm:text-xl">
-          Senior full-stack engineer with 3+ years in fintech at Northwestern Mutual.
+          Full-stack engineer with 3+ years building production systems in fintech at Northwestern Mutual.
           Available for part-time contracts and fixed-price web projects for small businesses.
           Starts at{" "}
           <span className="font-semibold text-white">$1,500</span>.
