@@ -21,6 +21,9 @@ export default function ContactForm() {
       `Name: ${form.name}\nSocial: ${form.social}\n\nProject Details:\n${form.details}`
     );
     window.location.href = `mailto:jakwoun@jakwoun.me?subject=${subject}&body=${body}`;
+    if (typeof window !== "undefined" && typeof window.gtag === "function") {
+      window.gtag("event", "contact_form_submit", { page: "editing_services" });
+    }
     setState("sent");
   }
 

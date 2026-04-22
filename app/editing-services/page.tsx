@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import ContactForm from "./contact-form";
+import GtagLink from "@/components/gtag-link";
 
 export const metadata = {
   title: "Professional Post-Production Partner — Jakwoun Reid",
@@ -318,8 +319,10 @@ export default function EditingServicesPage() {
                   ))}
                 </ul>
 
-                <a
+                <GtagLink
                   href={tier.ctaHref}
+                  event="editing_inquiry_click"
+                  eventParams={{ tier: tier.name }}
                   className={`group mt-auto inline-flex items-center gap-2 px-6 py-3 text-sm font-bold uppercase tracking-widest transition-all duration-200 ${
                     tier.featured
                       ? "border border-blue-400 bg-blue-400 text-black hover:bg-transparent hover:text-blue-400"
@@ -340,7 +343,7 @@ export default function EditingServicesPage() {
                       d="M17 8l4 4m0 0l-4 4m4-4H3"
                     />
                   </svg>
-                </a>
+                </GtagLink>
               </div>
             ))}
           </div>
