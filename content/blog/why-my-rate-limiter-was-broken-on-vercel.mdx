@@ -1,0 +1,221 @@
+---
+title: "Why My Rate Limiter Was Silently Broken on Vercel (and How I Fixed It on Cloudflare Workers)"
+summary: "An in-memory Map is not a rate limiter on serverless. Here's why, what I replaced it with, and the one remaining tradeoff worth understanding."
+publishDate: "2026-04-24"
+status: draft
+tags: ["cloudflare", "workers", "serverless", "migration", "edge"]
+---
+
+My rate limiter was silently broken in production for months.
+
+No errors in the logs.
+No alerts.
+The endpoint was returning 429s correctly in my local tests.
+In production, users could hammer it indefinitely and nothing would stop them.
+The counter reset itself on every cold start — which happened constantly, because the function was stateless.
+
+The implementation looked right:
+
+```ts
+const rateLimit = new Map<string, { count: number; resetAt: number }>();
+```
+
+That Map lives in the Node.js process.
+On Vercel, each serverless invocation can land on a different instance.
+Two requests from the same IP in the same minute might hit two separate processes with two separate Maps, each starting at zero.
+There is no shared state.
+You don't have a rate limiter.
+You have a rate limiter that works exactly once per cold start and then resets.
+
+The fix required moving off Vercel entirely.
+
+## Why this happens
+
+Serverless functions are stateless by design.
+That's the whole point — you write a function, the platform scales it horizontally, and you don't manage instances.
+The trade-off is that anything you store in process memory disappears when the function scales down, and is never visible to the parallel instance that handles the next request.
+
+For most state — database queries, user sessions, auth tokens — this is fine because you're already storing that in an external system.
+Rate limiting is easy to get wrong because a Map is the intuitive solution.
+It's fast, it's in-memory, it works in tests.
+It fails silently in production because nothing throws an error.
+The function just doesn't know about the other instances.
+
+I had this broken for months before I checked.
+The audit endpoint was live, the UI showed the limit working correctly in my own testing, and I moved on.
+A user with automation could have scraped it all day.
+The thing that finally caught it was reading the code for an unrelated reason and noticing I had no external state store anywhere in the rate limiting path.
+
+## The rebuild
+
+The root problem was state isolation.
+Fixing it meant choosing a state store that exists outside any individual function instance.
+
+I moved [SiteCheck](https://site-check.jakwounreid.workers.dev) from Vercel to Cloudflare Workers and replaced the in-memory Map with Workers KV.
+
+```ts
+// Before — resets on every cold start, invisible to parallel instances
+const rateLimit = new Map<string, { count: number; resetAt: number }>();
+
+// After — globally distributed, persists across restarts
+const entry = await env.RATE_LIMIT.get<RateLimitEntry>(key, "json");
+await env.RATE_LIMIT.put(key, JSON.stringify({ count, resetAt }), {
+  expiration: resetAt,
+});
+```
+
+KV is available globally and survives restarts.
+Each IP gets 5 audits per hour.
+The entry has a TTL set to `resetAt`, so when the window expires the key disappears automatically.
+No cleanup job, no cron, no stale entries accumulating.
+
+Three other things had to change as part of the move.
+
+### Email: Resend SDK → direct fetch
+
+The original code used the Resend npm package:
+
+```ts
+import { Resend } from "resend";
+const resend = new Resend(process.env.RESEND_API_KEY);
+await resend.emails.send({ ... });
+```
+
+The Resend SDK pulls in Node.js-specific dependencies that don't run in the Workers runtime.
+The fix is a direct `fetch` against the Resend REST API:
+
+```ts
+await fetch("https://api.resend.com/emails", {
+  method: "POST",
+  headers: {
+    Authorization: `Bearer ${env.RESEND_API_KEY}`,
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({ ... }),
+});
+```
+
+Same result.
+No SDK dependency.
+Works anywhere the Fetch API exists, which is everywhere.
+
+### Routing: Next.js API routes → Hono
+
+The original Next.js route handlers already used the Web Request/Response API, so the logic itself was portable.
+I moved it into a [Hono](https://hono.dev/) router in `worker/src/index.ts`:
+
+```
+/health          → inline handler
+/api/audit       → worker/src/routes/audit.ts
+/api/send-report → worker/src/routes/report.ts
+```
+
+The logic didn't change.
+The framework wrapper did.
+Hono is small, typed, and runs in Workers without any Node.js compatibility shims.
+
+### Static frontend: Vercel SSR → static export + Workers Static Assets
+
+Next.js on Vercel can do server-side rendering per request.
+SiteCheck doesn't need that.
+Every page is static.
+
+Setting `output: "export"` in `next.config.ts` generates a static `out/` directory.
+Wrangler uploads those files to Cloudflare's asset pipeline, which serves them from the nearest PoP with no Worker invocation — and no Worker billing — for cache hits.
+The static site and the API live in the same deploy artifact, served from the same infrastructure.
+
+The trade-off: no `getServerSideProps`, no dynamic rendering at the edge, no Next.js API routes.
+For SiteCheck, that's a zero-cost trade.
+
+## The tradeoff worth understanding
+
+KV is eventually consistent.
+
+That sentence sounds fine until you think through what it means for rate limiting specifically.
+If two requests from the same IP arrive simultaneously before either write completes, both reads return `null`.
+Both create a new window.
+Both get through.
+
+At the boundary of a rate limit window, a determined user could get one extra request past the limit.
+
+For a free audit tool running at low traffic, this is acceptable.
+The race only matters when two requests arrive within the same milliseconds at the exact moment a window resets — which is rare, and when it happens, one extra audit is not a meaningful failure.
+But if you're enforcing paid-tier quotas or defending against abuse at scale, this race matters and you need a different primitive.
+
+## The upgrade path: Durable Objects
+
+Cloudflare Durable Objects give you a single-instance actor per logical key.
+Each IP gets its own DO instance.
+The `fetch()` handler on that instance runs serially — no concurrent reads, no race.
+
+```toml
+# wrangler.toml
+[[durable_objects.bindings]]
+name = "RATE_LIMITER"
+class_name = "RateLimiterDO"
+
+[[migrations]]
+tag = "v1"
+new_classes = ["RateLimiterDO"]
+```
+
+```ts
+export class RateLimiterDO {
+  private count = 0;
+  private resetAt = 0;
+
+  async fetch(request: Request): Promise<Response> {
+    const now = Math.floor(Date.now() / 1000);
+    if (now >= this.resetAt) {
+      this.count = 0;
+      this.resetAt = now + 3600;
+    }
+    if (this.count >= 5) return new Response("rate limited", { status: 429 });
+    this.count++;
+    return new Response("ok");
+  }
+}
+```
+
+Call it from the audit route:
+
+```ts
+const id = env.RATE_LIMITER.idFromName(ip);
+const stub = env.RATE_LIMITER.get(id);
+const res = await stub.fetch(request);
+if (res.status === 429) return c.json({ error: "Rate limit exceeded" }, 429);
+```
+
+Each IP maps to exactly one DO instance.
+Requests to that instance are serialized.
+The count is authoritative.
+
+The DO approach is also cheaper at scale — ~$0.15 per million requests versus KV's ~$0.50 per million reads.
+At the traffic SiteCheck sees today, the difference is rounding error.
+But if the project grows, DOs become the right call on correctness grounds alone, and the cost argument follows.
+
+I haven't made the switch yet.
+The KV limiter is good enough for where the project is.
+But the migration is small — swap the binding in `wrangler.toml`, add the DO class, update the audit route to call the stub instead of reading KV directly.
+The path is clear.
+
+## What actually changed
+
+The migration fixed a real bug.
+The rate limiter works now.
+The Map is gone.
+The rest — Hono, direct fetch, static export — those were consequences of moving to a runtime that doesn't support Node.js-specific APIs, not reasons to migrate on their own.
+
+I didn't move to Workers because it's a better product in every dimension.
+I moved because the state problem I had required a distributed key-value store, Workers KV was the simplest path to one, and the rest of the project fit the Workers model cleanly enough that it made sense to consolidate.
+
+One deploy artifact.
+One platform.
+Distributed state that actually works.
+
+The live tool is at [site-check.jakwounreid.workers.dev](https://site-check.jakwounreid.workers.dev).
+Full source at [github.com/JakwounReid/site-check](https://github.com/JakwounReid/site-check).
+
+---
+
+*I'm open to Cloudflare-adjacent roles and contract work — [reach out](mailto:jakwounreid@gmail.com) if that's useful.*
