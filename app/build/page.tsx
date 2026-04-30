@@ -2,9 +2,9 @@ import Link from "next/link";
 import GtagLink from "@/components/gtag-link";
 
 export const metadata = {
-  title: "Web Development — Jakwoun Reid",
+  title: "Web Development for Service Businesses — Jakwoun Reid",
   description:
-    "Contract React/Node.js engineer available 10–20 hrs/week. Also building custom sites and digital systems for small businesses. Fixed price, fast delivery.",
+    "Custom websites and digital systems for service businesses doing $500K–$5M in revenue. Fixed price. You own the code. Book a free 15-minute call.",
 };
 
 const BOOKING_URL = "https://calendly.com/jakwounreid/intro-call";
@@ -12,63 +12,82 @@ const BOOKING_URL = "https://calendly.com/jakwounreid/intro-call";
 const tiers = [
   {
     name: "The Launch",
-    price: "$1,500",
-    priceSuffix: "– $2,500",
+    price: "$3,500",
+    priceSuffix: "– $5,000",
     badge: null,
-    features: ["5-page custom site", "Mobile + SEO ready", "7-day delivery"],
+    features: [
+      "5-page custom site",
+      "Mobile + SEO ready",
+      "Lead capture + contact forms",
+      "2-week delivery",
+    ],
     featured: false,
   },
   {
     name: "The Build",
-    price: "$3,500",
-    priceSuffix: "– $5,000",
+    price: "$6,000",
+    priceSuffix: "– $9,000",
     badge: "Most Popular",
-    features: ["Everything in Launch", "1 integrated system (booking / payments / ecommerce)", "2-week delivery"],
+    features: [
+      "Everything in Launch",
+      "1 integrated system (booking / payments / CRM)",
+      "Automations to reduce manual work",
+      "3-week delivery",
+    ],
     featured: true,
   },
   {
     name: "The System",
-    price: "$7,500",
-    priceSuffix: "– $12,000",
+    price: "$12,000",
+    priceSuffix: "– $18,000",
     badge: null,
-    features: ["Full digital infrastructure", "Automations + multiple integrations", "4-week delivery + 30-day support"],
+    features: [
+      "Full digital infrastructure",
+      "Multiple integrations + automations",
+      "4-week delivery + 30-day support",
+      "Built to scale with your business",
+    ],
     featured: false,
   },
 ];
 
-const stack = ["React", "TypeScript", "Node.js", "PostgreSQL", "AWS"];
-
 const proofPoints = [
-  { stat: "3+ yrs", label: "fintech engineering at Northwestern Mutual" },
-  { stat: "Fortune 500", label: "production systems, regulated environments" },
-  { stat: "Since 2021", label: "freelancing for small businesses end-to-end" },
+  { stat: "Since 2021", label: "building for service businesses end-to-end" },
+  { stat: "Fortune 500", label: "engineering standards applied to your business" },
+  { stat: "Fixed price", label: "no hourly rates, no scope creep" },
 ];
+
 
 const faqs = [
   {
     question: "Do you work with my existing site or build from scratch?",
     answer:
-      "Both. If your current site is salvageable I can work with it. If it's easier to rebuild, I'll tell you honestly. Either way you get a clear recommendation on the discovery call.",
+      "Both. If your current site is worth saving I'll work with it. If a rebuild is the faster path, I'll tell you honestly. Either way you get a clear recommendation on the discovery call — before you commit to anything.",
   },
   {
-    question: "What platforms do you build on?",
+    question: "What does 'you own the code' actually mean?",
     answer:
-      "I build custom sites using Next.js, TypeScript, and Tailwind — a modern open source stack that's fast, scalable, and doesn't lock you into a monthly platform fee. For ecommerce, I work with Shopify.",
+      "You get the full codebase, hosted wherever you choose. There's no ongoing dependency on me to keep your site running. No platform subscription fees. You can hand it to any developer in the future.",
   },
   {
-    question: "Do I own the code when we're done?",
+    question: "What kind of integrations can you build?",
     answer:
-      "Yes. You get the full codebase, hosted wherever you want. No ongoing fees, no dependencies on me to keep the lights on.",
+      "Online booking, payment processing, contact forms, CRM connections, automated follow-up sequences, review request flows, and more. If you're doing something manually today that a system could handle, that's scope for The Build or The System.",
   },
   {
-    question: "What if I'm not sure which tier is right for me?",
+    question: "What if I'm not sure which tier fits?",
     answer:
-      "Book the call. 15 minutes, no pressure. I'll ask about your business and tell you exactly what I'd build and what it would cost — before you commit to anything.",
+      "Book the 15-minute call. I'll ask about your business, understand where you're losing time or clients, and give you a straight recommendation — with a price — before you decide anything.",
   },
   {
-    question: "Can you work with businesses outside Milwaukee?",
+    question: "What's the retainer for?",
     answer:
-      "Yes, all projects are remote. I'm based in Milwaukee but have worked with clients in other cities and states.",
+      "For clients who don't want to think about their site after launch. The retainer covers monthly updates, priority support, performance monitoring, and small additions as your business changes. Most clients who take it say it's the easiest line item they have.",
+  },
+  {
+    question: "Do you work with businesses outside of Milwaukee?",
+    answer:
+      "Yes. All projects are remote. I've worked with clients across multiple states. Location doesn't factor into delivery.",
   },
 ];
 
@@ -99,45 +118,30 @@ export default function BuildPage() {
           className="absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-blue-500/20 to-transparent"
         />
 
-        {/* Availability badge */}
-        <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-green-950/30 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-green-400">
-          <span className="inline-block h-1.5 w-1.5 rounded-full bg-green-400 animate-pulse" />
-          Available now · 10–20 hrs/week
+        <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-950/30 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-blue-400">
+          Service Businesses · $500K–$5M Revenue
         </p>
 
         <h1 className="mx-auto max-w-4xl text-5xl font-black leading-[1.08] tracking-tight text-white sm:text-6xl md:text-7xl">
-          React &amp; Node.js.{" "}
+          Your Business Earns Offline.{" "}
           <span className="relative inline-block text-blue-400">
-            Contract work,
+            You&rsquo;re Leaking Leads
             <span
               aria-hidden
               className="absolute -bottom-1 left-0 h-px w-full bg-blue-400/50"
             />
           </span>{" "}
-          open now.
+          Online.
         </h1>
 
         <p className="mx-auto mt-8 max-w-2xl text-lg text-neutral-400 sm:text-xl">
-          Full-stack engineer with 3+ years building production systems in fintech at Northwestern Mutual.
-          Available for part-time contracts and fixed-price web projects for small businesses.
-          Starts at{" "}
-          <span className="font-semibold text-white">$1,500</span>.
+          Plumbers, med spas, law firms, contractors — if your website doesn&apos;t
+          reflect what you&apos;ve built, you&apos;re losing clients before the first
+          conversation. I build the digital infrastructure that fixes that.
         </p>
 
-        {/* Stack chips */}
-        <div className="mt-8 flex flex-wrap justify-center gap-2">
-          {stack.map((s) => (
-            <span
-              key={s}
-              className="rounded-sm border border-blue-500/20 bg-blue-950/20 px-3 py-1 text-xs font-semibold text-blue-300"
-            >
-              {s}
-            </span>
-          ))}
-        </div>
-
         {/* Proof points */}
-        <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:gap-6">
+        <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:gap-8">
           {proofPoints.map(({ stat, label }) => (
             <div key={stat} className="text-center">
               <span className="text-lg font-black text-white">{stat}</span>{" "}
@@ -195,15 +199,15 @@ export default function BuildPage() {
             {[
               {
                 headline: "Your site doesn't reflect your business",
-                body: "You're doing real work and making real money — but your website looks like it was built in 2014. First impressions cost you clients before you ever talk to them.",
+                body: "You're doing real work and generating real revenue — but your website looks like it was built in 2014. First impressions cost you clients before you ever pick up the phone.",
               },
               {
                 headline: "You're running on manual everything",
-                body: "Booking through DMs. Invoicing by hand. Following up in your head. Every hour you spend on admin is an hour you're not spending on the work that actually pays.",
+                body: "Booking through DMs. Invoicing by hand. Following up from memory. Every hour spent on admin is an hour not spent on the work that actually pays.",
               },
               {
-                headline: "You have no way to capture or convert online",
-                body: "No lead form. No booking link. No payments page. People visit your site and have nowhere to go — so they leave.",
+                headline: "You have no way to capture leads online",
+                body: "No booking link. No lead form. No clear next step. People find you, land on your site, and leave — with no way for you to follow up.",
               },
             ].map(({ headline, body }) => (
               <div
@@ -245,22 +249,22 @@ export default function BuildPage() {
               {
                 n: "01",
                 title: "Discovery Call",
-                body: "15 minutes. I learn about your business, what you need, and what success looks like. You walk away with a clear recommendation — no obligation.",
+                body: "15 minutes. I learn about your business, where you're losing time or leads, and what success looks like. You walk away with a clear recommendation — no obligation.",
               },
               {
                 n: "02",
                 title: "Scope + Fixed Price",
-                body: "I send a clear proposal — exactly what I'll build, the delivery timeline, and a flat price. No hourly rates. No scope creep.",
+                body: "I send a clear proposal — exactly what I'll build, the delivery timeline, and a flat price. No hourly rates. No scope creep. No surprises on the invoice.",
               },
               {
                 n: "03",
                 title: "Build",
-                body: "I get to work. You get progress updates. I use AI-assisted tooling to move fast without cutting quality corners.",
+                body: "I get to work. You get progress updates. I use modern tooling to move fast without cutting corners on quality.",
               },
               {
                 n: "04",
                 title: "Launch + Handoff",
-                body: "We go live. I walk you through everything and hand over the full codebase. You own it. Completely.",
+                body: "We go live. I walk you through everything. You own the full codebase — no dependency on me to keep the lights on.",
               },
             ].map(({ n, title, body }) => (
               <li key={n} className="flex gap-6">
@@ -278,7 +282,7 @@ export default function BuildPage() {
       </section>
 
       {/* ── PRICING ── */}
-      <section id="pricing" className="border-t border-neutral-800 px-6 py-24">
+      <section id="pricing" className="border-t border-neutral-800 bg-neutral-950/80 px-6 py-24">
         <div className="mx-auto max-w-5xl">
           <p className="mb-3 text-xs font-medium uppercase tracking-widest text-blue-400">
             The Offerings
@@ -290,7 +294,7 @@ export default function BuildPage() {
             Fixed price. You own the code. No ongoing platform fees.
           </p>
 
-          <div className="grid gap-6 sm:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-3 mb-8">
             {tiers.map((tier) => (
               <div
                 key={tier.name}
@@ -357,14 +361,68 @@ export default function BuildPage() {
               </div>
             ))}
           </div>
+
+          {/* Retainer */}
+          <div className="border border-neutral-700 bg-neutral-900 p-6 sm:p-8">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex-1">
+                <div className="mb-2 flex items-center gap-3">
+                  <p className="font-bold text-white">Ongoing Support Retainer</p>
+                  <span className="rounded-sm border border-neutral-600 bg-neutral-800 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-neutral-400">
+                    Monthly
+                  </span>
+                </div>
+                <p className="mb-4 text-sm text-neutral-400">
+                  For clients who want their digital infrastructure maintained — not just
+                  launched. Updates, monitoring, priority support, and incremental additions
+                  as your business evolves. You stay focused on the work. I keep the systems running.
+                </p>
+                <ul className="flex flex-wrap gap-x-6 gap-y-1 text-sm text-neutral-400">
+                  {[
+                    "Monthly updates + content changes",
+                    "Priority support",
+                    "Performance monitoring",
+                    "Minor additions each month",
+                  ].map((f) => (
+                    <li key={f} className="flex items-center gap-2">
+                      <svg className="h-3.5 w-3.5 shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="shrink-0 sm:text-right">
+                <div className="mb-4">
+                  <span className="text-3xl font-black text-white">$750</span>
+                  <span className="text-lg font-bold text-neutral-400"> – $1,000</span>
+                  <span className="block text-sm text-neutral-500">/month</span>
+                </div>
+                <GtagLink
+                  href={BOOKING_URL}
+                  event="booking_click"
+                  eventParams={{ page: "build", tier: "retainer" }}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-2 border border-neutral-600 bg-transparent px-6 py-3 text-sm font-bold uppercase tracking-widest text-white transition-all duration-200 hover:border-blue-400 hover:text-blue-400"
+                >
+                  Ask About Retainer
+                  <svg className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </GtagLink>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* ── WHY ME ── */}
-      <section className="border-t border-neutral-800 bg-neutral-950/80 px-6 py-24">
+      <section className="border-t border-neutral-800 px-6 py-24">
         <div className="mx-auto max-w-3xl">
           <p className="mb-3 text-xs font-medium uppercase tracking-widest text-blue-400">
-            Why Me
+            Why This Works
           </p>
           <h2 className="mb-4 text-3xl font-black tracking-tight text-white sm:text-4xl">
             Not a Web Designer. A Systems Builder.
@@ -372,36 +430,37 @@ export default function BuildPage() {
           <p className="mb-12 text-neutral-400">
             I came up through{" "}
             <span className="font-semibold text-neutral-300">i.c.stars</span> and
-            have been freelancing since 2021 — with enterprise engineering
-            experience at Northwestern Mutual. I build things that work, not just
-            things that look good.
+            have been building for small businesses since 2021 — with production
+            engineering experience from Fortune 500 environments. The gap between
+            what service businesses earn and what their digital presence communicates
+            is where I operate.
           </p>
 
           <ul className="space-y-5">
             {[
               {
-                icon: "⚡",
-                label: "AI-Assisted Builds",
-                description:
-                  "I use modern AI tooling to build faster without cutting corners — you get enterprise-quality work in days, not months.",
-              },
-              {
-                icon: "🏗️",
-                label: "Enterprise Background",
-                description:
-                  "I build production systems at Northwestern Mutual. Your business gets the same engineering standards as a Fortune 500.",
-              },
-              {
-                icon: "🔓",
-                label: "Open Source Stack",
-                description:
-                  "No vendor lock-in. No monthly platform fees. You own every line of code and can take it anywhere.",
-              },
-              {
                 icon: "⚙️",
                 label: "Systems Thinker",
                 description:
-                  "I don't just build websites — I build the workflows, automations, and integrations that make your business run.",
+                  "A website is the front door. I also build what's behind it — the automations, integrations, and workflows that save you time and capture more revenue.",
+              },
+              {
+                icon: "🏗️",
+                label: "Production-Grade Standards",
+                description:
+                  "I've built in regulated, high-stakes fintech environments. Your business gets the same engineering rigor — without Fortune 500 timelines or prices.",
+              },
+              {
+                icon: "🔓",
+                label: "No Vendor Lock-In",
+                description:
+                  "Open source stack. No monthly platform fees. No dependency on me or any third-party to keep your site live. You own it, completely.",
+              },
+              {
+                icon: "⚡",
+                label: "Fast, Not Rushed",
+                description:
+                  "I use modern tooling to compress timelines without cutting corners. Most projects deliver in 2–4 weeks — not months.",
               },
             ].map(({ icon, label, description }) => (
               <li
@@ -420,7 +479,7 @@ export default function BuildPage() {
       </section>
 
       {/* ── FAQ ── */}
-      <section className="border-t border-neutral-800 px-6 py-24">
+      <section className="border-t border-neutral-800 bg-neutral-950/80 px-6 py-24">
         <div className="mx-auto max-w-3xl">
           <p className="mb-3 text-xs font-medium uppercase tracking-widest text-blue-400">
             Questions
@@ -460,7 +519,7 @@ export default function BuildPage() {
             Let&apos;s Build
           </p>
           <h2 className="mb-4 text-4xl font-black tracking-tight text-white sm:text-5xl">
-            Ready to move forward?
+            Ready to stop leaking leads?
           </h2>
           <p className="mb-10 text-neutral-400">
             Book a free 15-minute call. No pitch, no pressure — just a straight

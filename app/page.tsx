@@ -4,9 +4,9 @@ import { allProjects, allPosts } from "@/lib/content";
 import Subscribe from "@/components/subscribe";
 
 export const metadata = {
-  title: "Jakwoun Reid — Engineer. Builder. Non-Traditional.",
+  title: "Jakwoun Reid — Builder. Engineer. Creator.",
   description:
-    "Full-stack engineer at Northwestern Mutual. Available for contract work and full-time roles. Custom web dev for small businesses. i.c.stars alum.",
+    "Custom websites and digital systems for service businesses. i.c.stars alum. Also building travel content, editing services, and tools for independent creators.",
 };
 
 export default function Home() {
@@ -29,23 +29,23 @@ export default function Home() {
             </span>
             <span className="text-neutral-700">·</span>
             <Link
-              href="/hire"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-green-400 hover:text-green-300 transition-colors"
+              href="/build"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors"
             >
-              <span className="inline-block h-1.5 w-1.5 rounded-full bg-green-400 animate-pulse" />
-              Open to roles &amp; contracts
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-blue-400 animate-pulse" />
+              Taking new clients
             </Link>
           </div>
           <h1 className="text-4xl md:text-5xl font-black leading-tight">
             Jakwoun Reid
           </h1>
           <p className="mt-3 text-lg text-neutral-300 font-medium">
-            Full-Stack Engineer · Web Developer · Builder
+            Systems Builder · Web Developer · Creator
           </p>
           <p className="mt-3 text-neutral-400 text-sm max-w-lg">
-            3+ years building production fintech at Northwestern Mutual. i.c.stars alum.
-            Available for contract work now and full-time roles in June 2026.
-            Also building custom sites and digital systems for small businesses.
+            i.c.stars alum. Production engineering background. Building custom websites
+            and digital systems for service businesses — and independent projects in
+            travel, content, and tooling.
           </p>
         </div>
         <div className="flex justify-center md:justify-end">
@@ -99,40 +99,41 @@ export default function Home() {
         </p>
         <div className="grid md:grid-cols-3 gap-4">
           <Link
-            href="/hire"
-            className="group rounded-2xl border border-green-500/20 bg-green-950/10 p-6 hover:border-green-500/40 hover:bg-green-950/20 transition-colors"
-          >
-            <p className="text-xs font-semibold uppercase tracking-widest text-green-400 mb-2">
-              Hiring manager / recruiter
-            </p>
-            <p className="font-bold text-white text-base">
-              Evaluating me for a role?
-            </p>
-            <p className="mt-2 text-sm text-neutral-400">
-              3+ yrs fintech at Northwestern Mutual. React, TypeScript, Node.js, AWS.
-              Targeting Solutions Engineer and Developer Advocate roles. Open June 2026.
-            </p>
-            <p className="mt-4 text-sm text-green-400 group-hover:text-green-300 transition-colors">
-              View full profile →
-            </p>
-          </Link>
-
-          <Link
             href="/build"
             className="group rounded-2xl border border-blue-500/20 bg-blue-950/10 p-6 hover:border-blue-500/40 hover:bg-blue-950/20 transition-colors"
           >
             <p className="text-xs font-semibold uppercase tracking-widest text-blue-400 mb-2">
-              Founder / startup / small business
+              Service business owner
             </p>
             <p className="font-bold text-white text-base">
-              Need contract dev work done?
+              Your revenue is real. Your website isn&apos;t keeping up.
             </p>
             <p className="mt-2 text-sm text-neutral-400">
-              Available 10–20 hrs/week now. Custom sites and digital systems.
-              Fixed price, open source stack. Starts at $1,500.
+              Plumbers, med spas, law firms, contractors doing $500K–$5M offline.
+              I build the websites and systems that match what you&apos;ve built.
+              Fixed price. You own the code.
             </p>
             <p className="mt-4 text-sm text-blue-400 group-hover:text-blue-300 transition-colors">
               See packages &amp; pricing →
+            </p>
+          </Link>
+
+          <Link
+            href="/editing-services"
+            className="group rounded-2xl border border-neutral-700 p-6 hover:bg-neutral-900/50 transition-colors"
+          >
+            <p className="text-xs font-semibold uppercase tracking-widest text-neutral-500 mb-2">
+              Content creator / filmmaker
+            </p>
+            <p className="font-bold text-white text-base">
+              Need post-production you can actually trust?
+            </p>
+            <p className="mt-2 text-sm text-neutral-400">
+              Video editing, color grading, and post-production for creators who
+              care about quality. Fast turnaround, consistent style.
+            </p>
+            <p className="mt-4 text-sm text-neutral-400 group-hover:text-neutral-200 transition-colors">
+              See editing services →
             </p>
           </Link>
 
