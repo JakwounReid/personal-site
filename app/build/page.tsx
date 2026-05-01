@@ -2,9 +2,9 @@ import Link from "next/link";
 import GtagLink from "@/components/gtag-link";
 
 export const metadata = {
-  title: "Web Development for Service Businesses — Jakwoun Reid",
+  title: "Digital Infrastructure for Service Businesses — Jakwoun Reid",
   description:
-    "Custom websites and digital systems for service businesses doing $500K–$5M in revenue. Fixed price. You own the code. Book a free 15-minute call.",
+    "Custom websites, booking systems, and automations for service businesses doing $500K–$5M in revenue. Diagnosis first. Fixed price. You own the code.",
 };
 
 const BOOKING_URL = "https://calendly.com/jakwounreid/intro-call";
@@ -12,8 +12,9 @@ const BOOKING_URL = "https://calendly.com/jakwounreid/intro-call";
 const tiers = [
   {
     name: "The Launch",
-    price: "$3,500",
-    priceSuffix: "– $5,000",
+    tagline: "For businesses that need a real online presence, fast.",
+    price: "From $3,500",
+
     badge: null,
     features: [
       "5-page custom site",
@@ -25,8 +26,9 @@ const tiers = [
   },
   {
     name: "The Build",
-    price: "$6,000",
-    priceSuffix: "– $9,000",
+    tagline: "For service businesses ready to stop running on duct tape.",
+    price: "From $6,000",
+
     badge: "Most Popular",
     features: [
       "Everything in Launch",
@@ -38,8 +40,9 @@ const tiers = [
   },
   {
     name: "The System",
-    price: "$12,000",
-    priceSuffix: "– $18,000",
+    tagline: "For operators ready to build digital infrastructure that scales.",
+    price: "From $12,000",
+
     badge: null,
     features: [
       "Full digital infrastructure",
@@ -234,6 +237,44 @@ export default function BuildPage() {
         </div>
       </section>
 
+      {/* ── DIAGNOSIS FIRST ── */}
+      <section className="border-t border-neutral-800 px-6 py-28">
+        <div className="mx-auto max-w-2xl">
+          <h2 className="mb-6 text-2xl font-black tracking-tight text-white sm:text-3xl">
+            Most agencies sell you a website. I sell you the right answer.
+          </h2>
+          <p className="text-lg leading-relaxed text-neutral-400">
+            Before I write a line of code I&apos;ll tell you what&apos;s actually
+            broken — and sometimes that means a smaller build than you expected.
+            Sometimes it means more. The discovery call ends with a clear
+            recommendation: this is what&apos;s leaking revenue, this is what to fix
+            first, this is what it costs. You can take that recommendation to me, to
+            another developer, or sit on it. The answer is yours either way.
+          </p>
+          <div className="mt-10">
+            <GtagLink
+              href={BOOKING_URL}
+              event="booking_click"
+              eventParams={{ page: "build", position: "diagnosis_section" }}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 border border-blue-400 bg-blue-400 px-8 py-4 text-sm font-bold uppercase tracking-widest text-black transition-all duration-200 hover:bg-transparent hover:text-blue-400"
+            >
+              Book the 15-minute call
+              <svg
+                className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </GtagLink>
+          </div>
+        </div>
+      </section>
+
       {/* ── HOW IT WORKS ── */}
       <section className="border-t border-neutral-800 bg-neutral-950/80 px-6 py-24">
         <div className="mx-auto max-w-3xl">
@@ -304,7 +345,7 @@ export default function BuildPage() {
                     : "border-neutral-700"
                 }`}
               >
-                <div className="mb-4 flex items-start justify-between gap-3">
+                <div className="mb-2 flex items-start justify-between gap-3">
                   <p className="font-bold text-white">{tier.name}</p>
                   {tier.badge && (
                     <span className="shrink-0 rounded-sm border border-blue-400/40 bg-blue-400/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-blue-400">
@@ -313,9 +354,10 @@ export default function BuildPage() {
                   )}
                 </div>
 
+                <p className="mb-4 text-xs text-neutral-500">{tier.tagline}</p>
+
                 <div className="mb-5 flex items-baseline gap-1 flex-wrap">
                   <span className="text-3xl font-black text-white">{tier.price}</span>
-                  <span className="text-lg font-bold text-neutral-400">{tier.priceSuffix}</span>
                 </div>
 
                 <ul className="mb-6 space-y-2 text-sm text-neutral-400 flex-1">
@@ -425,15 +467,13 @@ export default function BuildPage() {
             Why This Works
           </p>
           <h2 className="mb-4 text-3xl font-black tracking-tight text-white sm:text-4xl">
-            Not a Web Designer. A Systems Builder.
+            I diagnose what&apos;s costing you revenue. Then I build the fix.
           </h2>
           <p className="mb-12 text-neutral-400">
-            I came up through{" "}
-            <span className="font-semibold text-neutral-300">i.c.stars</span> and
-            have been building for small businesses since 2021 — with production
-            engineering experience from Fortune 500 environments. The gap between
-            what service businesses earn and what their digital presence communicates
-            is where I operate.
+            Most developers will quote you a website. I&apos;ll tell you whether a
+            website is even what&apos;s broken. Sometimes the real fix is a booking
+            system, an automation, or killing three tools you&apos;re paying for. The
+            diagnosis comes first. The build follows.
           </p>
 
           <ul className="space-y-5">

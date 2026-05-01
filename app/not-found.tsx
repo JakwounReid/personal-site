@@ -16,12 +16,6 @@ export default function NotFound() {
           Home
         </Link>
         <Link
-          href="/hire"
-          className="rounded-xl border border-neutral-700 px-5 py-3 text-sm font-medium hover:bg-neutral-900 transition-colors"
-        >
-          Hire me
-        </Link>
-        <Link
           href="/build"
           className="rounded-xl border border-neutral-700 px-5 py-3 text-sm font-medium hover:bg-neutral-900 transition-colors"
         >

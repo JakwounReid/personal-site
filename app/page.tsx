@@ -4,9 +4,9 @@ import { allProjects, allPosts } from "@/lib/content";
 import Subscribe from "@/components/subscribe";
 
 export const metadata = {
-  title: "Jakwoun Reid — Builder. Engineer. Creator.",
+  title: "Jakwoun Reid — Digital Infrastructure for Service Businesses",
   description:
-    "Custom websites and digital systems for service businesses. i.c.stars alum. Also building travel content, editing services, and tools for independent creators.",
+    "I diagnose what's costing service businesses revenue and build the system that captures it. Custom sites, bookings, automations. Fixed price.",
 };
 
 export default function Home() {
@@ -40,18 +40,18 @@ export default function Home() {
             Jakwoun Reid
           </h1>
           <p className="mt-3 text-lg text-neutral-300 font-medium">
-            Systems Builder · Web Developer · Creator
+            Systems Consultant · Engineer · Builder
           </p>
           <p className="mt-3 text-neutral-400 text-sm max-w-lg">
-            i.c.stars alum. Production engineering background. Building custom websites
-            and digital systems for service businesses — and independent projects in
-            travel, content, and tooling.
+            Diagnosis first. Build second. I find what&apos;s costing you revenue and
+            build the system that captures it — not a template, not a guess.
+            Production engineering background. Fixed price.
           </p>
         </div>
         <div className="flex justify-center md:justify-end">
           <div className="relative">
             <Image
-              src="/profile.jpg"
+              src="/profile-jakwoun.jpg"
               alt="Jakwoun Reid"
               width={300}
               height={300}
@@ -97,43 +97,22 @@ export default function Home() {
         <p className="text-xs font-medium uppercase tracking-widest text-neutral-500 mb-4">
           What brings you here?
         </p>
-        <div className="grid md:grid-cols-3 gap-4">
+        <div className="grid md:grid-cols-2 gap-4">
           <Link
             href="/build"
             className="group rounded-2xl border border-blue-500/20 bg-blue-950/10 p-6 hover:border-blue-500/40 hover:bg-blue-950/20 transition-colors"
           >
             <p className="text-xs font-semibold uppercase tracking-widest text-blue-400 mb-2">
-              Service business owner
+              Founder / service business
             </p>
             <p className="font-bold text-white text-base">
-              Your revenue is real. Your website isn&apos;t keeping up.
+              Need digital infrastructure that actually works?
             </p>
             <p className="mt-2 text-sm text-neutral-400">
-              Plumbers, med spas, law firms, contractors doing $500K–$5M offline.
-              I build the websites and systems that match what you&apos;ve built.
-              Fixed price. You own the code.
+              Custom sites, booking systems, automations. Fixed price. You own everything.
             </p>
             <p className="mt-4 text-sm text-blue-400 group-hover:text-blue-300 transition-colors">
               See packages &amp; pricing →
-            </p>
-          </Link>
-
-          <Link
-            href="/editing-services"
-            className="group rounded-2xl border border-neutral-700 p-6 hover:bg-neutral-900/50 transition-colors"
-          >
-            <p className="text-xs font-semibold uppercase tracking-widest text-neutral-500 mb-2">
-              Content creator / filmmaker
-            </p>
-            <p className="font-bold text-white text-base">
-              Need post-production you can actually trust?
-            </p>
-            <p className="mt-2 text-sm text-neutral-400">
-              Video editing, color grading, and post-production for creators who
-              care about quality. Fast turnaround, consistent style.
-            </p>
-            <p className="mt-4 text-sm text-neutral-400 group-hover:text-neutral-200 transition-colors">
-              See editing services →
             </p>
           </Link>
 
@@ -142,14 +121,14 @@ export default function Home() {
             className="group rounded-2xl border border-neutral-700 p-6 hover:bg-neutral-900/50 transition-colors"
           >
             <p className="text-xs font-semibold uppercase tracking-widest text-neutral-500 mb-2">
-              Fellow builder / content reader
+              Builder / reader
             </p>
             <p className="font-bold text-white text-base">
-              Here from the content pipeline post?
+              Here from a post?
             </p>
             <p className="mt-2 text-sm text-neutral-400">
               I write about building in public, non-traditional tech careers, and the
-              systems behind the work. New post every week.
+              systems behind the work. New post weekly.
             </p>
             <p className="mt-4 text-sm text-neutral-400 group-hover:text-neutral-200 transition-colors">
               Read the blog →
