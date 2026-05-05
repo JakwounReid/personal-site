@@ -4,9 +4,9 @@ import { allProjects, allPosts } from "@/lib/content";
 import Subscribe from "@/components/subscribe";
 
 export const metadata = {
-  title: "Jakwoun Reid — Digital Infrastructure for Service Businesses",
+  title: "Jakwoun Reid — Digital Infrastructure for Mission-Driven Operators",
   description:
-    "I diagnose what's costing service businesses revenue and build the system that captures it. Custom sites, bookings, automations. Fixed price.",
+    "I build digital infrastructure for consultants, coaches, and mission-driven founders. Custom sites, integrations, automations. Diagnosis first. Fixed price.",
 };
 
 export default function Home() {
@@ -43,9 +43,9 @@ export default function Home() {
             Systems Consultant · Engineer · Builder
           </p>
           <p className="mt-3 text-neutral-400 text-sm max-w-lg">
-            Diagnosis first. Build second. I find what&apos;s costing you revenue and
-            build the system that captures it — not a template, not a guess.
-            Production engineering background. Fixed price.
+            I build the system behind the work — custom sites, integrations, and
+            automations for consultants and mission-driven operators who need their
+            digital presence to match what they&apos;ve actually built.
           </p>
         </div>
         <div className="flex justify-center md:justify-end">
@@ -103,13 +103,13 @@ export default function Home() {
             className="group rounded-2xl border border-blue-500/20 bg-blue-950/10 p-6 hover:border-blue-500/40 hover:bg-blue-950/20 transition-colors"
           >
             <p className="text-xs font-semibold uppercase tracking-widest text-blue-400 mb-2">
-              Founder / service business
+              Founder, consultant, or operator
             </p>
             <p className="font-bold text-white text-base">
-              Need digital infrastructure that actually works?
+              Building something with real impact and need digital infrastructure to match?
             </p>
             <p className="mt-2 text-sm text-neutral-400">
-              Custom sites, booking systems, automations. Fixed price. You own everything.
+              Custom sites, integrations, automations — fixed price, you own everything.
             </p>
             <p className="mt-4 text-sm text-blue-400 group-hover:text-blue-300 transition-colors">
               See packages &amp; pricing →

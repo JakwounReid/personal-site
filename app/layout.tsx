@@ -6,12 +6,12 @@ import ClaritySnippet from '@/components/clarity-snippet'
 import { Analytics } from '@vercel/analytics/next'
 
 export const metadata = {
-  title: 'Jakwoun Reid — Digital Infrastructure for Service Businesses',
-  description: 'Systems consultant and engineer building digital infrastructure for service businesses. Diagnosis-first. Fixed price. Open source stack.',
+  title: 'Jakwoun Reid — Digital Infrastructure for Mission-Driven Operators',
+  description: 'Systems consultant and engineer building digital infrastructure for consultants, coaches, and mission-driven founders. Diagnosis-first. Fixed price. Open source stack.',
   metadataBase: new URL('https://jakwoun.me'),
   openGraph: {
-    title: 'Jakwoun Reid — Digital Infrastructure for Service Businesses',
-    description: 'Systems consultant and engineer building digital infrastructure for service businesses. Diagnosis-first. Fixed price. Open source stack.',
+    title: 'Jakwoun Reid — Digital Infrastructure for Mission-Driven Operators',
+    description: 'Systems consultant and engineer building digital infrastructure for consultants, coaches, and mission-driven founders. Diagnosis-first. Fixed price. Open source stack.',
     url: 'https://jakwoun.me',
     siteName: 'Jakwoun Reid',
     images: [{ url: '/og-image.jpg', width: 1200, height: 630 }],
@@ -19,8 +19,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Jakwoun Reid — Digital Infrastructure for Service Businesses',
-    description: 'Systems consultant and engineer building digital infrastructure for service businesses. Diagnosis-first. Fixed price. Open source stack.',
+    title: 'Jakwoun Reid — Digital Infrastructure for Mission-Driven Operators',
+    description: 'Systems consultant and engineer building digital infrastructure for consultants, coaches, and mission-driven founders. Diagnosis-first. Fixed price. Open source stack.',
     images: ['/og-image.jpg'],
   },
 }

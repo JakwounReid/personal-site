@@ -2,9 +2,9 @@ import Link from "next/link";
 import GtagLink from "@/components/gtag-link";
 
 export const metadata = {
-  title: "Digital Infrastructure for Service Businesses — Jakwoun Reid",
+  title: "Digital Infrastructure for Consultants & Mission-Driven Founders — Jakwoun Reid",
   description:
-    "Custom websites, booking systems, and automations for service businesses doing $500K–$5M in revenue. Diagnosis first. Fixed price. You own the code.",
+    "Custom sites, integrations, and automations for solo consultants, coaches, and mission-driven founders. Diagnosis first. Fixed price. You own the code.",
 };
 
 const BOOKING_URL = "https://calendly.com/jakwounreid/intro-call";
@@ -12,7 +12,7 @@ const BOOKING_URL = "https://calendly.com/jakwounreid/intro-call";
 const tiers = [
   {
     name: "The Launch",
-    tagline: "For businesses that need a real online presence, fast.",
+    tagline: "For consultants and creators who need a real digital presence, fast.",
     price: "From $3,500",
 
     badge: null,
@@ -26,7 +26,7 @@ const tiers = [
   },
   {
     name: "The Build",
-    tagline: "For service businesses ready to stop running on duct tape.",
+    tagline: "For solo operators ready to stop running on duct-taped tools.",
     price: "From $6,000",
 
     badge: "Most Popular",
@@ -40,7 +40,7 @@ const tiers = [
   },
   {
     name: "The System",
-    tagline: "For operators ready to build digital infrastructure that scales.",
+    tagline: "For established consultants and impact-driven organizations building infrastructure that scales.",
     price: "From $12,000",
 
     badge: null,
@@ -55,8 +55,8 @@ const tiers = [
 ];
 
 const proofPoints = [
-  { stat: "Since 2021", label: "building for service businesses end-to-end" },
-  { stat: "Fortune 500", label: "engineering standards applied to your business" },
+  { stat: "Since 2021", label: "building for solo operators and small organizations" },
+  { stat: "Fortune 500", label: "engineering standards on indie founder timelines" },
   { stat: "Fixed price", label: "no hourly rates, no scope creep" },
 ];
 
@@ -75,7 +75,7 @@ const faqs = [
   {
     question: "What kind of integrations can you build?",
     answer:
-      "Online booking, payment processing, contact forms, CRM connections, automated follow-up sequences, review request flows, and more. If you're doing something manually today that a system could handle, that's scope for The Build or The System.",
+      "Booking and intake flows, payment and subscription handling, newsletter and CRM integrations, automated client onboarding, content publishing pipelines, speaker/podcast page funnels, donation and volunteer flows. If you're doing something manually today that a system could handle, that's scope for The Build or The System.",
   },
   {
     question: "What if I'm not sure which tier fits?",
@@ -90,7 +90,7 @@ const faqs = [
   {
     question: "Do you work with businesses outside of Milwaukee?",
     answer:
-      "Yes. All projects are remote. I've worked with clients across multiple states. Location doesn't factor into delivery.",
+      "Yes — most clients are remote. I'm based in Milwaukee but work with consultants, founders, and organizations across the country. Location doesn't factor into delivery.",
   },
 ];
 
@@ -122,25 +122,22 @@ export default function BuildPage() {
         />
 
         <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-950/30 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-blue-400">
-          Service Businesses · $500K–$5M Revenue
+          Consultants · Coaches · Mission-Driven Founders
         </p>
 
         <h1 className="mx-auto max-w-4xl text-5xl font-black leading-[1.08] tracking-tight text-white sm:text-6xl md:text-7xl">
-          Your Business Earns Offline.{" "}
-          <span className="relative inline-block text-blue-400">
-            You&rsquo;re Leaking Leads
-            <span
-              aria-hidden
-              className="absolute -bottom-1 left-0 h-px w-full bg-blue-400/50"
-            />
+          The work matters.{" "}
+          <span className="text-blue-400">
+            Your digital presence
           </span>{" "}
-          Online.
+          should say so.
         </h1>
 
         <p className="mx-auto mt-8 max-w-2xl text-lg text-neutral-400 sm:text-xl">
-          Plumbers, med spas, law firms, contractors — if your website doesn&apos;t
-          reflect what you&apos;ve built, you&apos;re losing clients before the first
-          conversation. I build the digital infrastructure that fixes that.
+          Solo consultants, coaches, and mission-driven founders running real
+          operations on duct-taped tools. I build the digital infrastructure that
+          matches the seriousness of the work — and quietly does the admin so you
+          can stop thinking about it.
         </p>
 
         {/* Proof points */}
@@ -195,22 +192,22 @@ export default function BuildPage() {
             Sound Familiar?
           </p>
           <h2 className="mb-12 text-3xl font-black tracking-tight text-white sm:text-4xl">
-            Making Money Offline. Losing It Online.
+            Your work has depth. Your digital presence doesn&apos;t show it yet.
           </h2>
 
           <div className="grid gap-6 sm:grid-cols-3">
             {[
               {
-                headline: "Your site doesn't reflect your business",
-                body: "You're doing real work and generating real revenue — but your website looks like it was built in 2014. First impressions cost you clients before you ever pick up the phone.",
+                headline: "Your site doesn't match your work",
+                body: "You're doing important work — leading workshops, advising founders, building programs that actually change people's lives. Your website looks like it was assembled in a weekend in 2022. There's a gap between who you are in person and who your site says you are.",
               },
               {
-                headline: "You're running on manual everything",
-                body: "Booking through DMs. Invoicing by hand. Following up from memory. Every hour spent on admin is an hour not spent on the work that actually pays.",
+                headline: "Your admin stack is held together with duct tape",
+                body: "Calendly, Stripe, Mailchimp, Notion, a Google form, a Typeform you forgot about. Each one solves part of the problem. None of them talk to each other. Every new client means three manual steps that should be one.",
               },
               {
-                headline: "You have no way to capture leads online",
-                body: "No booking link. No lead form. No clear next step. People find you, land on your site, and leave — with no way for you to follow up.",
+                headline: "You're the bottleneck for your own growth",
+                body: "Speaking gigs, podcast appearances, newsletter mentions — they all drive traffic to a site that converts a fraction of what it should. You know the system needs to be rebuilt. You also know you're not the person who should be rebuilding it.",
               },
             ].map(({ headline, body }) => (
               <div
@@ -224,7 +221,7 @@ export default function BuildPage() {
           </div>
 
           <p className="mt-10 text-sm text-neutral-500">
-            Not sure where your site stands?{" "}
+            Want a quick read on where your site stands?{" "}
             <a
               href="https://sitecheck.jakwoun.me"
               target="_blank"
@@ -247,9 +244,9 @@ export default function BuildPage() {
             Before I write a line of code I&apos;ll tell you what&apos;s actually
             broken — and sometimes that means a smaller build than you expected.
             Sometimes it means more. The discovery call ends with a clear
-            recommendation: this is what&apos;s leaking revenue, this is what to fix
-            first, this is what it costs. You can take that recommendation to me, to
-            another developer, or sit on it. The answer is yours either way.
+            recommendation: this is what&apos;s costing you authority, this is what to
+            fix first, this is what it costs. You can take that recommendation to me,
+            to another developer, or sit on it. The answer is yours either way.
           </p>
           <div className="mt-10">
             <GtagLink
@@ -417,7 +414,8 @@ export default function BuildPage() {
                 <p className="mb-4 text-sm text-neutral-400">
                   For clients who want their digital infrastructure maintained — not just
                   launched. Updates, monitoring, priority support, and incremental additions
-                  as your business evolves. You stay focused on the work. I keep the systems running.
+                  as your business evolves. You stay focused on the work. I keep the systems
+                  running. Most clients tell me it&apos;s the easiest line item they have.
                 </p>
                 <ul className="flex flex-wrap gap-x-6 gap-y-1 text-sm text-neutral-400">
                   {[
@@ -467,7 +465,7 @@ export default function BuildPage() {
             Why This Works
           </p>
           <h2 className="mb-4 text-3xl font-black tracking-tight text-white sm:text-4xl">
-            I diagnose what&apos;s costing you revenue. Then I build the fix.
+            I diagnose what&apos;s costing you authority. Then I build the fix.
           </h2>
           <p className="mb-12 text-neutral-400">
             Most developers will quote you a website. I&apos;ll tell you whether a
@@ -482,7 +480,7 @@ export default function BuildPage() {
                 icon: "⚙️",
                 label: "Systems Thinker",
                 description:
-                  "A website is the front door. I also build what's behind it — the automations, integrations, and workflows that save you time and capture more revenue.",
+                  "A website is the front door. I also build what's behind it — the automations, integrations, and workflows that quietly run your operation so you can focus on the work itself.",
               },
               {
                 icon: "🏗️",
@@ -559,11 +557,11 @@ export default function BuildPage() {
             Let&apos;s Build
           </p>
           <h2 className="mb-4 text-4xl font-black tracking-tight text-white sm:text-5xl">
-            Ready to stop leaking leads?
+            Ready for a digital presence that matches the work?
           </h2>
           <p className="mb-10 text-neutral-400">
             Book a free 15-minute call. No pitch, no pressure — just a straight
-            answer on what your business needs and what it would cost.
+            answer on what your operation needs and what it would cost.
           </p>
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <GtagLink
