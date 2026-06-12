@@ -4,6 +4,7 @@ export const metadata = {
   title: "Jakwoun Reid — Full-Stack Engineer",
   description:
     "Full-stack software engineer. 3+ yrs fintech at Northwestern Mutual. React, TypeScript, Node.js, AWS. Open to full-time roles starting June 2026.",
+  robots: { index: false, follow: false },
 };
 
 const stackRows = [

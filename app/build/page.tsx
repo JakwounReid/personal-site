@@ -1,10 +1,11 @@
 import Link from "next/link";
 import GtagLink from "@/components/gtag-link";
+import CaseStudyCard, { type CaseStudy } from "@/components/case-study";
 
 export const metadata = {
-  title: "Digital Infrastructure for Consultants & Mission-Driven Founders — Jakwoun Reid",
+  title: "Web Development for Service Businesses — Jakwoun Reid",
   description:
-    "Custom sites, integrations, and automations for solo consultants, coaches, and mission-driven founders. Diagnosis first. Fixed price. You own the code.",
+    "I diagnose what's broken in your digital infrastructure, then build the fix. Custom sites, integrations, and automations for service businesses. Diagnosis first. Fixed price. You own the code.",
 };
 
 const BOOKING_URL = "https://calendly.com/jakwounreid/intro-call";
@@ -12,7 +13,7 @@ const BOOKING_URL = "https://calendly.com/jakwounreid/intro-call";
 const tiers = [
   {
     name: "The Launch",
-    tagline: "For consultants and creators who need a real digital presence, fast.",
+    tagline: "For businesses whose site is costing them credibility. You need a professional presence that converts, fast.",
     price: "From $3,500",
 
     badge: null,
@@ -26,7 +27,7 @@ const tiers = [
   },
   {
     name: "The Build",
-    tagline: "For solo operators ready to stop running on duct-taped tools.",
+    tagline: "For businesses drowning in manual work. Your site plus the one system (booking, payments, or CRM) that buys your time back.",
     price: "From $6,000",
 
     badge: "Most Popular",
@@ -40,7 +41,7 @@ const tiers = [
   },
   {
     name: "The System",
-    tagline: "For established consultants and impact-driven organizations building infrastructure that scales.",
+    tagline: "For businesses ready to run on infrastructure, not memory. Full build: site, integrations, automations, support.",
     price: "From $12,000",
 
     badge: null,
@@ -58,6 +59,24 @@ const proofPoints = [
   { stat: "Since 2021", label: "building for solo operators and small organizations" },
   { stat: "Fortune 500", label: "engineering standards on indie founder timelines" },
   { stat: "Fixed price", label: "no hourly rates, no scope creep" },
+];
+
+const caseStudies: CaseStudy[] = [
+  {
+    label: "Recent Build",
+    title: "Consultant Site — Full Client Infrastructure",
+    image: "/case-study-consultant.jpg",
+    imageAlt: "Screenshot of theo.jakwoun.me consultant site",
+    stats: [
+      "95+ Lighthouse scores",
+      "Stripe payments + automated email, fully integrated",
+      "Built in days, not months",
+    ],
+    description:
+      "Complete digital infrastructure for an independent consultant: custom site, Stripe checkout, automated client emails, and an MDX content system — production-grade, owned outright.",
+    href: "https://theo.jakwoun.me",
+    linkLabel: "View the live build →",
+  },
 ];
 
 
@@ -234,44 +253,6 @@ export default function BuildPage() {
         </div>
       </section>
 
-      {/* ── DIAGNOSIS FIRST ── */}
-      <section className="border-t border-neutral-800 px-6 py-28">
-        <div className="mx-auto max-w-2xl">
-          <h2 className="mb-6 text-2xl font-black tracking-tight text-white sm:text-3xl">
-            Most agencies sell you a website. I sell you the right answer.
-          </h2>
-          <p className="text-lg leading-relaxed text-neutral-400">
-            Before I write a line of code I&apos;ll tell you what&apos;s actually
-            broken — and sometimes that means a smaller build than you expected.
-            Sometimes it means more. The discovery call ends with a clear
-            recommendation: this is what&apos;s costing you authority, this is what to
-            fix first, this is what it costs. You can take that recommendation to me,
-            to another developer, or sit on it. The answer is yours either way.
-          </p>
-          <div className="mt-10">
-            <GtagLink
-              href={BOOKING_URL}
-              event="booking_click"
-              eventParams={{ page: "build", position: "diagnosis_section" }}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 border border-blue-400 bg-blue-400 px-8 py-4 text-sm font-bold uppercase tracking-widest text-black transition-all duration-200 hover:bg-transparent hover:text-blue-400"
-            >
-              Book the 15-minute call
-              <svg
-                className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </GtagLink>
-          </div>
-        </div>
-      </section>
-
       {/* ── HOW IT WORKS ── */}
       <section className="border-t border-neutral-800 bg-neutral-950/80 px-6 py-24">
         <div className="mx-auto max-w-3xl">
@@ -316,6 +297,62 @@ export default function BuildPage() {
               </li>
             ))}
           </ol>
+        </div>
+      </section>
+
+      {/* ── DIAGNOSIS FIRST ── */}
+      <section className="border-t border-neutral-800 px-6 py-28">
+        <div className="mx-auto max-w-2xl">
+          <h2 className="mb-6 text-2xl font-black tracking-tight text-white sm:text-3xl">
+            Most agencies sell you a website. I sell you the right answer.
+          </h2>
+          <p className="text-lg leading-relaxed text-neutral-400">
+            Before I write a line of code I&apos;ll tell you what&apos;s actually
+            broken — and sometimes that means a smaller build than you expected.
+            Sometimes it means more. The discovery call ends with a clear
+            recommendation: this is what&apos;s leaking revenue, this is what to fix
+            first, this is what it costs. You can take that to me, to another
+            developer, or sit on it. The answer is yours either way.
+          </p>
+          <div className="mt-10">
+            <GtagLink
+              href={BOOKING_URL}
+              event="booking_click"
+              eventParams={{ page: "build", position: "diagnosis_section" }}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 border border-blue-400 bg-blue-400 px-8 py-4 text-sm font-bold uppercase tracking-widest text-black transition-all duration-200 hover:bg-transparent hover:text-blue-400"
+            >
+              Book the 15-minute call
+              <svg
+                className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </GtagLink>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CASE STUDY ── */}
+      <section className="border-t border-neutral-800 px-6 py-24">
+        <div className="mx-auto max-w-5xl">
+          <p className="mb-3 text-xs font-medium uppercase tracking-widest text-blue-400">
+            Proof
+          </p>
+          <h2 className="mb-12 text-3xl font-black tracking-tight text-white sm:text-4xl">
+            A recent build, start to finish.
+          </h2>
+
+          <div className="space-y-6">
+            {caseStudies.map((study) => (
+              <CaseStudyCard key={study.title} study={study} />
+            ))}
+          </div>
         </div>
       </section>
 
@@ -435,8 +472,7 @@ export default function BuildPage() {
               </div>
               <div className="shrink-0 sm:text-right">
                 <div className="mb-4">
-                  <span className="text-3xl font-black text-white">$750</span>
-                  <span className="text-lg font-bold text-neutral-400"> – $1,000</span>
+                  <span className="text-3xl font-black text-white">From $750</span>
                   <span className="block text-sm text-neutral-500">/month</span>
                 </div>
                 <GtagLink
@@ -465,7 +501,7 @@ export default function BuildPage() {
             Why This Works
           </p>
           <h2 className="mb-4 text-3xl font-black tracking-tight text-white sm:text-4xl">
-            I diagnose what&apos;s costing you authority. Then I build the fix.
+            I diagnose what&apos;s costing you revenue. Then I build the fix.
           </h2>
           <p className="mb-12 text-neutral-400">
             Most developers will quote you a website. I&apos;ll tell you whether a
