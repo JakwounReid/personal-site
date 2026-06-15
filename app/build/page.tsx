@@ -84,7 +84,7 @@ const faqs = [
   {
     question: "Do you work with my existing site or build from scratch?",
     answer:
-      "Both. If your current site is worth saving I'll work with it. If a rebuild is the faster path, I'll tell you honestly. Either way you get a clear recommendation on the discovery call — before you commit to anything.",
+      "Both. If your current site is worth saving I'll work with it. If a rebuild is the faster path, I'll tell you honestly. Either way you get a clear recommendation on the free roadmap call — before you commit to anything.",
   },
   {
     question: "What does 'you own the code' actually mean?",
@@ -99,7 +99,7 @@ const faqs = [
   {
     question: "What if I'm not sure which tier fits?",
     answer:
-      "Book the 15-minute call. I'll ask about your business, understand where you're losing time or clients, and give you a straight recommendation — with a price — before you decide anything.",
+      "Book the free 30-minute roadmap call. I'll ask about your business, understand where you're losing time or clients, and build you a custom roadmap — with a price — before you decide anything. From there you can hire me at a discount or book a paid 1-hour consult to go deeper.",
   },
   {
     question: "What's the retainer for?",
@@ -179,7 +179,7 @@ export default function BuildPage() {
             rel="noopener noreferrer"
             className="group inline-flex items-center gap-2 border border-blue-400 bg-blue-400 px-8 py-4 text-sm font-bold uppercase tracking-widest text-black transition-all duration-200 hover:bg-transparent hover:text-blue-400"
           >
-            Book a Free 15-Min Call
+            Book a Free Roadmap Call
             <svg
               className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
               fill="none"
@@ -202,6 +202,73 @@ export default function BuildPage() {
         <span aria-hidden className="absolute right-4 top-4 h-4 w-4 border-r border-t border-blue-500/20" />
         <span aria-hidden className="absolute bottom-4 left-4 h-4 w-4 border-b border-l border-blue-500/20" />
         <span aria-hidden className="absolute bottom-4 right-4 h-4 w-4 border-b border-r border-blue-500/20" />
+      </section>
+
+      {/* ── FREE ROADMAP CALL ── */}
+      <section className="border-t border-neutral-800 bg-neutral-950/80 px-6 py-24">
+        <div className="mx-auto max-w-4xl">
+          <p className="mb-3 text-xs font-medium uppercase tracking-widest text-blue-400">
+            Start Here
+          </p>
+          <h2 className="mb-4 text-3xl font-black tracking-tight text-white sm:text-4xl">
+            Free 30-minute roadmap call.
+          </h2>
+          <p className="mb-10 max-w-2xl text-lg leading-relaxed text-neutral-400">
+            Bring me what&apos;s broken. In 30 minutes I&apos;ll diagnose where
+            your digital infrastructure is leaking time or revenue and build you
+            a custom roadmap — live, on the call. It&apos;s a working session, not
+            a sales pitch. You leave with a plan whether or not we work together.
+          </p>
+
+          <div className="mb-10 grid gap-4 sm:grid-cols-2">
+            <div className="border border-blue-500/30 bg-blue-950/10 p-6">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-blue-400">
+                After the call · Path 1
+              </p>
+              <h3 className="mb-2 font-bold text-white">
+                Hire me to build it — at a discount
+              </h3>
+              <p className="text-sm text-neutral-400">
+                Like the roadmap and want it built? Bring it to me and you get a
+                discount on the infrastructure work — site, integrations,
+                automations. Fixed price, you own the code.
+              </p>
+            </div>
+            <div className="border border-neutral-700 bg-neutral-900/50 p-6">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-neutral-400">
+                After the call · Path 2
+              </p>
+              <h3 className="mb-2 font-bold text-white">
+                Go deeper — paid 1-hour consult
+              </h3>
+              <p className="text-sm text-neutral-400">
+                Want to dig in before building anything? Book a full 1-hour
+                working session at $100/hr to pressure-test the plan, sequence
+                the work, and answer the harder questions.
+              </p>
+            </div>
+          </div>
+
+          <GtagLink
+            href={BOOKING_URL}
+            event="booking_click"
+            eventParams={{ page: "build", position: "roadmap_section" }}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-2 border border-blue-400 bg-blue-400 px-8 py-4 text-sm font-bold uppercase tracking-widest text-black transition-all duration-200 hover:bg-transparent hover:text-blue-400"
+          >
+            Book a Free Roadmap Call
+            <svg
+              className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </GtagLink>
+        </div>
       </section>
 
       {/* ── PROBLEM ── */}
@@ -267,8 +334,8 @@ export default function BuildPage() {
             {[
               {
                 n: "01",
-                title: "Discovery Call",
-                body: "15 minutes. I learn about your business, where you're losing time or leads, and what success looks like. You walk away with a clear recommendation — no obligation.",
+                title: "Free Roadmap Call",
+                body: "30 minutes, free. I diagnose where you're losing time or leads and build you a custom roadmap on the call. You walk away with a plan — no obligation.",
               },
               {
                 n: "02",
@@ -309,7 +376,7 @@ export default function BuildPage() {
           <p className="text-lg leading-relaxed text-neutral-400">
             Before I write a line of code I&apos;ll tell you what&apos;s actually
             broken — and sometimes that means a smaller build than you expected.
-            Sometimes it means more. The discovery call ends with a clear
+            Sometimes it means more. The free roadmap call ends with a clear
             recommendation: this is what&apos;s leaking revenue, this is what to fix
             first, this is what it costs. You can take that to me, to another
             developer, or sit on it. The answer is yours either way.
@@ -323,7 +390,7 @@ export default function BuildPage() {
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 border border-blue-400 bg-blue-400 px-8 py-4 text-sm font-bold uppercase tracking-widest text-black transition-all duration-200 hover:bg-transparent hover:text-blue-400"
             >
-              Book the 15-minute call
+              Book a Free Roadmap Call
               <svg
                 className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
                 fill="none"
@@ -423,7 +490,7 @@ export default function BuildPage() {
                       : "border border-neutral-600 bg-transparent text-white hover:border-blue-400 hover:text-blue-400"
                   }`}
                 >
-                  Book a Call
+                  Book a Free Roadmap Call
                   <svg
                     className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
                     fill="none"
@@ -596,8 +663,8 @@ export default function BuildPage() {
             Ready for a digital presence that matches the work?
           </h2>
           <p className="mb-10 text-neutral-400">
-            Book a free 15-minute call. No pitch, no pressure — just a straight
-            answer on what your operation needs and what it would cost.
+            Book a free 30-minute roadmap call. No pitch, no pressure — just a
+            live diagnosis and a custom plan for what your operation needs.
           </p>
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <GtagLink
@@ -608,7 +675,7 @@ export default function BuildPage() {
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 border border-blue-400 bg-blue-400 px-8 py-4 text-sm font-bold uppercase tracking-widest text-black transition-all duration-200 hover:bg-transparent hover:text-blue-400"
             >
-              Book a Free Call
+              Book a Free Roadmap Call
               <svg
                 className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
                 fill="none"

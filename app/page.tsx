@@ -2,6 +2,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { allProjects, allPosts } from "@/lib/content";
 import Subscribe from "@/components/subscribe";
+import GtagLink from "@/components/gtag-link";
+
+const BOOKING_URL = "https://calendly.com/jakwounreid/intro-call";
 
 export const metadata = {
   title: "Jakwoun Reid — Digital Infrastructure for Mission-Driven Operators",
@@ -47,6 +50,23 @@ export default function Home() {
             automations for consultants and mission-driven operators who need their
             digital presence to match what they&apos;ve actually built.
           </p>
+          <div className="mt-6">
+            <p className="mb-3 text-sm text-neutral-400">
+              Start with a free 30-minute roadmap call — I diagnose what&apos;s
+              broken and map the fix live, no obligation.
+            </p>
+            <GtagLink
+              href={BOOKING_URL}
+              event="booking_click"
+              eventParams={{ page: "home", position: "hero" }}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-xl bg-blue-400 px-5 py-3 text-sm font-semibold text-black transition-colors hover:bg-blue-300"
+            >
+              Book a Free Roadmap Call
+              <span aria-hidden>→</span>
+            </GtagLink>
+          </div>
         </div>
         <div className="flex justify-center md:justify-end">
           <div className="relative">
@@ -98,10 +118,7 @@ export default function Home() {
           What brings you here?
         </p>
         <div className="grid md:grid-cols-2 gap-4">
-          <Link
-            href="/build"
-            className="group rounded-2xl border border-blue-500/20 bg-blue-950/10 p-6 hover:border-blue-500/40 hover:bg-blue-950/20 transition-colors"
-          >
+          <div className="group flex flex-col rounded-2xl border border-blue-500/20 bg-blue-950/10 p-6 transition-colors hover:border-blue-500/40 hover:bg-blue-950/20">
             <p className="text-xs font-semibold uppercase tracking-widest text-blue-400 mb-2">
               Founder, consultant, or operator
             </p>
@@ -110,16 +127,30 @@ export default function Home() {
             </p>
             <p className="mt-2 text-sm text-neutral-400">
               Custom sites, integrations, automations — fixed price, you own everything.
+              Start with a free roadmap call: I diagnose the gaps and map the build live.
             </p>
-            <p className="mt-4 text-sm text-blue-400 group-hover:text-blue-300 transition-colors">
-              See packages &amp; pricing →
-            </p>
-          </Link>
+            <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2">
+              <GtagLink
+                href={BOOKING_URL}
+                event="booking_click"
+                eventParams={{ page: "home", position: "segment_operator" }}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-xl bg-blue-400 px-4 py-2.5 text-sm font-semibold text-black transition-colors hover:bg-blue-300"
+              >
+                Book a Free Roadmap Call
+                <span aria-hidden>→</span>
+              </GtagLink>
+              <Link
+                href="/build"
+                className="text-sm text-blue-400 transition-colors hover:text-blue-300"
+              >
+                See packages &amp; pricing →
+              </Link>
+            </div>
+          </div>
 
-          <Link
-            href="/blog"
-            className="group rounded-2xl border border-neutral-700 p-6 hover:bg-neutral-900/50 transition-colors"
-          >
+          <div className="group flex flex-col rounded-2xl border border-neutral-700 p-6 transition-colors hover:bg-neutral-900/50">
             <p className="text-xs font-semibold uppercase tracking-widest text-neutral-500 mb-2">
               Builder / reader
             </p>
@@ -128,12 +159,29 @@ export default function Home() {
             </p>
             <p className="mt-2 text-sm text-neutral-400">
               I write about building in public, non-traditional tech careers, and the
-              systems behind the work. New post weekly.
+              systems behind the work. New post weekly. If reading made you eye your own
+              setup, a free roadmap call is the fastest way to a plan.
             </p>
-            <p className="mt-4 text-sm text-neutral-400 group-hover:text-neutral-200 transition-colors">
-              Read the blog →
-            </p>
-          </Link>
+            <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2">
+              <GtagLink
+                href={BOOKING_URL}
+                event="booking_click"
+                eventParams={{ page: "home", position: "segment_reader" }}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-xl border border-neutral-600 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:border-blue-400 hover:text-blue-400"
+              >
+                Book a Free Roadmap Call
+                <span aria-hidden>→</span>
+              </GtagLink>
+              <Link
+                href="/blog"
+                className="text-sm text-neutral-400 transition-colors hover:text-neutral-200"
+              >
+                Read the blog →
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
