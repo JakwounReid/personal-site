@@ -8,7 +8,13 @@ export const metadata = {
     "I diagnose what's broken in your digital infrastructure, then build the fix. Custom sites, integrations, and automations for service businesses. Diagnosis first. Fixed price. You own the code.",
 };
 
-const BOOKING_URL = "https://calendly.com/jakwounreid/intro-call";
+const TRIAGE_URL = "https://cal.com/jakwoun-reid-ha7wcd/15min";
+const STRATEGY_URL = "https://cal.com/jakwoun-reid-ha7wcd/1-hour-strategy-consultation";
+const SITECHECK_URL = "https://sitecheck.jakwoun.me";
+const TEARDOWN_URL = "https://buy.stripe.com/4gMaEP9e00lc1qna53gA803";
+
+const CREDIT_TERMS =
+  "Credit applies to any build package booked within 14 days of your session. One credit per client. Applied to your build invoice; not refundable as cash.";
 
 const tiers = [
   {
@@ -84,7 +90,7 @@ const faqs = [
   {
     question: "Do you work with my existing site or build from scratch?",
     answer:
-      "Both. If your current site is worth saving I'll work with it. If a rebuild is the faster path, I'll tell you honestly. Either way you get a clear recommendation on the free roadmap call — before you commit to anything.",
+      "Both. If your current site is worth saving I'll work with it. If a rebuild is the faster path, I'll tell you honestly. Either way you get a clear recommendation on a free triage call — before you commit to anything.",
   },
   {
     question: "What does 'you own the code' actually mean?",
@@ -99,7 +105,12 @@ const faqs = [
   {
     question: "What if I'm not sure which tier fits?",
     answer:
-      "Book the free 30-minute roadmap call. I'll ask about your business, understand where you're losing time or clients, and build you a custom roadmap — with a price — before you decide anything. From there you can hire me at a discount or book a paid 1-hour consult to go deeper.",
+      "Start with a free 15-minute triage call — I'll point you to the right next step. For a full prioritized plan with a price, book the $150 Strategy Session. It credits back in full toward any build booked within 14 days, so if you build, the session costs you nothing.",
+  },
+  {
+    question: "Is the Strategy Session worth it if I might not build?",
+    answer:
+      "Yes. You leave with a complete written roadmap you own — take it to me, another developer, or run it yourself. And if you build with me within 14 days, the $150 comes right back off the price.",
   },
   {
     question: "What's the retainer for?",
@@ -172,14 +183,14 @@ export default function BuildPage() {
         {/* CTAs */}
         <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row">
           <GtagLink
-            href={BOOKING_URL}
+            href={TRIAGE_URL}
             event="booking_click"
-            eventParams={{ page: "build", position: "hero" }}
+            eventParams={{ page: "build", position: "hero", offer: "triage" }}
             target="_blank"
             rel="noopener noreferrer"
             className="group inline-flex items-center gap-2 border border-blue-400 bg-blue-400 px-8 py-4 text-sm font-bold uppercase tracking-widest text-black transition-all duration-200 hover:bg-transparent hover:text-blue-400"
           >
-            Book a Free Roadmap Call
+            Book a Free 15-min Triage Call
             <svg
               className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
               fill="none"
@@ -189,6 +200,16 @@ export default function BuildPage() {
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
+          </GtagLink>
+          <GtagLink
+            href={SITECHECK_URL}
+            event="sitecheck_click"
+            eventParams={{ page: "build", position: "hero" }}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-medium text-neutral-400 underline-offset-4 hover:text-neutral-200 hover:underline"
+          >
+            Run a free audit →
           </GtagLink>
           <a
             href="#pricing"
@@ -204,60 +225,144 @@ export default function BuildPage() {
         <span aria-hidden className="absolute bottom-4 right-4 h-4 w-4 border-b border-r border-blue-500/20" />
       </section>
 
-      {/* ── FREE ROADMAP CALL ── */}
+      {/* ── START HERE ── */}
       <section className="border-t border-neutral-800 bg-neutral-950/80 px-6 py-24">
-        <div className="mx-auto max-w-4xl">
+        <div className="mx-auto max-w-5xl">
           <p className="mb-3 text-xs font-medium uppercase tracking-widest text-blue-400">
             Start Here
           </p>
           <h2 className="mb-4 text-3xl font-black tracking-tight text-white sm:text-4xl">
-            Free 30-minute roadmap call.
+            Three ways to get a diagnosis.
           </h2>
           <p className="mb-10 max-w-2xl text-lg leading-relaxed text-neutral-400">
-            Bring me what&apos;s broken. In 30 minutes I&apos;ll diagnose where
-            your digital infrastructure is leaking time or revenue and build you
-            a custom roadmap — live, on the call. It&apos;s a working session, not
-            a sales pitch. You leave with a plan whether or not we work together.
+            Start free, go deep when you&apos;re ready. Pick the entry point that
+            fits where you are.
           </p>
 
-          <div className="mb-10 grid gap-4 sm:grid-cols-2">
-            <div className="border border-blue-500/30 bg-blue-950/10 p-6">
+          <div className="grid gap-4 md:grid-cols-3">
+            {/* Triage Call */}
+            <div className="flex flex-col border border-neutral-700 bg-neutral-900/50 p-6">
               <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-blue-400">
-                After the call · Path 1
+                Free · 15 min
               </p>
-              <h3 className="mb-2 font-bold text-white">
-                Hire me to build it — at a discount
-              </h3>
-              <p className="text-sm text-neutral-400">
-                Like the roadmap and want it built? Bring it to me and you get a
-                discount on the infrastructure work — site, integrations,
-                automations. Fixed price, you own the code.
+              <h3 className="mb-2 font-bold text-white">Triage Call</h3>
+              <p className="mb-6 flex-1 text-sm text-neutral-400">
+                Bring me what&apos;s broken. In 15 minutes I&apos;ll pinpoint the
+                single biggest thing leaking time or revenue and tell you the right
+                next step — a build, a deeper strategy session, or a free audit you
+                can run yourself. A fit check and fast diagnosis, not a full working
+                session.
               </p>
+              <GtagLink
+                href={TRIAGE_URL}
+                event="booking_click"
+                eventParams={{ page: "build", position: "start_here", offer: "triage" }}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2 self-start text-sm font-bold uppercase tracking-widest text-blue-400 underline-offset-4 hover:underline"
+              >
+                Book a Triage Call
+                <span aria-hidden className="transition-transform duration-200 group-hover:translate-x-1">→</span>
+              </GtagLink>
             </div>
-            <div className="border border-neutral-700 bg-neutral-900/50 p-6">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-neutral-400">
-                After the call · Path 2
+
+            {/* SiteCheck Audit */}
+            <div className="flex flex-col border border-neutral-700 bg-neutral-900/50 p-6">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-blue-400">
+                Free · async
               </p>
-              <h3 className="mb-2 font-bold text-white">
-                Go deeper — paid 1-hour consult
-              </h3>
-              <p className="text-sm text-neutral-400">
-                Want to dig in before building anything? Book a full 1-hour
-                working session at $100/hr to pressure-test the plan, sequence
-                the work, and answer the harder questions.
+              <h3 className="mb-2 font-bold text-white">SiteCheck Audit</h3>
+              <p className="mb-6 flex-1 text-sm text-neutral-400">
+                Not ready to talk? Run your site through SiteCheck for an instant
+                read on performance, SEO, and the gaps costing you conversions. No
+                call, no email required.
+              </p>
+              <GtagLink
+                href={SITECHECK_URL}
+                event="sitecheck_click"
+                eventParams={{ page: "build", position: "start_here" }}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2 self-start text-sm font-bold uppercase tracking-widest text-blue-400 underline-offset-4 hover:underline"
+              >
+                Run a free audit
+                <span aria-hidden className="transition-transform duration-200 group-hover:translate-x-1">→</span>
+              </GtagLink>
+            </div>
+
+            {/* Strategy Session */}
+            <div className="flex flex-col border border-blue-500/60 bg-blue-950/10 p-6 ring-1 ring-blue-500/20">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-blue-400">
+                $150 · 60 min
+              </p>
+              <h3 className="mb-2 font-bold text-white">Strategy Session</h3>
+              <p className="mb-6 flex-1 text-sm text-neutral-400">
+                The real working session. We go deep and I build you a complete,
+                prioritized roadmap live — what&apos;s broken, what to fix first,
+                what it costs — plus a written roadmap doc after. The full $150
+                credits toward any build you book within 14 days, so if you build,
+                the session is free.
+              </p>
+              <GtagLink
+                href={STRATEGY_URL}
+                event="booking_click"
+                eventParams={{ page: "build", position: "start_here", offer: "strategy" }}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group mb-3 inline-flex items-center gap-2 self-start border border-blue-400 bg-blue-400 px-5 py-2.5 text-sm font-bold uppercase tracking-widest text-black transition-all duration-200 hover:bg-transparent hover:text-blue-400"
+              >
+                Book a Strategy Session
+                <svg
+                  className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </GtagLink>
+              <p className="text-xs text-neutral-500">
+                Want the roadmap without a call?{" "}
+                <a href="#teardown" className="text-blue-400 underline-offset-4 hover:underline">
+                  See the Roadmap Teardown below.
+                </a>
               </p>
             </div>
           </div>
 
+          <p className="mt-6 max-w-2xl text-xs leading-relaxed text-neutral-600">
+            {CREDIT_TERMS}
+          </p>
+        </div>
+      </section>
+
+      {/* ── ROADMAP TEARDOWN ── */}
+      <section id="teardown" className="border-t border-neutral-800 px-6 py-24">
+        <div className="mx-auto max-w-3xl">
+          <p className="mb-3 text-xs font-medium uppercase tracking-widest text-blue-400">
+            No Call? No Problem
+          </p>
+          <h2 className="mb-4 text-3xl font-black tracking-tight text-white sm:text-4xl">
+            Roadmap Teardown — $250
+          </h2>
+          <p className="mb-8 text-lg leading-relaxed text-neutral-400">
+            Checkout takes two minutes — you&apos;ll share your site, your main
+            concern, and your goal. Within 3 business days I&apos;ll record a 15–20
+            minute walkthrough — your SiteCheck results, every gap I find, and a
+            priority-ordered list of what to fix and in what sequence. Yours to keep
+            and hand to any developer. Credits toward any build booked within 14
+            days, same as the Strategy Session.
+          </p>
           <GtagLink
-            href={BOOKING_URL}
-            event="booking_click"
-            eventParams={{ page: "build", position: "roadmap_section" }}
+            href={TEARDOWN_URL}
+            event="teardown_click"
+            eventParams={{ page: "build", position: "teardown_section" }}
             target="_blank"
             rel="noopener noreferrer"
             className="group inline-flex items-center gap-2 border border-blue-400 bg-blue-400 px-8 py-4 text-sm font-bold uppercase tracking-widest text-black transition-all duration-200 hover:bg-transparent hover:text-blue-400"
           >
-            Book a Free Roadmap Call
+            Start a Teardown
             <svg
               className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
               fill="none"
@@ -334,8 +439,8 @@ export default function BuildPage() {
             {[
               {
                 n: "01",
-                title: "Free Roadmap Call",
-                body: "30 minutes, free. I diagnose where you're losing time or leads and build you a custom roadmap on the call. You walk away with a plan — no obligation.",
+                title: "Start: Triage or Strategy Session",
+                body: "Start free with a 15-minute triage call or a SiteCheck audit. When you're ready to go deep, the $150 Strategy Session delivers a full prioritized roadmap — and credits back in full toward your build.",
               },
               {
                 n: "02",
@@ -376,21 +481,21 @@ export default function BuildPage() {
           <p className="text-lg leading-relaxed text-neutral-400">
             Before I write a line of code I&apos;ll tell you what&apos;s actually
             broken — and sometimes that means a smaller build than you expected.
-            Sometimes it means more. The free roadmap call ends with a clear
-            recommendation: this is what&apos;s leaking revenue, this is what to fix
-            first, this is what it costs. You can take that to me, to another
-            developer, or sit on it. The answer is yours either way.
+            Sometimes it means more. The Strategy Session ends with a clear,
+            written recommendation: this is what&apos;s leaking revenue, this is
+            what to fix first, this is what it costs. You can take that to me, to
+            another developer, or sit on it. The answer is yours either way.
           </p>
           <div className="mt-10">
             <GtagLink
-              href={BOOKING_URL}
+              href={STRATEGY_URL}
               event="booking_click"
-              eventParams={{ page: "build", position: "diagnosis_section" }}
+              eventParams={{ page: "build", position: "diagnosis_section", offer: "strategy" }}
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 border border-blue-400 bg-blue-400 px-8 py-4 text-sm font-bold uppercase tracking-widest text-black transition-all duration-200 hover:bg-transparent hover:text-blue-400"
             >
-              Book a Free Roadmap Call
+              Book a Strategy Session
               <svg
                 className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
                 fill="none"
@@ -479,9 +584,9 @@ export default function BuildPage() {
                 </ul>
 
                 <GtagLink
-                  href={BOOKING_URL}
+                  href={STRATEGY_URL}
                   event="booking_click"
-                  eventParams={{ page: "build", tier: tier.name.toLowerCase().replace("the ", "") }}
+                  eventParams={{ page: "build", tier: tier.name.toLowerCase().replace("the ", ""), offer: "strategy" }}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`group inline-flex items-center gap-2 px-6 py-3 text-sm font-bold uppercase tracking-widest transition-all duration-200 ${
@@ -490,7 +595,7 @@ export default function BuildPage() {
                       : "border border-neutral-600 bg-transparent text-white hover:border-blue-400 hover:text-blue-400"
                   }`}
                 >
-                  Book a Free Roadmap Call
+                  Book a Strategy Session
                   <svg
                     className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
                     fill="none"
@@ -504,6 +609,21 @@ export default function BuildPage() {
               </div>
             ))}
           </div>
+
+          <p className="mb-8 text-sm text-neutral-400">
+            Not sure which tier?{" "}
+            <GtagLink
+              href={STRATEGY_URL}
+              event="booking_click"
+              eventParams={{ page: "build", position: "pricing_note", offer: "strategy" }}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-400 underline-offset-4 hover:underline"
+            >
+              Book a Strategy Session
+            </GtagLink>{" "}
+            — it credits back in full when you build.
+          </p>
 
           {/* Retainer */}
           <div className="border border-neutral-700 bg-neutral-900 p-6 sm:p-8">
@@ -543,9 +663,9 @@ export default function BuildPage() {
                   <span className="block text-sm text-neutral-500">/month</span>
                 </div>
                 <GtagLink
-                  href={BOOKING_URL}
+                  href={TRIAGE_URL}
                   event="booking_click"
-                  eventParams={{ page: "build", tier: "retainer" }}
+                  eventParams={{ page: "build", tier: "retainer", offer: "triage" }}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group inline-flex items-center gap-2 border border-neutral-600 bg-transparent px-6 py-3 text-sm font-bold uppercase tracking-widest text-white transition-all duration-200 hover:border-blue-400 hover:text-blue-400"
@@ -663,19 +783,39 @@ export default function BuildPage() {
             Ready for a digital presence that matches the work?
           </h2>
           <p className="mb-10 text-neutral-400">
-            Book a free 30-minute roadmap call. No pitch, no pressure — just a
-            live diagnosis and a custom plan for what your operation needs.
+            Start free with a 15-minute triage call, or go deep with the $150
+            Strategy Session — a live diagnosis and a full prioritized plan that
+            credits back in full when you build.
           </p>
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <GtagLink
-              href={BOOKING_URL}
+              href={TRIAGE_URL}
               event="booking_click"
-              eventParams={{ page: "build", position: "bottom_cta" }}
+              eventParams={{ page: "build", position: "bottom_cta", offer: "triage" }}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 border border-neutral-600 bg-transparent px-8 py-4 text-sm font-bold uppercase tracking-widest text-white transition-all duration-200 hover:border-blue-400 hover:text-blue-400"
+            >
+              Book a Free Triage Call
+              <svg
+                className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </GtagLink>
+            <GtagLink
+              href={STRATEGY_URL}
+              event="booking_click"
+              eventParams={{ page: "build", position: "bottom_cta", offer: "strategy" }}
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 border border-blue-400 bg-blue-400 px-8 py-4 text-sm font-bold uppercase tracking-widest text-black transition-all duration-200 hover:bg-transparent hover:text-blue-400"
             >
-              Book a Free Roadmap Call
+              Book a Strategy Session — $150
               <svg
                 className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
                 fill="none"
