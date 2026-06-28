@@ -11,25 +11,25 @@ export default function NotFound() {
       <div className="mt-8 flex flex-wrap justify-center gap-3">
         <Link
           href="/"
-          className="rounded-xl border border-neutral-700 px-5 py-3 text-sm font-medium hover:bg-neutral-900 transition-colors"
+          className="border border-neutral-700 px-5 py-3 text-sm font-medium transition-colors hover:border-blue-400 hover:text-blue-400"
         >
           Home
         </Link>
         <Link
           href="/build"
-          className="rounded-xl border border-neutral-700 px-5 py-3 text-sm font-medium hover:bg-neutral-900 transition-colors"
+          className="border border-neutral-700 px-5 py-3 text-sm font-medium transition-colors hover:border-blue-400 hover:text-blue-400"
         >
           Web dev packages
         </Link>
         <Link
           href="/blog"
-          className="rounded-xl border border-neutral-700 px-5 py-3 text-sm font-medium hover:bg-neutral-900 transition-colors"
+          className="border border-neutral-700 px-5 py-3 text-sm font-medium transition-colors hover:border-blue-400 hover:text-blue-400"
         >
           Blog
         </Link>
         <Link
           href="/projects"
-          className="rounded-xl border border-neutral-700 px-5 py-3 text-sm font-medium hover:bg-neutral-900 transition-colors"
+          className="border border-neutral-700 px-5 py-3 text-sm font-medium transition-colors hover:border-blue-400 hover:text-blue-400"
         >
           Projects
         </Link>

@@ -3,8 +3,11 @@ import Image from "next/image";
 import { allProjects, allPosts } from "@/lib/content";
 import Subscribe from "@/components/subscribe";
 import GtagLink from "@/components/gtag-link";
+import { ArrowIcon } from "@/components/ui";
 
-const BOOKING_URL = "https://calendly.com/jakwounreid/intro-call";
+// Free no-cost entry point to the offer ladder. The full ladder (Strategy Session
+// $150/hr, Roadmap Teardown $250) lives on /build — the canonical offer page.
+const TRIAGE_URL = "https://cal.com/jakwoun-reid-ha7wcd/15min";
 
 export const metadata = {
   title: "Jakwoun Reid — Digital Infrastructure for Mission-Driven Operators",
@@ -33,10 +36,9 @@ export default function Home() {
             <span className="text-neutral-700">·</span>
             <Link
               href="/build"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors"
+              className="text-sm font-medium uppercase tracking-widest text-blue-400 transition-colors hover:text-blue-300"
             >
-              <span className="inline-block h-1.5 w-1.5 rounded-full bg-blue-400 animate-pulse" />
-              Taking new clients
+              Digital infrastructure for operators
             </Link>
           </div>
           <h1 className="text-4xl md:text-5xl font-black leading-tight">
@@ -52,19 +54,22 @@ export default function Home() {
           </p>
           <div className="mt-6">
             <p className="mb-3 text-sm text-neutral-400">
-              Start with a free 30-minute roadmap call — I diagnose what&apos;s
-              broken and map the fix live, no obligation.
+              Start with a free 15-minute triage call — a quick fit and scope
+              check, no charge. I&apos;ll point you to the right next step.{" "}
+              <Link href="/build" className="text-blue-400 underline-offset-4 hover:underline">
+                See the full offer ladder →
+              </Link>
             </p>
             <GtagLink
-              href={BOOKING_URL}
+              href={TRIAGE_URL}
               event="booking_click"
-              eventParams={{ page: "home", position: "hero" }}
+              eventParams={{ page: "home", position: "hero", offer: "triage" }}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl bg-blue-400 px-5 py-3 text-sm font-semibold text-black transition-colors hover:bg-blue-300"
+              className="group inline-flex items-center gap-2 border border-blue-400 bg-blue-400 px-6 py-3 text-sm font-bold uppercase tracking-widest text-black transition-all duration-200 hover:bg-transparent hover:text-blue-400"
             >
-              Book a Free Roadmap Call
-              <span aria-hidden>→</span>
+              Book a Free Triage Call
+              <ArrowIcon />
             </GtagLink>
           </div>
         </div>
@@ -114,11 +119,11 @@ export default function Home() {
 
       {/* ── AUDIENCE PATHS ── */}
       <section>
-        <p className="text-xs font-medium uppercase tracking-widest text-neutral-500 mb-4">
+        <p className="text-xs font-medium uppercase tracking-widest text-blue-400 mb-4">
           What brings you here?
         </p>
         <div className="grid md:grid-cols-2 gap-4">
-          <div className="group flex flex-col rounded-2xl border border-blue-500/20 bg-blue-950/10 p-6 transition-colors hover:border-blue-500/40 hover:bg-blue-950/20">
+          <div className="group flex flex-col border border-blue-500/60 bg-blue-950/10 p-6 ring-1 ring-blue-500/20 transition-colors hover:bg-blue-950/20">
             <p className="text-xs font-semibold uppercase tracking-widest text-blue-400 mb-2">
               Founder, consultant, or operator
             </p>
@@ -127,19 +132,20 @@ export default function Home() {
             </p>
             <p className="mt-2 text-sm text-neutral-400">
               Custom sites, integrations, automations — fixed price, you own everything.
-              Start with a free roadmap call: I diagnose the gaps and map the build live.
+              Start free with a 15-minute triage call; the full ladder — Strategy
+              Session and Roadmap Teardown — is on the build page.
             </p>
             <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2">
               <GtagLink
-                href={BOOKING_URL}
+                href={TRIAGE_URL}
                 event="booking_click"
-                eventParams={{ page: "home", position: "segment_operator" }}
+                eventParams={{ page: "home", position: "segment_operator", offer: "triage" }}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl bg-blue-400 px-4 py-2.5 text-sm font-semibold text-black transition-colors hover:bg-blue-300"
+                className="group inline-flex items-center gap-2 border border-blue-400 bg-blue-400 px-5 py-2.5 text-sm font-bold uppercase tracking-widest text-black transition-all duration-200 hover:bg-transparent hover:text-blue-400"
               >
-                Book a Free Roadmap Call
-                <span aria-hidden>→</span>
+                Book a Free Triage Call
+                <ArrowIcon />
               </GtagLink>
               <Link
                 href="/build"
@@ -150,7 +156,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="group flex flex-col rounded-2xl border border-neutral-700 p-6 transition-colors hover:bg-neutral-900/50">
+          <div className="group flex flex-col border border-neutral-700 p-6 transition-colors hover:bg-neutral-900/50">
             <p className="text-xs font-semibold uppercase tracking-widest text-neutral-500 mb-2">
               Builder / reader
             </p>
@@ -159,20 +165,20 @@ export default function Home() {
             </p>
             <p className="mt-2 text-sm text-neutral-400">
               I write about building in public, non-traditional tech careers, and the
-              systems behind the work. New post weekly. If reading made you eye your own
-              setup, a free roadmap call is the fastest way to a plan.
+              systems behind the work. New writing when it ships. If reading made you eye
+              your own setup, a free 15-minute triage call is the fastest way to a plan.
             </p>
             <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2">
               <GtagLink
-                href={BOOKING_URL}
+                href={TRIAGE_URL}
                 event="booking_click"
-                eventParams={{ page: "home", position: "segment_reader" }}
+                eventParams={{ page: "home", position: "segment_reader", offer: "triage" }}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl border border-neutral-600 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:border-blue-400 hover:text-blue-400"
+                className="group inline-flex items-center gap-2 border border-neutral-600 px-5 py-2.5 text-sm font-bold uppercase tracking-widest text-white transition-all duration-200 hover:border-blue-400 hover:text-blue-400"
               >
-                Book a Free Roadmap Call
-                <span aria-hidden>→</span>
+                Book a Free Triage Call
+                <ArrowIcon />
               </GtagLink>
               <Link
                 href="/blog"
@@ -188,7 +194,7 @@ export default function Home() {
       {/* ── LATEST BLOG POSTS ── */}
       <section>
         <div className="flex items-center justify-between">
-          <h2 className="text-2xl font-bold">Latest posts</h2>
+          <h2 className="text-2xl font-black tracking-tight">Latest posts</h2>
           <Link
             href="/blog"
             className="text-sm text-neutral-300 hover:text-white underline underline-offset-4"
@@ -201,7 +207,7 @@ export default function Home() {
             <Link
               key={p.slug}
               href={`/blog/${p.slug}`}
-              className="rounded-2xl border border-neutral-800 p-5 hover:bg-neutral-900/50"
+              className="border border-neutral-800 p-5 transition-colors hover:border-blue-500/30 hover:bg-blue-950/10"
             >
               <div className="text-sm text-neutral-400">
                 {new Date(p.publishDate).toLocaleDateString()}
@@ -216,7 +222,7 @@ export default function Home() {
       {/* ── PROJECTS ── */}
       <section>
         <div className="flex items-center justify-between">
-          <h2 className="text-2xl font-bold">Projects</h2>
+          <h2 className="text-2xl font-black tracking-tight">Projects</h2>
           <Link
             href="/projects"
             className="text-sm text-neutral-300 hover:text-white underline underline-offset-4"
@@ -231,7 +237,7 @@ export default function Home() {
               href={pr.demo ?? pr.repo ?? "#"}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-2xl border border-neutral-800 p-5 hover:bg-neutral-900/50"
+              className="border border-neutral-800 p-5 transition-colors hover:border-blue-500/30 hover:bg-blue-950/10"
             >
               <div className="text-sm text-neutral-400">
                 {pr.stack?.join(" • ")}

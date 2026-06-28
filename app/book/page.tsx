@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { ArrowIcon } from "@/components/ui";
 
 // Configuration for book purchase - update the URL with your Stripe Checkout link
 const STRIPE_CHECKOUT_URL = "https://buy.stripe.com/5kQ00bcqc8RIfhdfpngA801";
@@ -11,11 +11,14 @@ export default function BookPage() {
           ============================================ */}
       <section className="space-y-6">
         <div className="space-y-4">
+          <p className="text-xs font-medium uppercase tracking-widest text-blue-400">
+            The Book
+          </p>
           {/* Main headline - analytical, not aspirational */}
-          <h1 className="text-4xl md:text-5xl font-black leading-tight">
+          <h1 className="text-4xl md:text-5xl font-black tracking-tight leading-tight">
             The Career Switcher's Framework
           </h1>
-          
+
           {/* Subheadline - problem-solution focused */}
           <p className="text-lg md:text-xl text-neutral-300 max-w-2xl">
             Most career switchers fail not from lack of effort, but from following the wrong sequence. This book shows you the right one.
@@ -26,10 +29,11 @@ export default function BookPage() {
         <div className="pt-4">
           <a
             href={STRIPE_CHECKOUT_URL}
-            className="inline-block rounded-xl bg-white text-neutral-900 px-6 py-3 font-semibold hover:bg-neutral-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white transition-colors"
+            className="group inline-flex items-center gap-2 border border-blue-400 bg-blue-400 px-8 py-4 text-sm font-bold uppercase tracking-widest text-black transition-all duration-200 hover:bg-transparent hover:text-blue-400"
             aria-label="Purchase the Career Switcher's Framework book"
           >
             Get the Book
+            <ArrowIcon />
           </a>
         </div>
       </section>
@@ -125,42 +129,42 @@ export default function BookPage() {
         
         <div className="grid md:grid-cols-2 gap-6">
           {/* Each item - framework and principle-focused */}
-          <div className="rounded-xl border border-neutral-800 p-6 hover:bg-neutral-900/30 transition-colors">
+          <div className="border border-neutral-800 p-6 transition-colors hover:border-blue-500/30 hover:bg-blue-950/10">
             <h3 className="font-semibold mb-2">The Sequence Framework</h3>
             <p className="text-sm text-neutral-300">
               Why the order of what you learn matters more than the content itself. How to map your personal sequence based on your background and target role.
             </p>
           </div>
 
-          <div className="rounded-xl border border-neutral-800 p-6 hover:bg-neutral-900/30 transition-colors">
+          <div className="border border-neutral-800 p-6 transition-colors hover:border-blue-500/30 hover:bg-blue-950/10">
             <h3 className="font-semibold mb-2">Decision Models for Learning</h3>
             <p className="text-sm text-neutral-300">
               A framework for choosing what to learn next, when to shift direction, and how to validate your choices against real hiring requirements.
             </p>
           </div>
 
-          <div className="rounded-xl border border-neutral-800 p-6 hover:bg-neutral-900/30 transition-colors">
+          <div className="border border-neutral-800 p-6 transition-colors hover:border-blue-500/30 hover:bg-blue-950/10">
             <h3 className="font-semibold mb-2">Realistic Time Allocation</h3>
             <p className="text-sm text-neutral-300">
               How different learning speeds affect your timeline. What matters in your first 6 months vs. your first 2 years, and when to expect momentum.
             </p>
           </div>
 
-          <div className="rounded-xl border border-neutral-800 p-6 hover:bg-neutral-900/30 transition-colors">
+          <div className="border border-neutral-800 p-6 transition-colors hover:border-blue-500/30 hover:bg-blue-950/10">
             <h3 className="font-semibold mb-2">Common Failure Patterns</h3>
             <p className="text-sm text-neutral-300">
               The specific mistakes that trap career switchers—tutorial dependency, skill obsession, poor networking strategy—and how to avoid them.
             </p>
           </div>
 
-          <div className="rounded-xl border border-neutral-800 p-6 hover:bg-neutral-900/30 transition-colors">
+          <div className="border border-neutral-800 p-6 transition-colors hover:border-blue-500/30 hover:bg-blue-950/10">
             <h3 className="font-semibold mb-2">Building Credible Evidence</h3>
             <p className="text-sm text-neutral-300">
               How to demonstrate competence without a traditional resume. What actually moves hiring decisions when you're coming from outside the industry.
             </p>
           </div>
 
-          <div className="rounded-xl border border-neutral-800 p-6 hover:bg-neutral-900/30 transition-colors">
+          <div className="border border-neutral-800 p-6 transition-colors hover:border-blue-500/30 hover:bg-blue-950/10">
             <h3 className="font-semibold mb-2">From Offer to Growth</h3>
             <p className="text-sm text-neutral-300">
               How to position yourself for opportunities. What to expect in your first role, and how to accelerate learning once you're hired.
@@ -172,7 +176,7 @@ export default function BookPage() {
       {/* ============================================
           CREDIBILITY / AUTHOR SECTION
           ============================================ */}
-      <section className="rounded-2xl border border-neutral-800 p-8">
+      <section className="border border-neutral-800 p-8">
         <h2 className="text-2xl font-bold mb-4">About the Author</h2>
         
         <p className="text-neutral-300">
@@ -203,10 +207,11 @@ export default function BookPage() {
         <div>
           <a
             href={STRIPE_CHECKOUT_URL}
-            className="inline-block rounded-xl bg-white text-neutral-900 px-8 py-4 font-semibold hover:bg-neutral-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white transition-colors text-lg"
+            className="group inline-flex items-center gap-2 border border-blue-400 bg-blue-400 px-10 py-5 text-sm font-bold uppercase tracking-widest text-black transition-all duration-200 hover:bg-transparent hover:text-blue-400"
             aria-label="Purchase the Career Switcher's Framework book"
           >
             Download the Book
+            <ArrowIcon />
           </a>
         </div>
 

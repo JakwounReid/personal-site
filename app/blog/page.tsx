@@ -16,7 +16,14 @@ export default function BlogIndex() {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold">Blog</h1>
+      <p className="mb-3 text-xs font-medium uppercase tracking-widest text-blue-400">
+        Writing
+      </p>
+      <h1 className="text-3xl font-black tracking-tight sm:text-4xl">Blog</h1>
+      <p className="mt-3 max-w-2xl text-neutral-400">
+        Essays on building a non-traditional path in tech — the systems behind the work,
+        building in public, and career switching. New writing when it ships.
+      </p>
 
       {/* Series callouts */}
       {seriesNames.map((series) => {
@@ -27,7 +34,7 @@ export default function BlogIndex() {
         return (
           <div
             key={series}
-            className="mt-8 rounded-2xl border border-neutral-700 bg-neutral-900/50 p-5"
+            className="mt-8 border border-neutral-700 bg-neutral-900/50 p-5"
           >
             <div className="flex items-center justify-between gap-4">
               <div>
@@ -41,7 +48,7 @@ export default function BlogIndex() {
               </div>
               <Link
                 href={`/blog/${first.slug}`}
-                className="shrink-0 rounded-xl border border-neutral-700 px-4 py-2 text-sm hover:bg-neutral-800 whitespace-nowrap"
+                className="shrink-0 border border-neutral-600 px-4 py-2 text-sm font-bold uppercase tracking-widest text-white transition-colors hover:border-blue-400 hover:text-blue-400 whitespace-nowrap"
               >
                 Start reading →
               </Link>
@@ -55,7 +62,7 @@ export default function BlogIndex() {
         {posts.map((p) => (
           <article
             key={p.slug}
-            className="rounded-2xl border border-neutral-800 p-5"
+            className="border border-neutral-800 p-5 transition-colors hover:border-blue-500/30 hover:bg-blue-950/10"
           >
             <div className="flex items-start justify-between gap-4">
               <div className="min-w-0">

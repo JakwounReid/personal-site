@@ -42,7 +42,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
         </div>
       )}
 
-      <h1 className="text-3xl font-bold">{post.title}</h1>
+      <h1 className="text-3xl font-black tracking-tight sm:text-4xl">{post.title}</h1>
       <div className="mt-1 text-sm text-neutral-400">
         {new Date(post.publishDate).toLocaleDateString()}
       </div>
@@ -76,7 +76,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
             {prevPost && (
               <Link
                 href={`/blog/${prevPost.slug}`}
-                className="group flex flex-col gap-1 rounded-xl border border-neutral-800 p-4 hover:bg-neutral-900/50"
+                className="group flex flex-col gap-1 border border-neutral-800 p-4 transition-colors hover:border-blue-500/30 hover:bg-blue-950/10"
               >
                 <span className="text-xs text-neutral-500">← Previous</span>
                 <span className="text-sm font-medium text-neutral-300 group-hover:text-white">
@@ -89,7 +89,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
             {nextPost && (
               <Link
                 href={`/blog/${nextPost.slug}`}
-                className="group flex flex-col gap-1 rounded-xl border border-neutral-800 p-4 hover:bg-neutral-900/50 text-right"
+                className="group flex flex-col gap-1 border border-neutral-800 p-4 transition-colors hover:border-blue-500/30 hover:bg-blue-950/10 text-right"
               >
                 <span className="text-xs text-neutral-500">Next →</span>
                 <span className="text-sm font-medium text-neutral-300 group-hover:text-white">

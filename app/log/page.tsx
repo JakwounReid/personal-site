@@ -11,11 +11,12 @@ export default function LogIndex() {
     .sort((a,b)=> new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime())
   return (
     <div>
-      <h1 className="text-3xl font-bold">Founder Daily</h1>
-      <p className="text-neutral-300 mt-2">Short, behind-the-scenes updates I can turn into videos & social posts.</p>
+      <p className="mb-3 text-xs font-medium uppercase tracking-widest text-blue-400">Behind the Build</p>
+      <h1 className="text-3xl font-black tracking-tight sm:text-4xl">Founder Daily</h1>
+      <p className="text-neutral-400 mt-3 max-w-2xl">Short, behind-the-scenes updates I can turn into videos &amp; social posts.</p>
       <div className="mt-6 space-y-4">
         {logs.map(l => (
-          <div key={l.slug} className="rounded-2xl border border-neutral-800 p-5">
+          <div key={l.slug} className="border border-neutral-800 p-5 transition-colors hover:border-blue-500/30 hover:bg-blue-950/10">
             <div className="text-sm text-neutral-400">{new Date(l.publishDate).toLocaleDateString()}</div>
             <Link href={`/log/${l.slug}`} className="block mt-1 text-lg font-semibold hover:underline underline-offset-4">{l.title}</Link>
             <p className="mt-1 text-neutral-300">{l.summary}</p>

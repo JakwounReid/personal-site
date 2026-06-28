@@ -6,7 +6,10 @@ export const metadata = { title: "Projects" };
 export default function Projects() {
   return (
     <div>
-      <h1 className="text-3xl font-bold">Projects</h1>
+      <p className="mb-3 text-xs font-medium uppercase tracking-widest text-blue-400">
+        Selected Work
+      </p>
+      <h1 className="text-3xl font-black tracking-tight sm:text-4xl">Projects</h1>
       <div className="mt-6 grid md:grid-cols-2 gap-6">
         {allProjects.map((p) => (
           <Link
@@ -14,7 +17,7 @@ export default function Projects() {
             href={p.demo ?? p.repo ?? "#"}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-2xl border border-neutral-800 p-5 hover:bg-neutral-900/50"
+            className="border border-neutral-800 p-5 transition-colors hover:border-blue-500/30 hover:bg-blue-950/10"
           >
             <div className="text-sm text-neutral-400">
               {p.stack?.join(" • ")}
