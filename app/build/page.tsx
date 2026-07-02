@@ -3,9 +3,9 @@ import GtagLink from "@/components/gtag-link";
 import CaseStudyCard, { type CaseStudy } from "@/components/case-study";
 
 export const metadata = {
-  title: "Web Development for Service Businesses — Jakwoun Reid",
+  title: "Digital Infrastructure for Coaches, Consultants & Mission-Driven Founders — Jakwoun Reid",
   description:
-    "I diagnose what's broken in your digital infrastructure, then build the fix. Custom sites, integrations, and automations for service businesses. Diagnosis first. Fixed price. You own the code.",
+    "I diagnose what's broken in your digital infrastructure, then build the fix. Custom sites, integrations, and automations for coaches, consultants, and mission-driven founders. From $1,500–$12,000. Diagnosis first. Fixed price. You own the code.",
 };
 
 const TRIAGE_URL = "https://cal.com/jakwoun-reid-ha7wcd/15min";
@@ -17,6 +17,23 @@ const CREDIT_TERMS =
   "Credit applies to any build package booked within 14 days of your session. One credit per client. Applied to your build invoice; not refundable as cash.";
 
 const tiers = [
+  {
+    name: "The Page",
+    tagline: "For coaches and consultants who need one thing done right — a landing page, a fix, or a small build — without a full project.",
+    price: "From $1,500",
+
+    badge: null,
+    features: [
+      "Single-page custom site or focused fix (landing page, speaker page, or repair of what's broken)",
+      "Mobile + SEO ready",
+      "Lead capture or booking link connected",
+      "1-week delivery",
+    ],
+    featured: false,
+    ctaHref: TRIAGE_URL,
+    ctaLabel: "Book a Triage Call",
+    ctaOffer: "triage",
+  },
   {
     name: "The Launch",
     tagline: "For businesses whose site is costing them credibility. You need a professional presence that converts, fast.",
@@ -30,6 +47,9 @@ const tiers = [
       "2-week delivery",
     ],
     featured: false,
+    ctaHref: STRATEGY_URL,
+    ctaLabel: "Book a Strategy Session",
+    ctaOffer: "strategy",
   },
   {
     name: "The Build",
@@ -44,6 +64,9 @@ const tiers = [
       "3-week delivery",
     ],
     featured: true,
+    ctaHref: STRATEGY_URL,
+    ctaLabel: "Book a Strategy Session",
+    ctaOffer: "strategy",
   },
   {
     name: "The System",
@@ -58,6 +81,9 @@ const tiers = [
       "Built to scale with your business",
     ],
     featured: false,
+    ctaHref: STRATEGY_URL,
+    ctaLabel: "Book a Strategy Session",
+    ctaOffer: "strategy",
   },
 ];
 
@@ -541,7 +567,7 @@ export default function BuildPage() {
             Fixed price. You own the code. No ongoing platform fees.
           </p>
 
-          <div className="grid gap-6 sm:grid-cols-3 mb-8">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 mb-8">
             {tiers.map((tier) => (
               <div
                 key={tier.name}
@@ -584,9 +610,9 @@ export default function BuildPage() {
                 </ul>
 
                 <GtagLink
-                  href={STRATEGY_URL}
+                  href={tier.ctaHref}
                   event="booking_click"
-                  eventParams={{ page: "build", tier: tier.name.toLowerCase().replace("the ", ""), offer: "strategy" }}
+                  eventParams={{ page: "build", tier: tier.name.toLowerCase().replace("the ", ""), offer: tier.ctaOffer }}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`group inline-flex items-center gap-2 px-6 py-3 text-sm font-bold uppercase tracking-widest transition-all duration-200 ${
@@ -595,7 +621,7 @@ export default function BuildPage() {
                       : "border border-neutral-600 bg-transparent text-white hover:border-blue-400 hover:text-blue-400"
                   }`}
                 >
-                  Book a Strategy Session
+                  {tier.ctaLabel}
                   <svg
                     className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
                     fill="none"
@@ -716,6 +742,12 @@ export default function BuildPage() {
                 label: "No Vendor Lock-In",
                 description:
                   "Open source stack. No monthly platform fees. No dependency on me or any third-party to keep your site live. You own it, completely.",
+              },
+              {
+                icon: "🔒",
+                label: "Your Data Stays Yours",
+                description:
+                  "I build with AI to move faster and keep your costs down — but I'm deliberate about how. I run open models on infrastructure I control, so your work and your clients' data never feed some company's training pipeline. Speed and savings, without handing your business to a black box.",
               },
               {
                 icon: "⚡",
