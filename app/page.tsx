@@ -5,15 +5,44 @@ import Subscribe from "@/components/subscribe";
 import GtagLink from "@/components/gtag-link";
 import { ArrowIcon } from "@/components/ui";
 
-// Free no-cost entry point to the offer ladder. The full ladder (Strategy Session
-// $150/hr, Roadmap Teardown $250) lives on /build — the canonical offer page.
+// Free no-cost entry point to the offer ladder. Paid diagnostics (Strategy Session
+// $150, Roadmap Teardown $250) live on /strategy; recurring care lives on /site-care.
 const TRIAGE_URL = "https://cal.com/jakwoun-reid-ha7wcd/15min";
+const SITECHECK_URL = "https://sitecheck.jakwoun.me";
 
 export const metadata = {
-  title: "Jakwoun Reid — Digital Infrastructure for Mission-Driven Operators",
+  title: "Jakwoun Reid — Digital Infrastructure for Your Business",
   description:
-    "I build digital infrastructure for consultants, coaches, and mission-driven founders. Custom sites, integrations, automations. Diagnosis first. Fixed price.",
+    "Strategy sessions, roadmap teardowns, and ongoing site care for Wix, Squarespace, Shopify, and Kajabi. Diagnosis first. Start with a free 15-minute triage call.",
 };
+
+// The three things I sell. Each links to its own page.
+const offers = [
+  {
+    eyebrow: "Advisory",
+    title: "Strategy",
+    body: "A paid strategy session or a written roadmap teardown. You leave with direction and decisions — what's broken, what matters, what order to fix it in.",
+    href: "/strategy",
+    cta: "See strategy options",
+    featured: true,
+  },
+  {
+    eyebrow: "Recurring",
+    title: "Site Care & Support",
+    body: "Someone who owns your site so you don't have to. Fixed monthly price, one request at a time, no hourly billing. For sites that already exist.",
+    href: "/site-care",
+    cta: "See care plans",
+    featured: false,
+  },
+  {
+    eyebrow: "1-on-1",
+    title: "Coaching",
+    body: "Career coaching for people breaking into tech from non-traditional backgrounds. A 12-week cycle from foundation to real momentum.",
+    href: "/coaching",
+    cta: "See the coaching program",
+    featured: false,
+  },
+];
 
 export default function Home() {
   const posts = [...allPosts]
@@ -35,42 +64,52 @@ export default function Home() {
             </span>
             <span className="text-neutral-700">·</span>
             <Link
-              href="/build"
+              href="/strategy"
               className="text-sm font-medium uppercase tracking-widest text-blue-400 transition-colors hover:text-blue-300"
             >
-              Digital infrastructure for operators
+              Digital infrastructure for your business
             </Link>
           </div>
           <h1 className="text-4xl md:text-5xl font-black leading-tight">
-            Jakwoun Reid
+            Your site is already live.{" "}
+            <span className="text-blue-400">
+              The question is what to fix first.
+            </span>
           </h1>
-          <p className="mt-3 text-lg text-neutral-300 font-medium">
-            Systems Consultant · Engineer · Builder
-          </p>
-          <p className="mt-3 text-neutral-400 text-sm max-w-lg">
-            I build the system behind the work — custom sites, integrations, and
-            automations for consultants and mission-driven operators who need their
-            digital presence to match what they&apos;ve actually built.
+          <p className="mt-5 text-neutral-300 text-base max-w-lg">
+            I help owners of Wix, Squarespace, Shopify, and Kajabi sites figure
+            out what&apos;s costing them — then keep it running. Diagnosis first,
+            then a plan, then someone who owns the upkeep so you don&apos;t have
+            to.
           </p>
           <div className="mt-6">
             <p className="mb-3 text-sm text-neutral-400">
               Start with a free 15-minute triage call — a quick fit and scope
-              check, no charge. I&apos;ll point you to the right next step.{" "}
-              <Link href="/build" className="text-blue-400 underline-offset-4 hover:underline">
-                See the full offer ladder →
-              </Link>
+              check, no charge. I&apos;ll point you to the right next step.
             </p>
-            <GtagLink
-              href={TRIAGE_URL}
-              event="booking_click"
-              eventParams={{ page: "home", position: "hero", offer: "triage" }}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 border border-blue-400 bg-blue-400 px-6 py-3 text-sm font-bold uppercase tracking-widest text-black transition-all duration-200 hover:bg-transparent hover:text-blue-400"
-            >
-              Book a Free Triage Call
-              <ArrowIcon />
-            </GtagLink>
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
+              <GtagLink
+                href={TRIAGE_URL}
+                event="booking_click"
+                eventParams={{ page: "home", position: "hero", offer: "triage" }}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2 border border-blue-400 bg-blue-400 px-6 py-3 text-sm font-bold uppercase tracking-widest text-black transition-all duration-200 hover:bg-transparent hover:text-blue-400"
+              >
+                Book a Free Triage Call
+                <ArrowIcon />
+              </GtagLink>
+              <GtagLink
+                href={SITECHECK_URL}
+                event="sitecheck_click"
+                eventParams={{ page: "home", position: "hero" }}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-blue-400 transition-colors hover:text-blue-300"
+              >
+                Or run a free SiteCheck audit →
+              </GtagLink>
+            </div>
           </div>
         </div>
         <div className="flex justify-center md:justify-end">
@@ -83,6 +122,13 @@ export default function Home() {
               className="rounded-2xl shadow-lg"
               priority
             />
+            {/* Identity line — demoted from the hero H1 but kept present. */}
+            <p className="mt-4 text-center text-sm font-semibold text-neutral-300">
+              Jakwoun Reid
+              <span className="block text-xs font-normal text-neutral-500">
+                Systems Consultant · Engineer · Builder
+              </span>
+            </p>
             <div className="mt-4 flex justify-center gap-4 flex-wrap">
               <Link
                 href="https://www.linkedin.com/in/jakwounreid/"
@@ -117,77 +163,62 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── AUDIENCE PATHS ── */}
+      {/* ── 3-STEP PLAN ── */}
+      <section className="grid gap-px overflow-hidden rounded-sm border border-neutral-800 bg-neutral-800 sm:grid-cols-3">
+        {[
+          {
+            n: "1",
+            title: "Free triage call",
+            body: "15 minutes, we find the real problem.",
+          },
+          {
+            n: "2",
+            title: "Get your roadmap",
+            body: "A prioritized plan you keep and can act on.",
+          },
+          {
+            n: "3",
+            title: "Someone owns the upkeep",
+            body: "Ongoing care so it stays fixed, or a plan you run yourself.",
+          },
+        ].map(({ n, title, body }) => (
+          <div key={n} className="bg-neutral-950 p-5">
+            <span className="font-mono text-sm font-black text-blue-400/50">
+              0{n}
+            </span>
+            <p className="mt-1 font-bold text-white">{title}</p>
+            <p className="mt-1 text-sm text-neutral-400">{body}</p>
+          </div>
+        ))}
+      </section>
+
+      {/* ── OFFERS ── */}
       <section>
         <p className="text-xs font-medium uppercase tracking-widest text-blue-400 mb-4">
-          What brings you here?
+          What I do
         </p>
-        <div className="grid md:grid-cols-2 gap-4">
-          <div className="group flex flex-col border border-blue-500/60 bg-blue-950/10 p-6 ring-1 ring-blue-500/20 transition-colors hover:bg-blue-950/20">
-            <p className="text-xs font-semibold uppercase tracking-widest text-blue-400 mb-2">
-              Founder, consultant, or operator
-            </p>
-            <p className="font-bold text-white text-base">
-              Building something with real impact and need digital infrastructure to match?
-            </p>
-            <p className="mt-2 text-sm text-neutral-400">
-              Custom sites, integrations, automations — fixed price, you own everything.
-              Start free with a 15-minute triage call; the full ladder — Strategy
-              Session and Roadmap Teardown — is on the build page.
-            </p>
-            <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2">
-              <GtagLink
-                href={TRIAGE_URL}
-                event="booking_click"
-                eventParams={{ page: "home", position: "segment_operator", offer: "triage" }}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 border border-blue-400 bg-blue-400 px-5 py-2.5 text-sm font-bold uppercase tracking-widest text-black transition-all duration-200 hover:bg-transparent hover:text-blue-400"
-              >
-                Book a Free Triage Call
+        <div className="grid md:grid-cols-3 gap-4">
+          {offers.map(({ eyebrow, title, body, href, cta, featured }) => (
+            <Link
+              key={title}
+              href={href}
+              className={`group flex flex-col p-6 transition-colors ${
+                featured
+                  ? "border border-blue-500/60 bg-blue-950/10 ring-1 ring-blue-500/20 hover:bg-blue-950/20"
+                  : "border border-neutral-700 hover:bg-neutral-900/50"
+              }`}
+            >
+              <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-blue-400">
+                {eyebrow}
+              </p>
+              <p className="font-bold text-white text-lg">{title}</p>
+              <p className="mt-2 flex-1 text-sm text-neutral-400">{body}</p>
+              <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-blue-400 group-hover:text-blue-300">
+                {cta}
                 <ArrowIcon />
-              </GtagLink>
-              <Link
-                href="/build"
-                className="text-sm text-blue-400 transition-colors hover:text-blue-300"
-              >
-                See packages &amp; pricing →
-              </Link>
-            </div>
-          </div>
-
-          <div className="group flex flex-col border border-neutral-700 p-6 transition-colors hover:bg-neutral-900/50">
-            <p className="text-xs font-semibold uppercase tracking-widest text-neutral-500 mb-2">
-              Builder / reader
-            </p>
-            <p className="font-bold text-white text-base">
-              Here from a post?
-            </p>
-            <p className="mt-2 text-sm text-neutral-400">
-              I write about building in public, non-traditional tech careers, and the
-              systems behind the work. New writing when it ships. If reading made you eye
-              your own setup, a free 15-minute triage call is the fastest way to a plan.
-            </p>
-            <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2">
-              <GtagLink
-                href={TRIAGE_URL}
-                event="booking_click"
-                eventParams={{ page: "home", position: "segment_reader", offer: "triage" }}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 border border-neutral-600 px-5 py-2.5 text-sm font-bold uppercase tracking-widest text-white transition-all duration-200 hover:border-blue-400 hover:text-blue-400"
-              >
-                Book a Free Triage Call
-                <ArrowIcon />
-              </GtagLink>
-              <Link
-                href="/blog"
-                className="text-sm text-neutral-400 transition-colors hover:text-neutral-200"
-              >
-                Read the blog →
-              </Link>
-            </div>
-          </div>
+              </span>
+            </Link>
+          ))}
         </div>
       </section>
 
@@ -249,7 +280,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── NEWSLETTER ── */}
+      {/* ── UPDATES ── */}
       <section>
         <Subscribe />
       </section>

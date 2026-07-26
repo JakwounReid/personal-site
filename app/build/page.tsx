@@ -1,6 +1,8 @@
 import Link from "next/link";
 import GtagLink from "@/components/gtag-link";
 import CaseStudyCard, { type CaseStudy } from "@/components/case-study";
+import Testimonials from "@/components/testimonials";
+import FooterSignup from "@/components/footer-signup";
 
 export const metadata = {
   title: "Digital Infrastructure for Coaches, Consultants & Mission-Driven Founders — Jakwoun Reid",
@@ -300,8 +302,8 @@ export default function BuildPage() {
               <h3 className="mb-2 font-bold text-white">SiteCheck Audit</h3>
               <p className="mb-6 flex-1 text-sm text-neutral-400">
                 Not ready to talk? Run your site through SiteCheck for an instant
-                read on performance, SEO, and the gaps costing you conversions. No
-                call, no email required.
+                read on performance, SEO, and the gaps costing you conversions —
+                with the full report delivered to your inbox.
               </p>
               <GtagLink
                 href={SITECHECK_URL}
@@ -465,23 +467,18 @@ export default function BuildPage() {
             {[
               {
                 n: "01",
-                title: "Start: Triage or Strategy Session",
-                body: "Start free with a 15-minute triage call or a SiteCheck audit. When you're ready to go deep, the $150 Strategy Session delivers a full prioritized roadmap — and credits back in full toward your build.",
+                title: "Diagnose",
+                body: "Start free with a 15-minute triage call or a SiteCheck audit. When you're ready to go deep, the $150 Strategy Session delivers a full prioritized roadmap — what's broken, what to fix first — and credits back in full toward your build.",
               },
               {
                 n: "02",
-                title: "Scope + Fixed Price",
+                title: "Scope",
                 body: "I send a clear proposal — exactly what I'll build, the delivery timeline, and a flat price. No hourly rates. No scope creep. No surprises on the invoice.",
               },
               {
                 n: "03",
-                title: "Build",
-                body: "I get to work. You get progress updates. I use modern tooling to move fast without cutting corners on quality.",
-              },
-              {
-                n: "04",
-                title: "Launch + Handoff",
-                body: "We go live. I walk you through everything. You own the full codebase — no dependency on me to keep the lights on.",
+                title: "Build & handoff",
+                body: "I get to work with modern tooling — fast, without cutting corners — and you get progress updates. We go live, I walk you through everything, and you own the full codebase. No dependency on me to keep the lights on.",
               },
             ].map(({ n, title, body }) => (
               <li key={n} className="flex gap-6">
@@ -554,6 +551,9 @@ export default function BuildPage() {
         </div>
       </section>
 
+      {/* ── TESTIMONIALS (feature-flagged; ships hidden until real quotes land) ── */}
+      <Testimonials />
+
       {/* ── PRICING ── */}
       <section id="pricing" className="border-t border-neutral-800 bg-neutral-950/80 px-6 py-24">
         <div className="mx-auto max-w-5xl">
@@ -563,9 +563,83 @@ export default function BuildPage() {
           <h2 className="mb-4 text-3xl font-black tracking-tight text-white sm:text-4xl">
             Pick Your Build Level
           </h2>
-          <p className="mb-12 text-neutral-400">
+          <p className="mb-10 text-neutral-400">
             Fixed price. You own the code. No ongoing platform fees.
           </p>
+
+          {/* ── STAT STRIP ── TODO: wire audit count to SiteCheck /api/stats (Supabase-backed) */}
+          <div className="mb-12 grid gap-px overflow-hidden rounded-sm border border-neutral-800 bg-neutral-800 sm:grid-cols-3">
+            {[
+              { value: "95+", label: "Lighthouse scores on every build" },
+              { value: "2–4 wks", label: "delivery, not months" },
+              // TODO: replace hardcoded value with live count from SiteCheck /api/stats
+              { value: "120+", label: "free audits run" },
+            ].map(({ value, label }) => (
+              <div key={label} className="bg-neutral-950 px-6 py-6">
+                <p className="font-mono text-3xl font-black tracking-tight text-white">
+                  {value}
+                </p>
+                <p className="mt-1 text-sm text-neutral-500">{label}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* ── PLATFORM TUNE-UP (entry-level, platform-specific) ── */}
+          <div className="mb-8 border border-blue-500/60 bg-blue-950/10 p-6 ring-1 ring-blue-500/20 sm:p-8">
+            <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+              <div className="flex-1">
+                <div className="mb-2 flex items-center gap-3">
+                  <p className="font-bold text-white">Platform Tune-Up</p>
+                  <span className="rounded-sm border border-blue-400/40 bg-blue-400/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-blue-400">
+                    1-week delivery
+                  </span>
+                </div>
+                <p className="mb-4 text-sm text-neutral-400">
+                  Already on Wix, Squarespace, or Kajabi? I&apos;ll make it perform
+                  like it was built on purpose.
+                </p>
+                <ul className="mb-4 grid gap-x-6 gap-y-1 text-sm text-neutral-400 sm:grid-cols-2">
+                  {[
+                    "Conversion-focused layout restructure around the four questions your visitors ask",
+                    "Copy tightening on your key pages",
+                    "SEO and metadata basics",
+                    "Speed and mobile cleanup",
+                    "Analytics wired up",
+                  ].map((f) => (
+                    <li key={f} className="flex items-start gap-2">
+                      <svg className="mt-0.5 h-3.5 w-3.5 shrink-0 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-xs text-neutral-500">
+                  <span className="font-semibold text-neutral-400">Supported platforms: Wix, Squarespace, and Kajabi only.</span>{" "}
+                  The Roadmap Teardown fee ($250) credits toward a Tune-Up.
+                </p>
+              </div>
+              <div className="shrink-0 sm:text-right">
+                <div className="mb-4">
+                  <span className="text-3xl font-black text-white">$750–$950</span>
+                  <span className="block text-sm text-neutral-500">one week</span>
+                </div>
+                <GtagLink
+                  href={TRIAGE_URL}
+                  event="booking_click"
+                  eventParams={{ page: "build", tier: "tune-up", offer: "triage" }}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-2 border border-blue-400 bg-blue-400 px-6 py-3 text-sm font-bold uppercase tracking-widest text-black transition-all duration-200 hover:bg-transparent hover:text-blue-400"
+                >
+                  Book a Triage Call
+                  <svg className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </GtagLink>
+              </div>
+            </div>
+          </div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 mb-8">
             {tiers.map((tier) => (
@@ -869,8 +943,11 @@ export default function BuildPage() {
       </section>
 
       {/* ── FOOTER ── */}
-      <footer className="border-t border-neutral-800 px-6 py-10 text-center">
-        <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 sm:flex-row sm:justify-between">
+      <footer className="border-t border-neutral-800 px-6 py-10">
+        <div className="mx-auto mb-8 flex max-w-3xl justify-center sm:justify-start">
+          <FooterSignup />
+        </div>
+        <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center sm:flex-row sm:justify-between">
           <p className="text-sm font-bold tracking-tight text-white">
             Jakwoun Reid — Web Development
           </p>

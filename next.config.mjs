@@ -15,11 +15,13 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      { source: "/offer", destination: "/build", permanent: true },
+      // /build is retired as a build-ladder page; Site Care is its successor.
+      { source: "/build", destination: "/site-care", permanent: true },
+      { source: "/offer", destination: "/site-care", permanent: true },
       { source: "/portfolio", destination: "/hire", permanent: true },
       { source: "/contract", destination: "/hire", permanent: true },
       { source: "/resume", destination: "/hire", permanent: true },
-      { source: "/work", destination: "/build", permanent: true },
+      { source: "/work", destination: "/site-care", permanent: true },
     ];
   },
 };

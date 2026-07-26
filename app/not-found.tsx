@@ -16,10 +16,10 @@ export default function NotFound() {
           Home
         </Link>
         <Link
-          href="/build"
+          href="/site-care"
           className="border border-neutral-700 px-5 py-3 text-sm font-medium transition-colors hover:border-blue-400 hover:text-blue-400"
         >
-          Web dev packages
+          Site care
         </Link>
         <Link
           href="/blog"

@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 
-// Email capture for project updates — not a newsletter. Posts to /api/subscribe.
-export default function Subscribe() {
+// Small email capture for the footer. Posts to /api/subscribe with source "footer".
+export default function FooterSignup() {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'done' | 'error'>('idle');
 
@@ -11,14 +11,11 @@ export default function Subscribe() {
     e.preventDefault();
     if (status === 'loading') return;
     setStatus('loading');
-    if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
-      window.gtag('event', 'updates_signup', { source: 'subscribe_block' });
-    }
     try {
       const res = await fetch('/api/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, source: 'home' }),
+        body: JSON.stringify({ email, source: 'footer' }),
       });
       if (!res.ok) throw new Error('failed');
       setStatus('done');
@@ -29,25 +26,21 @@ export default function Subscribe() {
   }
 
   return (
-    <div className="border border-neutral-700 bg-neutral-900/50 p-6">
-      <p className="mb-2 text-xs font-medium uppercase tracking-widest text-blue-400">
-        Stay In The Loop
-      </p>
-      <p className="mb-4 text-sm text-neutral-400">
-        Leave your email and I&apos;ll send the occasional update on what
-        I&apos;m building. No newsletter, no spam.
+    <div className="w-full max-w-sm">
+      <p className="mb-3 text-sm text-neutral-500">
+        Occasional updates on what I&apos;m building. No newsletter, no spam.
       </p>
       {status === 'done' ? (
         <p className="text-sm font-medium text-blue-400">
-          You&apos;re on the list. Talk soon.
+          You&apos;re in. Check your inbox.
         </p>
       ) : (
-        <form onSubmit={handleSubmit} className="flex max-w-md gap-2">
-          <label htmlFor="updates-email" className="sr-only">
+        <form onSubmit={handleSubmit} className="flex gap-2">
+          <label htmlFor="footer-email" className="sr-only">
             Email address
           </label>
           <input
-            id="updates-email"
+            id="footer-email"
             type="email"
             required
             value={email}
@@ -60,7 +53,7 @@ export default function Subscribe() {
             disabled={status === 'loading'}
             className="shrink-0 border border-blue-400 bg-blue-400 px-4 py-2 text-xs font-bold uppercase tracking-widest text-black transition-all duration-200 hover:bg-transparent hover:text-blue-400 disabled:opacity-60"
           >
-            {status === 'loading' ? '…' : 'Keep me posted'}
+            {status === 'loading' ? '…' : 'Sign up'}
           </button>
         </form>
       )}
