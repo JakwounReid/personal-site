@@ -2,7 +2,6 @@
 import './globals.css'
 import SiteHeader from '@/components/site-header'
 import Script from 'next/script'
-import ClaritySnippet from '@/components/clarity-snippet'
 import { Analytics } from '@vercel/analytics/next'
 
 const SITE_TITLE = 'Jakwoun Reid — Digital Infrastructure for Your Business';
@@ -50,7 +49,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             gtag('config', 'G-VPDTKRGTP5');
           `}
         </Script>
-        <ClaritySnippet />
+        <Script
+          src="https://t.contentsquare.net/uxa/821670af420c0.js"
+          strategy="afterInteractive"
+        />
         <SiteHeader />
         <main className="mx-auto max-w-5xl px-4 py-10">{children}</main>
         <Analytics />

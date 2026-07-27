@@ -19,7 +19,7 @@ Built with Next.js 14, TypeScript, and Tailwind. Blog posts and content are MDX 
 - Next.js 14 (App Router) · TypeScript · Tailwind CSS
 - MDX via `next-mdx-remote`
 - Deployed on Vercel (auto-deploy on push to `master`)
-- Microsoft Clarity — heatmaps + session recordings
+- Hotjar (Contentsquare) — heatmaps + session recordings
 - Google Analytics 4 — traffic
 - Vercel Analytics — web vitals
 
