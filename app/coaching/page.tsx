@@ -202,10 +202,6 @@ export default function CoachingPage() {
             Founding-cohort rate · 12-week cycle
           </span>
         </div>
-        <p className="max-w-2xl text-sm text-neutral-500">
-          One note on fit: I don&apos;t take current i.c.stars interns as coaching
-          clients.
-        </p>
       </section>
 
       {/* ── APPLY ── */}
