@@ -4,16 +4,18 @@ import { allProjects, allPosts } from "@/lib/content";
 import Subscribe from "@/components/subscribe";
 import GtagLink from "@/components/gtag-link";
 import { ArrowIcon } from "@/components/ui";
+import { clarityCall, INTEREST } from "@/lib/booking";
 
-// Free no-cost entry point to the offer ladder. Paid diagnostics (Strategy Session
-// $150, Roadmap Teardown $250) live on /strategy; recurring care lives on /site-care.
-const TRIAGE_URL = "https://cal.com/jakwoun-reid-ha7wcd/15min";
+// Free no-cost entry point to the offer ladder. Paid diagnostics live on /strategy
+// (business) and /career-strategy (career); recurring care lives on /site-care.
+// Prices are deliberately absent site-wide — scope and cost get set on the clarity call.
+const CLARITY_URL = clarityCall(INTEREST.unsure);
 const SITECHECK_URL = "https://sitecheck.jakwoun.me";
 
 export const metadata = {
   title: "Jakwoun Reid — Digital Infrastructure for Your Business",
   description:
-    "Strategy sessions, roadmap teardowns, and ongoing site care for Wix, Squarespace, Shopify, and Kajabi. Diagnosis first. Start with a free 15-minute triage call.",
+    "Strategy sessions, roadmap teardowns, and ongoing site care for Wix, Squarespace, Shopify, and Kajabi. Diagnosis first. Start with a free 15-minute clarity call.",
 };
 
 // The three things I sell. Each links to its own page.
@@ -35,11 +37,11 @@ const offers = [
     featured: false,
   },
   {
-    eyebrow: "1-on-1",
-    title: "Coaching",
-    body: "Career coaching for people breaking into tech from non-traditional backgrounds. A 12-week cycle from foundation to real momentum.",
-    href: "/coaching",
-    cta: "See the coaching program",
+    eyebrow: "Advisory",
+    title: "Career Strategy",
+    body: "A live session or a written roadmap for your job search. You leave with direction and decisions — your positioning, your target roles, what to fix first.",
+    href: "/career-strategy",
+    cta: "See career strategy options",
     featured: false,
   },
 ];
@@ -84,19 +86,19 @@ export default function Home() {
           </p>
           <div className="mt-6">
             <p className="mb-3 text-sm text-neutral-400">
-              Start with a free 15-minute triage call — a quick fit and scope
+              Start with a free 15-minute clarity call — a quick fit and scope
               check, no charge. I&apos;ll point you to the right next step.
             </p>
             <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
               <GtagLink
-                href={TRIAGE_URL}
+                href={CLARITY_URL}
                 event="booking_click"
                 eventParams={{ page: "home", position: "hero", offer: "triage" }}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 border border-blue-400 bg-blue-400 px-6 py-3 text-sm font-bold uppercase tracking-widest text-black transition-all duration-200 hover:bg-transparent hover:text-blue-400"
               >
-                Book a Free Triage Call
+                Book a Free Clarity Call
                 <ArrowIcon />
               </GtagLink>
               <GtagLink
@@ -168,7 +170,7 @@ export default function Home() {
         {[
           {
             n: "1",
-            title: "Free triage call",
+            title: "Free clarity call",
             body: "15 minutes, we find the real problem.",
           },
           {

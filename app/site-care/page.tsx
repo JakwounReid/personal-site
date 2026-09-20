@@ -3,11 +3,12 @@ import GtagLink from "@/components/gtag-link";
 import Testimonials from "@/components/testimonials";
 import FooterSignup from "@/components/footer-signup";
 import { ArrowIcon, CheckIcon } from "@/components/ui";
+import { clarityCall, INTEREST } from "@/lib/booking";
 
 export const metadata = {
   title: "Site Care & Support — Ongoing Maintenance for Your Website | Jakwoun Reid",
   description:
-    "Recurring site care for Wix, Squarespace, Shopify, and Kajabi. Fixed monthly price, never hourly. Someone who owns your site so you don't have to. Plans from $400/mo. Every plan starts with a free triage call.",
+    "Recurring site care for Wix, Squarespace, Shopify, and Kajabi. Fixed monthly price, never hourly. Someone who owns your site so you don't have to. Every plan starts with a free clarity call.",
   openGraph: {
     title: "Site Care & Support — Jakwoun Reid",
     description:
@@ -25,7 +26,7 @@ export const metadata = {
   },
 };
 
-const TRIAGE_URL = "https://cal.com/jakwoun-reid-ha7wcd/15min";
+const CLARITY_URL = clarityCall(INTEREST.siteCare);
 const SITECHECK_URL = "https://sitecheck.jakwoun.me";
 
 // Shared terms that apply to every care plan — stated plainly on the page.
@@ -39,10 +40,12 @@ const sharedTerms = [
   "Each cycle opens with a planning conversation to set priorities",
 ];
 
+// `outcome` replaces the old price line — what the tier buys you, not what it costs.
+// Pricing is set per engagement on the clarity call, never listed.
 const tiers = [
   {
     name: "Essentials",
-    price: "$400",
+    outcome: "The basics, handled",
     tagline: "For a site that mostly works and needs a steady hand on it.",
     features: [
       "3 requests per month",
@@ -53,7 +56,7 @@ const tiers = [
   },
   {
     name: "Growth",
-    price: "$750",
+    outcome: "Moving forward every month",
     tagline: "For a site doing real work that you want moving forward every month.",
     features: [
       "8 requests per month",
@@ -64,7 +67,7 @@ const tiers = [
   },
   {
     name: "Partner",
-    price: "$1,000",
+    outcome: "Off your plate entirely",
     tagline: "For when your site is core to the business and you want it handled.",
     features: [
       "Unlimited request queue (one active at a time)",
@@ -96,12 +99,12 @@ const faqs = [
   {
     question: "What counts as a request?",
     answer:
-      "A request is a single defined task — a content swap, a page update, an SEO fix, a speed cleanup, a broken form. Not measured in hours. If something is bigger than a single task, I'll tell you on the triage call and we'll scope it as a mini-project.",
+      "A request is a single defined task — a content swap, a page update, an SEO fix, a speed cleanup, a broken form. Not measured in hours. If something is bigger than a single task, I'll tell you on the clarity call and we'll scope it as a mini-project.",
   },
   {
     question: "Why is there no checkout button?",
     answer:
-      "Because scope determines which plan fits, and I can't tell that from a payment page. Every plan starts with a free triage call so we land on the right tier before you pay for anything. There is no self-serve checkout for care plans.",
+      "Because scope determines which plan fits, and I can't tell that from a payment page. Every plan starts with a free clarity call so we land on the right tier before you pay for anything. There is no self-serve checkout for care plans.",
   },
   {
     question: "Do I need the Tune-Up before joining a plan?",
@@ -164,14 +167,14 @@ export default function SiteCarePage() {
 
         <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row">
           <GtagLink
-            href={TRIAGE_URL}
+            href={CLARITY_URL}
             event="booking_click"
             eventParams={{ page: "site-care", position: "hero", offer: "triage" }}
             target="_blank"
             rel="noopener noreferrer"
             className="group inline-flex items-center gap-2 border border-blue-400 bg-blue-400 px-8 py-4 text-sm font-bold uppercase tracking-widest text-black transition-all duration-200 hover:bg-transparent hover:text-blue-400"
           >
-            Book a Free 15-min Triage Call
+            Book a Free 15-min Clarity Call
             <ArrowIcon />
           </GtagLink>
           <GtagLink
@@ -273,18 +276,22 @@ export default function SiteCarePage() {
               </div>
               <div className="shrink-0 sm:text-right">
                 <div className="mb-4">
-                  <span className="text-3xl font-black text-white">$750–$950</span>
-                  <span className="block text-sm text-neutral-500">two weeks</span>
+                  <span className="block text-xl font-black leading-tight text-white sm:max-w-[13rem]">
+                    A rough site, performing on purpose
+                  </span>
+                  <span className="mt-1 block text-sm text-neutral-500">
+                    Two weeks · scoped on the call
+                  </span>
                 </div>
                 <GtagLink
-                  href={TRIAGE_URL}
+                  href={CLARITY_URL}
                   event="booking_click"
                   eventParams={{ page: "site-care", tier: "tune-up", offer: "triage" }}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group inline-flex items-center gap-2 border border-blue-400 bg-blue-400 px-6 py-3 text-sm font-bold uppercase tracking-widest text-black transition-all duration-200 hover:bg-transparent hover:text-blue-400"
                 >
-                  Book a Triage Call
+                  Book a Clarity Call
                   <ArrowIcon />
                 </GtagLink>
               </div>
@@ -305,7 +312,7 @@ export default function SiteCarePage() {
           <p className="mb-10 max-w-2xl text-neutral-400">
             Every plan is a fixed monthly price with no hourly billing. The right
             tier depends on how much your site moves — we settle that on the free
-            triage call.
+            clarity call.
           </p>
 
           {/* ── STAT STRIP ── (kept from the prior offer page; build-specific
@@ -347,9 +354,13 @@ export default function SiteCarePage() {
 
                 <p className="mb-4 text-xs text-neutral-500">{tier.tagline}</p>
 
-                <div className="mb-5 flex items-baseline gap-1">
-                  <span className="text-3xl font-black text-white">{tier.price}</span>
-                  <span className="text-sm text-neutral-500">/mo</span>
+                <div className="mb-5">
+                  <p className="text-xl font-black leading-tight text-white">
+                    {tier.outcome}
+                  </p>
+                  <p className="mt-1 text-sm text-neutral-500">
+                    Fixed monthly · scoped on the call
+                  </p>
                 </div>
 
                 <ul className="mb-6 flex-1 space-y-2 text-sm text-neutral-400">
@@ -362,7 +373,7 @@ export default function SiteCarePage() {
                 </ul>
 
                 <GtagLink
-                  href={TRIAGE_URL}
+                  href={CLARITY_URL}
                   event="booking_click"
                   eventParams={{ page: "site-care", tier: tier.name.toLowerCase(), offer: "triage" }}
                   target="_blank"
@@ -373,7 +384,7 @@ export default function SiteCarePage() {
                       : "border border-neutral-600 bg-transparent text-white hover:border-blue-400 hover:text-blue-400"
                   }`}
                 >
-                  Book a Triage Call
+                  Book a Clarity Call
                   <ArrowIcon />
                 </GtagLink>
               </div>
@@ -382,7 +393,7 @@ export default function SiteCarePage() {
 
           <div className="border border-blue-500/30 bg-blue-950/10 p-6 text-sm text-neutral-300">
             <span className="font-semibold text-white">No self-serve checkout.</span>{" "}
-            Every plan starts with a free triage call, because scope determines
+            Every plan starts with a free clarity call, because scope determines
             which tier fits. There&apos;s no payment link to click — we talk
             first, land on the right plan, then set it up.
           </div>
@@ -416,7 +427,7 @@ export default function SiteCarePage() {
                   A single defined task — a content swap, a page update, an SEO
                   fix, a speed cleanup, a broken form. Not measured in hours.
                   Whether a given ask fits as one request is something we settle
-                  on the triage call.
+                  on the clarity call.
                 </p>
               </div>
               <div className="border border-neutral-800 bg-neutral-900/50 p-6">
@@ -487,19 +498,19 @@ export default function SiteCarePage() {
             Hand off the upkeep.
           </h2>
           <p className="mb-10 text-neutral-400">
-            Book a free 15-minute triage call. We&apos;ll figure out which plan
+            Book a free 15-minute clarity call. We&apos;ll figure out which plan
             fits your site — no checkout, no commitment on the call.
           </p>
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <GtagLink
-              href={TRIAGE_URL}
+              href={CLARITY_URL}
               event="booking_click"
               eventParams={{ page: "site-care", position: "bottom_cta", offer: "triage" }}
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 border border-blue-400 bg-blue-400 px-8 py-4 text-sm font-bold uppercase tracking-widest text-black transition-all duration-200 hover:bg-transparent hover:text-blue-400"
             >
-              Book a Free Triage Call
+              Book a Free Clarity Call
               <ArrowIcon />
             </GtagLink>
             <Link
@@ -528,8 +539,8 @@ export default function SiteCarePage() {
             <Link href="/strategy" className="transition-colors hover:text-neutral-300">
               Strategy
             </Link>
-            <Link href="/coaching" className="transition-colors hover:text-neutral-300">
-              Coaching
+            <Link href="/career-strategy" className="transition-colors hover:text-neutral-300">
+              Career Strategy
             </Link>
             <Link href="/blog" className="transition-colors hover:text-neutral-300">
               Blog
