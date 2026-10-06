@@ -259,6 +259,17 @@ export default function CareerStrategyPage() {
               Still deciding? A free clarity call sorts it in 15 minutes →
             </GtagLink>
           </div>
+          <p className="mt-6 border-l-2 border-neutral-700 pl-4 text-sm text-neutral-400">
+            Want direction after the roadmap, too? The{" "}
+            <Link
+              href="/strategy#retainer"
+              className="font-semibold text-white underline-offset-4 hover:text-blue-400 hover:underline"
+            >
+              Advisory Retainer
+            </Link>{" "}
+            is async — send questions and decisions as they come up, and get a
+            reply within two business days.
+          </p>
         </div>
       </section>
 
@@ -403,8 +414,8 @@ export default function CareerStrategyPage() {
             <Link href="/strategy" className="transition-colors hover:text-neutral-300">
               Strategy
             </Link>
-            <Link href="/site-care" className="transition-colors hover:text-neutral-300">
-              Site Care
+            <Link href="/sites" className="transition-colors hover:text-neutral-300">
+              Sites
             </Link>
             <Link href="/blog" className="transition-colors hover:text-neutral-300">
               Blog

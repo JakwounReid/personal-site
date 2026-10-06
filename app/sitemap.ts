@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '',
     '/blog',
     '/projects',
-    '/site-care',
+    '/sites',
     '/strategy',
     '/career-strategy',
     '/log',

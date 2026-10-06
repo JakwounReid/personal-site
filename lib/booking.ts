@@ -14,7 +14,9 @@ export const STRATEGY_SESSION_URL =
 // matches a prefill against the option text and silently ignores anything it can't
 // resolve, so a typo here reads as "the prefill just doesn't work."
 export const INTEREST = {
-  siteCare: "Site Care",
+  // The "Website Build" option must exist in the Cal question with this exact label
+  // before this ships — otherwise /sites CTAs land on an unprefilled form.
+  websites: "Website Build",
   businessStrategy: "Business Strategy",
   careerStrategy: "Career Strategy",
   unsure: "Not Sure Yet",

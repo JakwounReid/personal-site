@@ -14,8 +14,8 @@ export default function SiteHeader() {
           <Link href="/blog" className="py-2 hover:text-white">
             Blog
           </Link>
-          <Link href="/site-care" className="py-2 hover:text-white">
-            Site Care
+          <Link href="/sites" className="py-2 hover:text-white">
+            Sites
           </Link>
           <Link
             href="/strategy"

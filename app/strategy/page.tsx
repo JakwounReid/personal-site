@@ -240,8 +240,52 @@ export default function StrategyPage() {
         </div>
       </section>
 
+      {/* ── ADVISORY RETAINER ── */}
+      <section id="retainer" className="border-t border-neutral-800 bg-neutral-950/80 px-6 py-24">
+        <div className="mx-auto max-w-5xl">
+          <p className="mb-3 text-xs font-medium uppercase tracking-widest text-blue-400">
+            After The Roadmap
+          </p>
+          <h2 className="mb-4 text-3xl font-black tracking-tight text-white sm:text-4xl">
+            Advisory Retainer
+          </h2>
+          <p className="mb-10 max-w-2xl text-neutral-400">
+            For when you&apos;re running the plan yourself and want a second
+            set of eyes on the calls you make along the way. Ongoing direction,
+            on your schedule — not a build, and not a maintenance plan.
+          </p>
+
+          <div className="flex flex-col gap-8 border border-neutral-700 bg-neutral-900 p-8 md:flex-row md:items-end md:justify-between">
+            <ul className="space-y-2 text-sm text-neutral-400">
+              {[
+                "Async — send questions and decisions as they come up",
+                "A reply within two business days",
+                "One thread at a time, so each answer gets real attention",
+                "Direction only: no builds, no maintenance",
+              ].map((f) => (
+                <li key={f} className="flex items-start gap-2">
+                  <CheckIcon className="mt-0.5" />
+                  {f}
+                </li>
+              ))}
+            </ul>
+            <GtagLink
+              href={CLARITY_URL}
+              event="booking_click"
+              eventParams={{ page: "strategy", offer: "retainer" }}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex shrink-0 items-center gap-2 self-start border border-neutral-600 bg-transparent px-6 py-3 text-sm font-bold uppercase tracking-widest text-white transition-all duration-200 hover:border-blue-400 hover:text-blue-400 md:self-auto"
+            >
+              Book a Clarity Call
+              <ArrowIcon />
+            </GtagLink>
+          </div>
+        </div>
+      </section>
+
       {/* ── FREE OPTIONS ── */}
-      <section className="border-t border-neutral-800 bg-neutral-950/80 px-6 py-24">
+      <section className="border-t border-neutral-800 px-6 py-24">
         <div className="mx-auto max-w-5xl">
           <p className="mb-3 text-xs font-medium uppercase tracking-widest text-blue-400">
             Free First
@@ -311,8 +355,8 @@ export default function StrategyPage() {
             <Link href="/" className="transition-colors hover:text-neutral-300">
               Home
             </Link>
-            <Link href="/site-care" className="transition-colors hover:text-neutral-300">
-              Site Care
+            <Link href="/sites" className="transition-colors hover:text-neutral-300">
+              Sites
             </Link>
             <Link href="/career-strategy" className="transition-colors hover:text-neutral-300">
               Career Strategy

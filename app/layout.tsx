@@ -6,7 +6,7 @@ import { Analytics } from '@vercel/analytics/next'
 
 const SITE_TITLE = 'Jakwoun Reid — Digital Infrastructure for Your Business';
 const SITE_DESCRIPTION =
-  'Digital infrastructure for your business: strategy sessions, roadmap teardowns, and ongoing site care for Wix, Squarespace, Shopify, and Kajabi. Diagnosis first.';
+  'Digital infrastructure for your business: diagnosis-first strategy sessions and roadmap teardowns, then sites you own and can edit yourself.';
 
 export const metadata = {
   title: SITE_TITLE,

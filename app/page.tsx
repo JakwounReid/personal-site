@@ -7,7 +7,7 @@ import { ArrowIcon } from "@/components/ui";
 import { clarityCall, INTEREST } from "@/lib/booking";
 
 // Free no-cost entry point to the offer ladder. Paid diagnostics live on /strategy
-// (business) and /career-strategy (career); recurring care lives on /site-care.
+// (business) and /career-strategy (career); builds and handoffs live on /sites.
 // Prices are deliberately absent site-wide — scope and cost get set on the clarity call.
 const CLARITY_URL = clarityCall(INTEREST.unsure);
 const SITECHECK_URL = "https://sitecheck.jakwoun.me";
@@ -15,7 +15,7 @@ const SITECHECK_URL = "https://sitecheck.jakwoun.me";
 export const metadata = {
   title: "Jakwoun Reid — Digital Infrastructure for Your Business",
   description:
-    "Strategy sessions, roadmap teardowns, and ongoing site care for Wix, Squarespace, Shopify, and Kajabi. Diagnosis first. Start with a free 15-minute clarity call.",
+    "Diagnosis-first strategy sessions and roadmap teardowns, then sites you own and can edit yourself. Start with a free 15-minute clarity call.",
 };
 
 // The three things I sell. Each links to its own page.
@@ -29,11 +29,11 @@ const offers = [
     featured: true,
   },
   {
-    eyebrow: "Recurring",
-    title: "Site Care & Support",
-    body: "Someone who owns your site so you don't have to. Fixed monthly price, one request at a time, no hourly billing. For sites that already exist.",
-    href: "/site-care",
-    cta: "See care plans",
+    eyebrow: "Build & Handoff",
+    title: "Sites",
+    body: "Move off a platform you rent, or launch something new. Either way you own the code and the account, and you learn to edit it yourself.",
+    href: "/sites",
+    cta: "See site options",
     featured: false,
   },
   {
@@ -73,16 +73,16 @@ export default function Home() {
             </Link>
           </div>
           <h1 className="text-4xl md:text-5xl font-black leading-tight">
-            Your site is already live.{" "}
+            Know what to fix first.{" "}
             <span className="text-blue-400">
-              The question is what to fix first.
+              Then own a site you can change yourself.
             </span>
           </h1>
           <p className="mt-5 text-neutral-300 text-base max-w-lg">
-            I help owners of Wix, Squarespace, Shopify, and Kajabi sites figure
-            out what&apos;s costing them — then keep it running. Diagnosis first,
-            then a plan, then someone who owns the upkeep so you don&apos;t have
-            to.
+            I start with a diagnosis — what&apos;s costing you, what matters,
+            what order to fix it in. When the answer is a better site, I move
+            you to one you own outright and can edit by describing the change.
+            No platform lock-in, no waiting on a developer.
           </p>
           <div className="mt-6">
             <p className="mb-3 text-sm text-neutral-400">
@@ -180,8 +180,8 @@ export default function Home() {
           },
           {
             n: "3",
-            title: "Someone owns the upkeep",
-            body: "Ongoing care so it stays fixed, or a plan you run yourself.",
+            title: "You own the next move",
+            body: "Run the plan yourself, or I build it and hand you the keys.",
           },
         ].map(({ n, title, body }) => (
           <div key={n} className="bg-neutral-950 p-5">

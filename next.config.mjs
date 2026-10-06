@@ -15,15 +15,18 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      // /build is retired as a build-ladder page; Site Care is its successor.
-      { source: "/build", destination: "/site-care", permanent: true },
-      { source: "/offer", destination: "/site-care", permanent: true },
+      // Site Care is retired; /sites (migration + Launch Sprint) is its successor.
+      // /build has been a cached permanent redirect since September, so it can never be
+      // reused as a live route — it stays a redirect.
+      { source: "/site-care", destination: "/sites", permanent: true },
+      { source: "/build", destination: "/sites", permanent: true },
+      { source: "/offer", destination: "/sites", permanent: true },
       // 12-week coaching is retired; career strategy consulting is its successor.
       { source: "/coaching", destination: "/career-strategy", permanent: true },
       { source: "/portfolio", destination: "/hire", permanent: true },
       { source: "/contract", destination: "/hire", permanent: true },
       { source: "/resume", destination: "/hire", permanent: true },
-      { source: "/work", destination: "/site-care", permanent: true },
+      { source: "/work", destination: "/sites", permanent: true },
     ];
   },
 };
